@@ -3,27 +3,27 @@
   "consumers": [
     {
       "repo": "auto-pigeon",
-      "usage": "Its backend discovers the contract bundle at startup and validates each document against the schema matching its declared version; packages/quake-geometry promotes legacy documents to current at its decode door and runs the current conformance vectors.",
+      "usage": "Its backend discovers the contract bundle at startup and validates each document against the schema matching its declared version; packages/quake-geometry promotes legacy documents to current at its decode door and runs the current conformance vectors. Since 1.4 (NEW_262) its kernel implements SEM-G-1..9 and SEM-A-1 (packages/quake-geometry src/apmap/groupGraph.ts) and runs the current valid/invalid/semantic_invalid vectors; the editor nests groups, keeps a group of one, and carries `authorship` through import, Save and export; its backend validator supports minProperties and ECMA-anchored patterns.",
       "added": "2026-08-20"
     },
     {
       "repo": "auto-pigeon-backend",
-      "usage": "Discovers the contract bundle at startup — the one current schema plus every deprecated one — to derive the version it writes and the versions it can read back.",
+      "usage": "Discovers the contract bundle at startup — the one current schema plus every deprecated one — to derive the version it writes and the versions it can read back. Since 1.4 (NEW_262) it stores `authorship` and nested groups verbatim (byte-exact in storage), validates nothing about groups itself, and gates the declared version on the create-with-content door as on upload and append.",
       "added": "2026-08-20"
     },
     {
       "repo": "auto-pigeon-collaboration",
-      "usage": "Discovers the contract bundle at startup and admits its CURRENT version only; rooms are a live protocol, not documents at rest.",
+      "usage": "Discovers the contract bundle at startup and admits its CURRENT version only; rooms are a live protocol, not documents at rest. Since 1.4 (NEW_262) its group transport accepts `group` members and one-member groups and refuses empty groups, cycles, two parents and depth over 32 (SEM-G-5 and SEM-A-1 are not checked there); documents are carried as untyped JSON, so `authorship` passes through.",
       "added": "2026-08-20"
     },
     {
       "repo": "auto-pigeon-extractor",
-      "usage": "Embeds this package's schema/ directory in its binary, fetched at every build by its scripts/sync-apmap-schemas.sh with a provenance manifest of the AULIBS commit and each schema sha256; APMAP_SCHEMA_DIR, when set, still wins. It reads every readable version and its APMap producer declares the current one, derived from the layout.",
+      "usage": "Embeds this package's schema/ directory in its binary, fetched at every build by its scripts/sync-apmap-schemas.sh with a provenance manifest of the AULIBS commit and each schema sha256; APMAP_SCHEMA_DIR, when set, still wins. It reads every readable version and its APMap producer declares the current one, derived from the layout. Since 1.4 (NEW_262) its validator supports minProperties, it implements SEM-G-1..9 and SEM-A-1 (legacy SEM-G-5 is a warning), and Rebuild carries `groups` and `authorship`; APMap to .map conversion drops both, writing each brush once.",
       "added": "2026-08-20"
     },
     {
       "repo": "auto-pigeon-tools",
-      "usage": "Stages this package's schema/ directory as the APMap contract bundle: writes APMAP_SCHEMA_DIR into each component's .env for native runs, and packages the same directory into every APMap-aware Docker image as the apmap-contract build context, with a provenance manifest of the AULIBS commit and each schema sha256. It reads the layout and never a version.",
+      "usage": "Stages this package's schema/ directory as the APMap contract bundle: writes APMAP_SCHEMA_DIR into each component's .env for native runs, and packages the same directory into every APMap-aware Docker image as the apmap-contract build context, with a provenance manifest of the AULIBS commit and each schema sha256. It reads the layout and never a version. Since 1.4 (NEW_262) every fixture it hands AUB declares the derived current version, and legacy seeds are promoted header-only before provisioning.",
       "added": "2026-08-22"
     }
   ]
