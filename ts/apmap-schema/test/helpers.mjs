@@ -172,12 +172,121 @@ export const deprecated10 = (...segments) => path.join(DEPRECATED_ROOT, '1.0', .
  * member by reference — no geometry is rebuilt, no id is reminted, no provenance is rewritten — so
  * a promotion that passes here is provably a header-and-default change and nothing more. When a
  * future version needs a second default, it is added here and every migration test moves with it.
+ *
+ * 1.4 needed none. Its additions — `authorship` and the `group` member arm — are optional, so a
+ * promoted document gains no author, no licence and no nesting it never declared; its one
+ * relaxation (a group may hold one member) only admits documents 1.3 refused, so every valid 1.3
+ * group is a valid 1.4 group byte for byte.
  */
 export const promoteToCurrent = (document, version = currentVersion()) => ({
   ...document,
   apmap_version: version,
   groups: document.groups ?? [],
 });
+
+/**
+ * THE REFERENCE SEMANTIC CHECK for the rules 1.4 changed or added — SEM-G-1..9 and SEM-A-1.
+ *
+ * Test-only, for the same reason `loadContractBundle` is: this package ships no runtime code, and
+ * the one place the consumers' checkers (TypeScript in AUP, Go in AUE) can be held to the same
+ * answers is the package that defines the rules. `test-vectors/index.json`'s `semantic_invalid`
+ * set is that answer sheet.
+ *
+ * Iterative, with a visited set, never recursive: a hostile document may declare ten thousand
+ * groups in one chain, and the answer must be SEM-G-9, not a stack overflow. Returns every fault
+ * found as `{ rule, message }`, empty when the document is clean. Schema validation is assumed to
+ * have passed already.
+ */
+export const GROUP_MAX_DEPTH = 32;
+
+export function semanticFaults(document) {
+  const faults = [];
+  const fault = (rule, message) => faults.push({ rule, message });
+
+  // Object index: kind, and the owning object (entity for a brush, brush for a face).
+  const objects = new Map();
+  for (const entity of document.entities ?? []) {
+    objects.set(entity.entity_id, { kind: 'entity', parent: null });
+    for (const item of entity.content ?? []) {
+      if (item.kind !== 'brush') continue;
+      objects.set(item.brush_id, { kind: 'brush', parent: entity.entity_id });
+      for (const face of item.faces ?? []) objects.set(face.face_id, { kind: 'face', parent: item.brush_id });
+    }
+  }
+  const groups = new Map();
+  for (const group of document.groups ?? []) {
+    if (groups.has(group.group_id)) fault('SEM-G-3', `group_id ${group.group_id} is declared twice`);
+    else groups.set(group.group_id, group);
+  }
+
+  const idOf = (member) => member.entity_id ?? member.brush_id ?? member.face_id ?? member.group_id;
+  const parentOf = new Map();   // direct-member id -> the one group that lists it
+  for (const group of groups.values()) {
+    for (const member of group.members) {
+      const id = idOf(member);
+      if (member.kind === 'group') {
+        if (!groups.has(id)) fault('SEM-G-1', `${group.group_id} names group ${id}, which is not declared`);
+        if (id === group.group_id) fault('SEM-G-8', `${id} is a member of itself`);
+      } else {
+        const object = objects.get(id);
+        if (!object) fault('SEM-G-1', `${group.group_id} names ${member.kind} ${id}, which is not declared`);
+        else if (object.kind !== member.kind) fault('SEM-G-2', `${id} is a ${object.kind}, not a ${member.kind}`);
+      }
+      if (parentOf.has(id)) fault('SEM-G-4', `${id} is a direct member of both ${parentOf.get(id)} and ${group.group_id}`);
+      else parentOf.set(id, group.group_id);
+    }
+  }
+
+  // SEM-G-8 (cycles) and SEM-G-9 (depth): walk each group's parent chain. Following `parentOf`
+  // upward is iterative and memoized, so the whole pass is linear; a cycle is found by revisiting.
+  const depthOf = new Map();
+  const rootOf = new Map();
+  for (const start of groups.keys()) {
+    const chain = [];
+    const seen = new Set();
+    let at = start;
+    let cyclic = false;
+    while (at !== undefined && !depthOf.has(at)) {
+      if (seen.has(at)) {
+        cyclic = true;
+        if (at !== start || chain.length > 1) fault('SEM-G-8', `the group graph has a cycle through ${at}`);
+        break;
+      }
+      seen.add(at);
+      chain.push(at);
+      at = parentOf.get(at);
+    }
+    let depth = at !== undefined && depthOf.has(at) ? depthOf.get(at) : 0;
+    const root = cyclic ? null : (at !== undefined ? rootOf.get(at) : chain[chain.length - 1]);
+    for (let i = chain.length - 1; i >= 0; i -= 1) {
+      depthOf.set(chain[i], ++depth);
+      rootOf.set(chain[i], root);
+    }
+  }
+  const deepest = Math.max(0, ...depthOf.values());
+  if (deepest > GROUP_MAX_DEPTH)
+    fault('SEM-G-9', `groups nest ${deepest} deep; at most ${GROUP_MAX_DEPTH} is allowed`);
+
+  // SEM-G-5 across the nesting: the root of a group tree reaches every object in the tree, so an
+  // object and one of its own ancestors (face -> brush -> entity) must not both be direct members
+  // anywhere in ONE tree. Linear: compare the roots of the two direct parents.
+  for (const [id, group] of parentOf) {
+    if (!objects.has(id)) continue;
+    for (let up = objects.get(id).parent; up; up = objects.get(up)?.parent) {
+      const other = parentOf.get(up);
+      if (other === undefined) continue;
+      const [a, b] = [rootOf.get(group), rootOf.get(other)];
+      if (a !== null && a !== undefined && a === b)
+        fault('SEM-G-5', `${a} reaches both ${up} and its descendant ${id}`);
+    }
+  }
+
+  // SEM-A-1: authorship text is Unicode — no unpaired surrogate survives parsing unnoticed.
+  for (const [field, value] of Object.entries(document.authorship ?? {}))
+    if (typeof value === 'string' && !value.isWellFormed())
+      fault('SEM-A-1', `authorship.${field} contains an unpaired surrogate`);
+  return faults;
+}
 
 export const describeErrors = (errors) =>
   (errors ?? []).map((error) => `${error.keyword} @ ${error.instancePath || '/'}: ${error.message}`).join('\n  ');

@@ -1,6 +1,6 @@
 {
-  "$schema": "https://auto-pigeon.org/schemas/apmap/1.3/apmap.schema.json",
-  "apmap_version": "1.3",
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.4/apmap.schema.json",
+  "apmap_version": "1.4",
   "document_id": "vector-1-3-group-source-extra-field",
   "revision": 0,
   "role": "full_map",

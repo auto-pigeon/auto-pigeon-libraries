@@ -1,6 +1,6 @@
 {
-  "$schema": "https://auto-pigeon.org/schemas/apmap/1.3/apmap.schema.json",
-  "apmap_version": "1.3",
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.4/apmap.schema.json",
+  "apmap_version": "1.4",
   "document_id": "vector-bad-broken-string",
   "revision": 0,
   "role": "full_map",

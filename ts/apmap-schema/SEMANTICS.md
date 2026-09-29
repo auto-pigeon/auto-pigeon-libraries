@@ -10,7 +10,9 @@
   that is the version the document was written for and 1.0 is frozen; 1.1 adds one `derived_from`
   kind and one optional brush member and changes nothing here; 1.2 adds `groups`, specified in §9a
   with its own SCH-G-* and SEM-G-* rules; 1.3 adds the optional `group.source`, specified in the
-  same section.
+  same section; 1.4 adds the optional document member `authorship` (§9b, SCH-A-*/SEM-A-*), lets a
+  group contain another group, and lowers a persisted group's minimum from two members to one (§9a,
+  SCH-G-10..11, SEM-G-8..9 and the revised SEM-G-4/5/6).
 
   It was published at $MAPPER_ROOT/formats/apmap/1.0/README.md until this repository became the
   authority, so that a public clone can read the normative rule catalogue without a data root.
@@ -74,15 +76,18 @@ A standalone map uses `role: full_map`.
   "id_policy": "derived",
   "frame": { },
   "provenance": { },
+  "authorship": { },
   "entities": [ ],
   "relationships": [ ],
   "extensions": { }
 }
 ```
 
-`$schema`, `provenance`, `relationships` and `extensions` are optional. Every
-other member is required. The member order above is the canonical order
-(rule SER-5).
+`$schema`, `provenance`, `authorship` (1.4, §9b), `relationships` and
+`extensions` are optional. `groups` (1.2, §9a — omitted from the 1.0 sketch
+above) is required of every 1.2+ writer and sits between `entities` and
+`relationships`. Every other member is required. The member order above is the
+canonical order (rule SER-5).
 
 ### `role`
 
@@ -486,8 +491,11 @@ collaborator.
 ```
 
 A group **owns no geometry**. Every member is a reference to an object the
-document already declares elsewhere, so deleting a group deletes nothing but
-the grouping.
+document already declares elsewhere — or, from 1.4, to another group — so
+deleting a group deletes nothing but the grouping. A group owns **selection and
+organization**: what is picked together, what is moved together, what is named
+together. It never owns brush geometry, and nothing about a group changes a
+compiled world.
 
 `groups` is **required of a 1.2 writer**, empty array included. An optional
 member would make "this map has no groups" and "this producer has never heard
@@ -514,9 +522,95 @@ A discriminated union on `kind`, each arm naming the id field for that kind.
 One untyped `object_id` would let a brush id sit under an entity member and fail
 later, at resolution, rather than at the contract.
 
-For this milestone: **at least two** direct members, no nesting, no duplicates,
-and an object is a direct member of **at most one** group. A one-member group is
-a selection with extra steps; an editor dissolves one rather than persisting it.
+| kind | id field | since |
+| --- | --- | --- |
+| `entity` | `entity_id` | 1.2 |
+| `brush` | `brush_id` | 1.2 |
+| `face` | `face_id` | 1.2 |
+| `group` | `group_id` | 1.4 |
+
+The membership rules, by version:
+
+| rule | 1.2 – 1.3 | 1.4 |
+| --- | --- | --- |
+| minimum direct members | **two** | **one** |
+| empty group | invalid | invalid |
+| duplicates in one member list | invalid | invalid |
+| an object is a direct member of | at most one group | at most one group |
+| a group is a direct member of | — (no nesting) | at most one group: **one parent** |
+| cycles | — | invalid, of any length, self-links included |
+| nesting depth | — | at most **32** groups from a root to its deepest descendant |
+
+**Why one.** A CUT splits a group's geometry into a cut-out and a remainder, and
+either side may hold a single brush. Under 1.3 the only ways to keep that result
+grouped were to lose the group or to invent a sliver of geometry to reach a
+count, and the second corrupts the map to satisfy a counter. A persisted group
+of one is therefore valid from 1.4. An **empty** group is not: the editor
+dissolves a group in the same transaction that removed its last member, and a
+parent emptied by that dissolution dissolves with it, bottom-up, in the same
+transaction.
+
+**Validity is not the creation gesture.** Whether an editor lets a user create a
+group by hand from a single selected item (Ctrl+G) is an editor rule, not this
+one; an editor may keep asking for two. The document rule says only what a
+saved group may be.
+
+**A 1.3 document is still held to 1.3.** A file declaring 1.3 is validated
+against the frozen 1.3 contract, where two members remain the minimum and the
+`group` arm does not exist, *before* it is promoted. A one-member group declared
+as 1.3 is invalid, and promotion never launders it into a valid 1.4 document.
+
+### Nesting
+
+A `group` member makes the named group a **child**. The graph of groups is a
+forest: each group has at most one parent, no cycle exists, and every group is
+reachable from exactly one root (a group no other group lists).
+
+```json
+{ "group_id": "grp_columns0000001", "name": "Columns",
+  "members": [ { "kind": "brush", "brush_id": "brs_cube00000000a1" },
+               { "kind": "brush", "brush_id": "brs_cube00000000b2" } ] },
+{ "group_id": "grp_entrance00001", "name": "Entrance",
+  "members": [ { "kind": "group", "group_id": "grp_columns0000001" },
+               { "kind": "brush", "brush_id": "brs_cube00000000c3" },
+               { "kind": "brush", "brush_id": "brs_cube00000000d4" } ] }
+```
+
+Declaration order in `groups` is **not** nesting order: a child may be declared
+before or after its parent, and a reader resolves by `group_id`.
+
+**Expansion** — the objects a group stands for — is the union of its object
+members and the expansion of each child group. It is **deterministic** (members
+in member-list order, children expanded depth-first at the position they are
+listed) and **de-duplicated**: an object reached twice is reached once, so a
+transform applied to an expanded group moves each brush and entity exactly
+once. A reader expands **iteratively** with a visited set, never by unbounded
+recursion; a document that nests deeper than 32 or contains a cycle is refused
+with SEM-G-9 or SEM-G-8, never with a stack overflow.
+
+### Editing the graph
+
+What an editor does to the graph, stated as before → after so that every
+implementation makes the same document. `P` is a parent group, `C` a child
+group, `x`/`y` objects.
+
+| operation | before | after | ids |
+| --- | --- | --- | --- |
+| delete object `x` | `P{x, y}` | `P{y}` | `P` keeps its id |
+| delete the last object | `C{x}` inside `P{C, y}` | `C` dissolved, `P{y}` | `P` keeps its id; `C`'s id is gone |
+| delete a whole group `C` from the map (geometry too) | `P{C, y}`, `C{x}` | `P{y}`; `x` deleted | as above |
+| remove member `x` from `C` | `P{C, y}`, `C{x, z}` | `P{C, y}`, `C{z}` — `x` becomes loose | all ids kept |
+| **Ungroup** `C` | `P{C, y}`, `C{x, z}` | `P{x, z, y}` — `C`'s direct members move up **in place of `C`**, to `C`'s parent | `P`, `x`, `z` keep ids; `C`'s id is gone |
+| Ungroup a root `P` | `P{C, y}` | `C` becomes a root, `y` loose | `C`, `y` keep ids |
+| group a parent with loose objects | `P{C, y}`, loose `u`, `v` | `N{P, u, v}` | new `N` minted; `P`, `C` keep ids and structure |
+| reparent `C` into `Q` | `P{C, y}`, `Q{w}` | `P{y}`, `Q{w, C}` | all ids kept; a `P` left empty dissolves |
+| **copy / paste** a selected `P` | `P{C, y}`, `C{x}` | a second tree `P'{C', y'}`, `C'{x'}` | **every** group and object in the copy gets a fresh id; inner membership is preserved; `source` is preserved (§9a `source`) |
+
+Ungroup never deletes geometry, and nothing flattens a hierarchy on Save. A copy
+that reaches only part of a group copies no group at all for it (the same rule
+1.3 had for `source`: a subset carries no provenance). A format that cannot
+encode hierarchy — `.map` among them — says so where it is written (§14) and
+never persists half a graph.
 
 ### Containment normalization
 
@@ -529,6 +623,12 @@ brush  + one of its faces          ->  keep the brush
 
 Both spellings would name the same geometry twice, and the member count — which
 a user reads — would stop meaning anything.
+
+From 1.4 the rule reaches **across the nesting**: within one group tree (a root
+and everything below it) an object and one of its own ancestor objects must not
+both be direct members anywhere. The root's expansion would otherwise name the
+same geometry twice. Two *unrelated* trees may still hold an entity in one and
+one of its brushes in the other, exactly as two unrelated 1.3 groups could.
 
 ### `source` — where the group came from
 
@@ -586,6 +686,85 @@ wants to add one more field is proposing a schema change.
 `derived_from` kind is: a consumer meeting an unknown origin could only guess
 what the group's history was.
 
+## 9b. Authorship
+
+Added by 1.4. **Optional**, and the one place a document says who made it:
+
+```json
+"authorship": {
+  "author": "Zoë O'Neil & Bob \"the Builder\"",
+  "copyright_notice": "© 2026 Zoë O'Neil.\nAll rights reserved.",
+  "license": "CC-BY-SA-4.0"
+}
+```
+
+| member | meaning | bound | line breaks |
+| --- | --- | --- | --- |
+| `author` | the author or authors, as one line the author wrote | 256 | no |
+| `copyright_notice` | the copyright notice, verbatim | 1024 | LF allowed |
+| `license` | the stated licence: a name, an SPDX expression, or its wording | 4096 | LF allowed |
+
+Bounds count Unicode code points. TAB is allowed where line breaks are; CR and
+every other control character (C0, DEL, C1) are refused by the schema, so line
+breaks are always LF (SER-2) — an editor converts CRLF at the input, never in
+the document.
+
+### Three states, never two
+
+| spelling | means |
+| --- | --- |
+| member absent | **unknown** — nothing was recorded |
+| `""` | **deliberately blank** — somebody chose to record nothing |
+| any other string | the text, exactly as supplied |
+
+`authorship: {}` is refused (`minProperties: 1`): "nothing recorded" has one
+spelling, omit the member, so two writers of the same document emit the same
+bytes. `null` is not a state.
+
+A destination that *requires* a value (a publishing form, a gallery) asks only
+for the member that is **absent**, and it records the answer as supplied — an
+empty answer is `""`, not absence. It never fills an absent member from the
+signed-in account, the uploader, or a previous document.
+
+### Verbatim text
+
+Text is stored, compared and re-emitted **exactly**. No reader, writer, promotion
+or transport trims it, case-folds it, re-punctuates it, re-escapes it beyond
+SER-9, or applies Unicode normalization: an NFC and an NFD spelling of the same
+name are two different values, and each survives as written. A string that is
+not Unicode text — an unpaired surrogate escape such as `"\ud83d"` — is refused
+(SEM-A-1), because the only thing a reader could do with it is replace it with
+U+FFFD, which silently changes the author's words.
+
+### What it is not
+
+- **Not identity, not the account.** `author` is who the document says made it.
+  It is never the uploader, the signed-in user, or the account that saved a
+  revision; those are platform facts and live on the platform (AUB), not here.
+  The schema closes the object so that an `uploader` member cannot be added.
+- **Not permission.** `license` is words somebody typed. Nothing may read it to
+  decide what a user is allowed to do, no component chooses a licence on the
+  author's behalf, and a free-text licence never manufactures a right.
+- **Not the whole of provenance.** Several contributors, SPDX-structured
+  licences or provenance chains belong in a namespaced `extensions` entry
+  (§9), which every consumer already preserves. The three members answer the
+  question an editor has to answer today and leave room for more.
+
+### Derived documents
+
+When a prefab, extraction or excerpt is made from a document:
+
+- the **source's** `authorship` is carried into the derived document unchanged
+  when it remains true — the geometry is still that author's work;
+- the person or pipeline that performed the derivation is **not** written into
+  `author`; that is operation provenance (`derived_from` kind `operation`,
+  `provenance.producer`), not authorship;
+- nothing is inferred: a source with no `authorship` yields a derived document
+  with none, and no licence is manufactured from the source's free text.
+
+`.map` has no place for any of this (§14): exporting to `.map` loses
+`authorship`, and only `.map` does.
+
 ## 10. Rules enforced by JSON Schema
 
 | id | rule |
@@ -624,6 +803,16 @@ Added by 1.3, for `group.source` (§9a):
 | SCH-G-8 | `source` requires `kind` and `prefab_id`, and is closed — no screenshot, URL, title, owner or job id |
 | SCH-G-9 | `kind` is `const "prefab"`; `prefab_id` is a string of 1–128 characters, with no imposed pattern |
 
+Added by 1.4, for nesting and `authorship` (§9a, §9b):
+
+| id | rule |
+| --- | --- |
+| SCH-G-5′ | from 1.4, `members` has at least **1** item (was 2) and still no duplicates; 1.2–1.3 documents keep SCH-G-5 |
+| SCH-G-10 | a member may be `{ "kind": "group", "group_id": … }`, closed, `group_id` matching SCH-G-3 |
+| SCH-A-1 | `authorship` is optional, closed, and has at least one member; it holds only `author`, `copyright_notice`, `license` |
+| SCH-A-2 | each member is a string; `author` ≤ 256, `copyright_notice` ≤ 1024, `license` ≤ 4096 code points |
+| SCH-A-3 | `author` holds no control character (C0, DEL, C1); `copyright_notice` and `license` hold none except LF and TAB |
+
 ## 11. Semantic validation rules
 
 These cannot be expressed in JSON Schema. A conforming validator enforces them
@@ -646,18 +835,32 @@ after schema validation.
 SEM-11 needs its own check because JSON Schema's `number` type accepts anything
 a JSON parser produced, and `1e400` decodes to `Infinity` in most parsers.
 
-Groups add six more, none of them expressible in JSON Schema because every one
+Groups add more, none of them expressible in JSON Schema because every one
 is a statement about the rest of the document:
 
 | id | rule |
 | --- | --- |
-| SEM-G-1 | every member reference resolves to an object declared in this document |
+| SEM-G-1 | every member reference resolves to an object — or, from 1.4, a group — declared in this document |
 | SEM-G-2 | a member's `kind` matches the referenced object's actual kind |
 | SEM-G-3 | every `group_id` is unique across the document |
-| SEM-G-4 | no object is a direct member of two groups |
-| SEM-G-5 | direct membership holds no ancestor/descendant pair (§9a, containment normalization) |
-| SEM-G-6 | a persisted group has at least two members; an editor dissolves one that falls below, in the same transaction that took the member away |
+| SEM-G-4 | no object is a direct member of two groups; from 1.4, no **group** is a direct member of two groups either — one parent at most |
+| SEM-G-5 | direct membership holds no ancestor/descendant object pair (§9a, containment normalization); from 1.4 this holds across a whole group **tree**, not only one member list |
+| SEM-G-6 | a persisted group has at least two members (1.2–1.3) / **one** member (1.4); an editor dissolves a group that falls below, in the same transaction that took the member away, and a parent that the dissolution empties dissolves with it |
 | SEM-G-7 | `source.prefab_id` is an EXTERNAL identity: SEM-G-1 does not apply to it, it is never reminted with the document's own ids, and an unresolvable one is not a document fault |
+| SEM-G-8 | 1.4: the group graph is acyclic — no group reaches itself, directly (a self-link) or through any chain of children |
+| SEM-G-9 | 1.4: groups nest at most **32** deep, counted in groups from a root to its deepest descendant; a reader traverses iteratively and reports this rule, never a stack overflow |
+
+`authorship` adds one (§9b):
+
+| id | rule |
+| --- | --- |
+| SEM-A-1 | every `authorship` string is Unicode text: no unpaired surrogate. A reader whose JSON decoder would replace one with U+FFFD must refuse the document rather than re-emit it |
+
+`test-vectors/index.json`'s `semantic_invalid` set holds one schema-valid
+document per rule above that 1.4 added or changed, each naming the rule a
+conforming semantic validator must report. `test/helpers.mjs`'s
+`semanticFaults` is the reference implementation those vectors are proved
+against.
 
 A current-format document with a dangling group member is **invalid**. When an
 edit deletes a member object, group membership is updated in the *same* map
@@ -674,7 +877,7 @@ Two producers given the same document must emit the same bytes.
 | SER-2 | LF line endings only |
 | SER-3 | two-space indentation |
 | SER-4 | exactly one trailing newline at end of file |
-| SER-5 | object members in the order this specification declares them — `groups` sits between `entities` and `relationships`, and a group is `group_id`, `name`, `members`, `source` |
+| SER-5 | object members in the order this specification declares them — `authorship` follows `provenance`, `groups` sits between `entities` and `relationships`, a group is `group_id`, `name`, `members`, `source`, a group member is `kind` then its id field, and `authorship` is `author`, `copyright_notice`, `license` |
 | SER-6 | arrays in **semantic** order — entity, content, face and relationship order is meaningful and is never sorted |
 | SER-7 | numbers are finite; a value that is mathematically an integer is emitted as a JSON integer; other values are rounded to 6 decimal places; `-0` is emitted as `0`; no exponent notation |
 | SER-8 | a document that must be reproducible carries no wall-clock timestamp. `provenance.generated_at` is permitted but forfeits byte determinism |
@@ -698,6 +901,7 @@ apmap/1.0/apmap.schema.json
 apmap/1.1/apmap.schema.json
 apmap/1.2/apmap.schema.json
 apmap/1.3/apmap.schema.json
+apmap/1.4/apmap.schema.json
 apmap/2.0/apmap.schema.json
 ```
 
@@ -722,6 +926,16 @@ apmap/2.0/apmap.schema.json
   ever recorded. A minor version that needed a *value* rather than a structural
   default would not be promotable this way, and that is the constraint on adding
   one.
+- **1.4 is the first minor version with a relaxation.** It lowers a persisted
+  group's minimum from two members to one. That changes no meaning a 1.3
+  document can express — every valid 1.3 group is a valid 1.4 group unchanged —
+  it only admits groups 1.3 refused. It is written down here and in
+  `test/schema.test.mjs`, which allows exactly this one difference and fails on
+  any other, so the next relaxation has to be argued in the same two places.
+  Readers that assumed "at least two" (a card, a dissolve-at-one reducer, a
+  result-group builder) are consumer migrations, listed in the 1.4 handoff.
+  Promotion from 1.3 remains the header alone: `authorship` stays absent
+  (unknown), and no group is nested that was not.
 
 ## 14. `.map` import and export loss boundaries
 
@@ -756,7 +970,11 @@ equivalence check proves, at 0.0 plane error and 0.0 UV error.
 
 `.map` has nowhere to record APMap identity. Every `document_id`, `entity_id`,
 `brush_id`, `face_id`, `derived_from`, `relationship` and `extensions` value is
-dropped. **Reimporting an exported `.map` without its APMap sibling creates a
+dropped, and so are `groups` — the whole hierarchy, parents and children — and
+`authorship`. Each brush and entity is written **once**, whatever groups reach
+it, so grouping never changes the compiled world. The loss is `.map`'s alone:
+an `.apmap` export carries all of it, and reimporting that `.apmap` restores
+the exact hierarchy and authorship. **Reimporting an exported `.map` without its APMap sibling creates a
 new document with new ids.** This is why `.map` is an import/export
 representation and APMap is canonical.
 

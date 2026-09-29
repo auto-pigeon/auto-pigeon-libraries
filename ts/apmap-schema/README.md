@@ -7,14 +7,16 @@ Auto-Pigeon extractor (AUE) and shared by Auto-Pigeon, its backend, and the coll
 validator are a separate package.
 
 ```text
-1.3 = current READ + WRITE contract
+1.4 = current READ + WRITE contract
+1.3 = deprecated legacy READ contract
 1.2 = deprecated legacy READ contract
 1.1 = deprecated legacy READ contract
 1.0 = deprecated legacy READ contract
 ```
 
 ```text
-schema/apmap-1.3.schema.json              THE current contract — exactly one file lives here
+schema/apmap-1.4.schema.json              THE current contract — exactly one file lives here
+schema/deprecated/apmap-1.3.schema.json   a supported LEGACY READ contract — never written
 schema/deprecated/apmap-1.2.schema.json   a supported LEGACY READ contract — never written
 schema/deprecated/apmap-1.1.schema.json   a supported LEGACY READ contract — never written
 schema/deprecated/apmap-1.0.schema.json   a supported LEGACY READ contract — never written
@@ -23,6 +25,7 @@ test-vectors/                             conformance vectors for the CURRENT co
 deprecated/1.0/                           the published 1.0 corpus and examples
 deprecated/1.1/                           the published 1.1 corpus
 deprecated/1.2/                           the published 1.2 corpus
+deprecated/1.3/                           the published 1.3 corpus
 workspace/ (repository root)              the canonical workspace manifest
 ```
 
@@ -35,7 +38,7 @@ VALIDATE    with the schema matching the document being read
 WIRE/COLLAB current only
 ```
 
-Today that resolves to: read 1.0, 1.1, 1.2 and 1.3, write 1.3.
+Today that resolves to: read 1.0, 1.1, 1.2, 1.3 and 1.4, write 1.4.
 
 **It is not a compatibility matrix.** Nothing here, and nothing in any consumer, maintains a list of
 supported versions. The directory layout IS the policy, and every service derives both halves of it
@@ -85,21 +88,69 @@ evidence for this repository's own tests. It is not shipped and is not a runtime
 
 Each version was built **additively** from the one before, and `test/schema.test.mjs` walks the
 documents and fails if that stops being true. 1.1 added one `derived_from` kind (`operation`) and
-one optional brush member (`broken`). 1.2 added `groups`. 1.3 adds one optional group member,
-`source`.
+one optional brush member (`broken`). 1.2 added `groups`. 1.3 added one optional group member,
+`source`. 1.4 adds the optional document member `authorship` and a fourth group-member kind,
+`group` — and makes the one **relaxation** in the history: a persisted group needs one member,
+not two. The walk from 1.3 to 1.4 allows exactly that difference and nothing else.
 
 That matters for exactly one reason: **promotion is mechanical**. A legacy document becomes a
 current one by rewriting the declared version and supplying the structural defaults the current
 contract requires — today exactly one, `groups: []`. No geometry is rebuilt, no id reminted, no
 provenance rewritten, and nothing is invented: 1.3's `source` is optional, so a promoted group
-carries no origin because it never had one recorded. `test/helpers.mjs` holds that promotion in one
-place as `promoteToCurrent`;
-`test/deprecated-history.test.mjs` proves it over the whole published 1.0 corpus, and
+carries no origin because it never had one recorded; 1.4's `authorship` is optional, so a promoted
+document names no author, copyright holder or licence it never declared. A legacy document is
+validated against its **own** frozen contract before it is promoted, so a 1.3 file with a
+one-member group is refused as the invalid 1.3 document it is, not laundered into valid 1.4.
+`test/helpers.mjs` holds that promotion in one place as `promoteToCurrent`;
+`test/deprecated-history.test.mjs` proves it over the whole published 1.0 corpus,
+`test/promotion.test.mjs` over every deprecated corpus (idempotence included), and
 `test/corpus.test.mjs` over the generated corpora when they are mounted. That is what lets a
 consumer open a legacy document, promote it in memory, and write current bytes without a migration
 wizard or a lossy conversion.
 
-## What 1.3 adds
+## What 1.4 adds
+
+### `authorship` — who made the document
+
+```json
+{
+  "authorship": {
+    "author": "Zoë O'Neil & Bob",
+    "copyright_notice": "© 2026 Zoë O'Neil.\nAll rights reserved.",
+    "license": "CC-BY-SA-4.0"
+  }
+}
+```
+
+Optional, closed, and every member optional. **Absent means unknown, `""` means deliberately
+blank**, and anything else is the author's text verbatim — never trimmed, normalized or
+re-punctuated. `author` is one line (≤ 256); the notice (≤ 1024) and the licence (≤ 4096) may span
+lines with LF. It is attribution, not identity: the uploader or signed-in account is never written
+into `author`, and the closed object has no `uploader` member to put it in. `license` is text
+somebody typed, never permission any component may act on. Richer data belongs in a namespaced
+`extensions` entry. `SEMANTICS.md` §9b is the normative account, including what a derived prefab
+keeps.
+
+### Nested groups, and a group of one
+
+```json
+{ "group_id": "grp_entrance00001", "name": "Entrance",
+  "members": [ { "kind": "group", "group_id": "grp_columns0000001" },
+               { "kind": "brush", "brush_id": "brs_cube00000000c3" } ] }
+```
+
+A member may now be another group. One parent per group, no cycles, at most 32 levels, and
+containment normalization across a whole tree; expanding a group reaches each object once, so a
+transform moves each brush once. A persisted group needs **one** member — a CUT may leave a real
+group holding a single brush — and an empty one is still refused. Creating a group by hand may still
+require two selected items; that is the editor's rule, not the document's. `SEMANTICS.md` §9a has
+the before/after graph for delete, Ungroup, reparent and copy/paste.
+
+Some of these rules are about the whole document and cannot be said in JSON Schema. The new
+`test-vectors/semantic-invalid/` set holds one schema-valid document per such rule, and
+`index.json`'s `semantic_invalid` list names the rule a conforming validator must report for each.
+
+## What 1.3 added
 
 ### `group.source` — where a group came from
 
@@ -164,8 +215,8 @@ in browser memory for exactly one release, and it did not survive a reload.
 `groups` is **required of a current writer**, empty array included. An optional member would make
 "this map has no groups" and "this producer has never heard of groups" the same bytes.
 
-`SEMANTICS.md` §9a is the normative account: the discriminated member union, the two-member
-minimum, containment normalization, `source`, and the SCH-G-*/SEM-G-* rules.
+`SEMANTICS.md` §9a is the normative account: the discriminated member union, the member
+minimum (two through 1.3, one from 1.4), containment normalization, `source`, and the SCH-G-*/SEM-G-* rules.
 
 ## What 1.1 added
 

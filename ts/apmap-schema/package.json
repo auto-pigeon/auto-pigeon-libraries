@@ -1,6 +1,6 @@
 {
   "name": "@auto-pigeon/apmap-schema",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "The canonical APMap contract: the ONE current JSON Schema, its normative specification, and its conformance vectors. Deprecated versions are quarantined and are not exported. No runtime code.",
   "license": "Apache-2.0",
   "type": "module",
@@ -11,8 +11,8 @@
     "README.md"
   ],
   "exports": {
-    ".": "./schema/apmap-1.3.schema.json",
-    "./schema": "./schema/apmap-1.3.schema.json",
+    ".": "./schema/apmap-1.4.schema.json",
+    "./schema": "./schema/apmap-1.4.schema.json",
     "./test-vectors/*": "./test-vectors/*",
     "./SEMANTICS.md": "./SEMANTICS.md",
     "./package.json": "./package.json"

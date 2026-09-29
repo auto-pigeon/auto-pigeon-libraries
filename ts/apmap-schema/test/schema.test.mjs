@@ -25,6 +25,8 @@ const index = vectorIndex();
 const schema11 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.1.schema.json'));
 /** The frozen 1.2 schema, moved down the day 1.3 was promoted. Also not edited. */
 const schema12 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.2.schema.json'));
+/** The frozen 1.3 schema, moved down the day 1.4 was promoted. Also not edited. */
+const schema13 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.3.schema.json'));
 
 test('both schema documents compile as JSON Schema 2020-12', () => {
   assert.equal(schema10.$schema, 'https://json-schema.org/draft/2020-12/schema');
@@ -65,6 +67,59 @@ test('the frozen 1.2 schema refuses the member 1.3 added', () => {
   assert.equal(group(sourced.groups[0]), false);
   assert.ok((group.errors ?? []).some((error) =>
     error.keyword === 'additionalProperties' && error.params.additionalProperty === 'source'));
+});
+
+test('the frozen 1.3 schema is still pinned to two members, three kinds and no authorship', () => {
+  // What 1.3 said, and what a legacy 1.3 document is still held to: the relaxation belongs to 1.4
+  // alone. If any of these moves, the frozen copy has been edited to make a 1.3 file "pass".
+  assert.deepEqual(schema13.properties.apmap_version.enum, ['1.0', '1.1', '1.2', '1.3']);
+  assert.equal(schema13.$defs.group.properties.members.minItems, 2);
+  assert.deepEqual(schema13.$defs.group_member.oneOf.map((arm) => arm.properties.kind.const), ['entity', 'brush', 'face']);
+  assert.ok(!('authorship' in schema13.properties) && !('authorship' in schema13.$defs), '1.3 never had authorship');
+});
+
+test('the frozen 1.3 schema refuses everything 1.4 added or relaxed', () => {
+  const frozen = compile(schema13);
+  for (const file of ['group-one-member.apmap', 'group-nested-parent.apmap', 'authorship-full.apmap']) {
+    const document = { ...vector('valid', file), apmap_version: '1.3' };
+    assert.equal(frozen(document), false, `the frozen 1.3 contract accepted ${file}`);
+  }
+  // A document with none of 1.4's features, relabelled 1.3, is still a 1.3 document: the frozen
+  // contract refuses what is new, not what is old.
+  assert.ok(frozen({ ...vector('valid', 'group-two-brushes.apmap'), apmap_version: '1.3' }));
+});
+
+/**
+ * 1.3 -> 1.4 is the first promotion that is not a pure addition. The walk below allows exactly the
+ * three documented differences and nothing else, so the next "small" relaxation has to be written
+ * into this list — and into SEMANTICS.md §13 — rather than slipping through.
+ */
+test('1.4 differs from 1.3 by additions and the one documented relaxation', () => {
+  const RELAXED = new Set(['/$defs/group/properties/members/minItems']);
+  const PROSE = /\/(description|title|\$id)$/;
+  const changes = [];
+  const walk = (before, after, at) => {
+    if (PROSE.test(at) || at === '/properties/apmap_version/enum') return;
+    const isObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
+    if (isObject(before) && isObject(after)) {
+      for (const key of Object.keys(before)) {
+        if (!(key in after)) { changes.push(`removed ${at}/${key}`); continue; }
+        walk(before[key], after[key], `${at}/${key}`);
+      }
+      return;
+    }
+    if (Array.isArray(before) && Array.isArray(after)) {
+      if (after.length < before.length) { changes.push(`shortened ${at}`); return; }
+      before.forEach((item, position) => walk(item, after[position], `${at}/${position}`));
+      return;
+    }
+    if (JSON.stringify(before) !== JSON.stringify(after)) changes.push(`changed ${at}`);
+  };
+  walk(schema13, current, '');
+  assert.deepEqual(changes.filter((change) => !RELAXED.has(change.replace(/^changed /, ''))), []);
+  assert.equal(schema13.$defs.group.properties.members.minItems, 2);
+  assert.equal(current.$defs.group.properties.members.minItems, 1);
+  assert.deepEqual(current.properties.apmap_version.enum, [...schema13.properties.apmap_version.enum, '1.4']);
 });
 
 test('the frozen 1.0 schema is still pinned to 1.0', () => {
@@ -219,11 +274,12 @@ test('a group name is a bounded, non-blank label — never identity', () => {
   assert.equal(current.$defs.group_id.pattern, '^grp_[0-9A-Za-z]{8,64}$');
 });
 
-test('a persisted group holds at least two distinct members', () => {
+test('a persisted group holds at least ONE distinct member — 1.4 relaxed two', () => {
   const validate = compileDef(current, 'group');
   const one = { kind: 'brush', brush_id: 'brs_cube00000000a1' };
   const two = { kind: 'brush', brush_id: 'brs_cube00000000b2' };
-  assert.equal(validate({ group_id: 'grp_one0000000001', name: 'One', members: [one] }), false, 'one member');
+  assert.equal(validate({ group_id: 'grp_one0000000001', name: 'One', members: [one] }), true, 'one member');
+  assert.equal(validate({ group_id: 'grp_none000000001', name: 'None', members: [] }), false, 'empty');
   assert.equal(validate({ group_id: 'grp_dup0000000001', name: 'Dup', members: [one, one] }), false, 'duplicate');
   assert.equal(validate({ group_id: 'grp_two0000000001', name: 'Two', members: [one, two] }), true);
 });
@@ -238,11 +294,14 @@ test('a member is a discriminated union, one id field per kind', () => {
   assert.equal(validate({ kind: 'entity', entity_id: 'brs_cube00000000a1' }), false, 'brush id under entity');
   assert.equal(validate({ kind: 'brush', object_id: 'brs_cube00000000a1' }), false, 'untyped object_id');
   assert.equal(validate({ kind: 'brush', brush_id: 'brs_cube00000000a1', label: 'left' }), false, 'extra member');
-  assert.equal(validate({ kind: 'group', group_id: 'grp_nested00000001' }), false, 'no group nesting');
+  // 1.4's fourth arm: a group may name another group, by group_id and nothing else.
+  assert.equal(validate({ kind: 'group', group_id: 'grp_nested00000001' }), true, 'group nesting');
+  assert.equal(validate({ kind: 'group', group_id: 'brs_cube00000000a1' }), false, 'brush id under group');
+  assert.equal(validate({ kind: 'group', group_id: 'grp_nested00000001', name: 'x' }), false, 'a member is a reference only');
 });
 
 // ---------------------------------------------------------------------------------------------
-// What 1.3 adds: where a group came from
+// What 1.3 added: where a group came from
 // ---------------------------------------------------------------------------------------------
 
 test('a group source is optional, so promoting a 1.2 document invents nothing', () => {

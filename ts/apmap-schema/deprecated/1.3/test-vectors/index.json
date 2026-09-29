@@ -1,0 +1,224 @@
+{
+  "apmap_version": "1.3",
+  "description": "The conformance vectors for APMap 1.3, frozen the day 1.4 was promoted. HISTORY, not a runtime input: these documents declare 1.3 and are validated against the frozen 1.3 contract at schema/deprecated/apmap-1.3.schema.json — which is where the two-member group minimum and the ban on nested groups still live, because that is what 1.3 said. The CURRENT vectors live at test-vectors/ in the package root.",
+  "valid": [
+    {
+      "file": "operation-derived-brush.apmap",
+      "exercises": "derived_from kind 'operation' on a brush, with every optional member present: operation, ordinal, replaces, intent. Inherited from 1.1 and still current."
+    },
+    {
+      "file": "operation-derived-minimal.apmap",
+      "exercises": "derived_from kind 'operation' carrying nothing but kind and operation_id — the documented minimum."
+    },
+    {
+      "file": "operation-derived-entity-and-face.apmap",
+      "exercises": "operation provenance on all three object kinds at once: entity, brush, and face, the face using the free-form metadata member."
+    },
+    {
+      "file": "broken-brush.apmap",
+      "exercises": "broken: true on a brush item."
+    },
+    {
+      "file": "broken-brush-false.apmap",
+      "exercises": "broken: false written explicitly. Absent means false, but a producer that writes it is not in error."
+    },
+    {
+      "file": "no-1-3-features.apmap",
+      "exercises": "a document declaring the current version and holding no group at all. `groups` is required of a current writer, so the empty array is what 'no groups' looks like — an absent member would be indistinguishable from a producer that has never heard of groups. With no group there is no group source either."
+    },
+    {
+      "file": "group-two-brushes.apmap",
+      "exercises": "groups at their simplest: one group named 'Entrance Columns' over two brushes, and no `source` — which is what every group a user makes by hand looks like."
+    },
+    {
+      "file": "group-mixed-members.apmap",
+      "exercises": "one group holding all three member kinds at once — entity, brush and face — each through its own kind-specific id field."
+    },
+    {
+      "file": "group-two-groups.apmap",
+      "exercises": "two groups in one document, deliberately sharing the visible name 'Group 1'. The name is a label; identity is group_id, and duplicates are legal."
+    },
+    {
+      "file": "group-from-prefab.apmap",
+      "exercises": "1.3's addition: the same group carrying source { kind: 'prefab', prefab_id }, the durable record that it was created by placing a prefab. The identity is the library's, so it holds slashes and no APMap prefix; nothing else about the prefab — no screenshot, no URL, no title, no owner — is in the document."
+    }
+  ],
+  "invalid": [
+    {
+      "file": "unknown-derived-from-kind.apmap",
+      "rule": "DF-1",
+      "violation": "derived_from kind 'rewrite' matches none of the five defined kinds, so the oneOf matches nothing. A new provenance kind is a schema change, never a producer's invention.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/derived_from",
+        "def": "derived_from",
+        "keyword": "oneOf",
+        "instancePath": ""
+      }
+    },
+    {
+      "file": "operation-missing-operation-id.apmap",
+      "rule": "DF-2",
+      "violation": "kind 'operation' without operation_id. The operation that produced the object is the one member beyond kind that is always required; without it the record names no cause.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/derived_from",
+        "def": "derived_from_operation",
+        "keyword": "required",
+        "instancePath": "",
+        "missingProperty": "operation_id"
+      }
+    },
+    {
+      "file": "operation-unknown-member.apmap",
+      "rule": "DF-3",
+      "violation": "kind 'operation' carrying an undeclared member 'authorized'. additionalProperties is false, so a producer cannot introduce a field a consumer might read as permission. Annotation goes in intent or metadata, and neither authorizes anything.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/derived_from",
+        "def": "derived_from_operation",
+        "keyword": "additionalProperties",
+        "instancePath": "",
+        "additionalProperty": "authorized"
+      }
+    },
+    {
+      "file": "broken-not-boolean.apmap",
+      "rule": "BR-1",
+      "violation": "broken is the string \"true\", not a boolean. There are two states and absence is the third spelling of false; a truthy string is none of them.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1",
+        "def": "brush_item",
+        "keyword": "type",
+        "instancePath": "/broken"
+      }
+    },
+    {
+      "file": "unknown-apmap-version.apmap",
+      "rule": "VER-1",
+      "violation": "apmap_version \"999.999\" is not a version this schema defines. An unknown FUTURE version is refused rather than guessed at. The sentinel is deliberately far outside the numbering: this vector used to declare the next unreleased minor, and promoting that minor turned the vector into a valid document overnight.",
+      "expect_document": {
+        "keyword": "enum",
+        "instancePath": "/apmap_version"
+      }
+    },
+    {
+      "file": "groups-missing.apmap",
+      "rule": "GRP-1",
+      "violation": "the document declares the current version and omits `groups`. A current writer always emits the member; an absent one is indistinguishable from a producer that does not know groups exist, and 'no groups' must be sayable.",
+      "expect_document": {
+        "keyword": "required",
+        "instancePath": ""
+      }
+    },
+    {
+      "file": "group-one-member.apmap",
+      "rule": "GRP-2",
+      "violation": "a group with one member. A one-member group is a selection with extra steps; the editor dissolves one rather than persisting it, so the contract refuses to store one.",
+      "expect_fragment": {
+        "pointer": "/groups/0",
+        "def": "group",
+        "keyword": "minItems",
+        "instancePath": "/members"
+      }
+    },
+    {
+      "file": "group-empty-name.apmap",
+      "rule": "GRP-3",
+      "violation": "a name of three spaces. The name is what a user reads in the Groups list, so it must be non-empty after trimming; `pattern: \\S` is how the schema says 'at least one non-whitespace character'.",
+      "expect_fragment": {
+        "pointer": "/groups/0",
+        "def": "group",
+        "keyword": "pattern",
+        "instancePath": "/name"
+      }
+    },
+    {
+      "file": "group-bad-id-prefix.apmap",
+      "rule": "GRP-4",
+      "violation": "group_id 'group_entrance0001' uses the wrong prefix. Every APMap id kind is distinguishable from its prefix alone; `grp_` is the group's.",
+      "expect_fragment": {
+        "pointer": "/groups/0",
+        "def": "group",
+        "keyword": "pattern",
+        "instancePath": "/group_id"
+      }
+    },
+    {
+      "file": "group-member-wrong-kind.apmap",
+      "rule": "GRP-5",
+      "violation": "a member declaring kind 'entity' whose entity_id holds a brush id. The union is discriminated on kind and each arm names its own id field, so a mismatched reference fails at the contract rather than later, at resolution.",
+      "expect_fragment": {
+        "pointer": "/groups/0/members/0",
+        "def": "group_member",
+        "keyword": "pattern",
+        "instancePath": "/entity_id"
+      }
+    },
+    {
+      "file": "group-member-untyped.apmap",
+      "rule": "GRP-6",
+      "violation": "a member carrying a generic `object_id` instead of the kind's own field. One untyped id field is exactly what the discriminated union exists to prevent.",
+      "expect_fragment": {
+        "pointer": "/groups/0/members/0",
+        "def": "group_member",
+        "keyword": "required",
+        "instancePath": "",
+        "missingProperty": "brush_id"
+      }
+    },
+    {
+      "file": "group-unknown-member-field.apmap",
+      "rule": "GRP-7",
+      "violation": "a member carrying an undeclared member 'label'. additionalProperties is false: a member is a reference and nothing else, and per-member editor state is not map truth.",
+      "expect_fragment": {
+        "pointer": "/groups/0/members/0",
+        "def": "group_member",
+        "keyword": "required",
+        "instancePath": ""
+      }
+    },
+    {
+      "file": "group-duplicate-member.apmap",
+      "rule": "GRP-8",
+      "violation": "the same brush listed twice in one group. Membership is a set; a duplicate says nothing new and would make member counts lie.",
+      "expect_fragment": {
+        "pointer": "/groups/0",
+        "def": "group",
+        "keyword": "uniqueItems",
+        "instancePath": "/members"
+      }
+    },
+    {
+      "file": "group-source-empty-prefab-id.apmap",
+      "rule": "SRC-1",
+      "violation": "source.prefab_id is the empty string. Provenance that names nothing is worse than no provenance: it makes the group claim an origin no reader can ever resolve, and the tag it drives would be permanently unexplainable.",
+      "expect_fragment": {
+        "pointer": "/groups/0/source",
+        "def": "group_source",
+        "keyword": "minLength",
+        "instancePath": "/prefab_id"
+      }
+    },
+    {
+      "file": "group-source-unknown-kind.apmap",
+      "rule": "SRC-2",
+      "violation": "source.kind 'annotation' is not the one origin 1.3 defines. A new kind of origin is a schema change, never a producer's invention — a consumer meeting an unknown one could only guess what the group's history was.",
+      "expect_fragment": {
+        "pointer": "/groups/0/source",
+        "def": "group_source",
+        "keyword": "const",
+        "instancePath": "/kind"
+      }
+    },
+    {
+      "file": "group-source-unknown-member.apmap",
+      "rule": "SRC-3",
+      "violation": "source carrying an undeclared member 'preview_image_url'. additionalProperties is false, and this is the exact member the contract exists to keep out: the screenshot belongs to the prefab library, which owns it, can revoke it and can re-render it. A URL copied into the map would be a stale, unauthenticated second copy of somebody else's asset.",
+      "expect_fragment": {
+        "pointer": "/groups/0/source",
+        "def": "group_source",
+        "keyword": "additionalProperties",
+        "instancePath": "",
+        "additionalProperty": "preview_image_url"
+      }
+    }
+  ]
+}
