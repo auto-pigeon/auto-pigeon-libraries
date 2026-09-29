@@ -300,6 +300,12 @@ nothing has asked for yet.
 `ajv/dist/2020` is the reference validator because it is what Auto-Pigeon's own APMap pipeline
 compiles this schema with. Any 2020-12 validator will do.
 
+In a browser whose Content-Security-Policy has no `unsafe-eval`, `compile()` throws: `ajv` turns the
+schema into JavaScript and evaluates it. Do that at build time instead — `ajv/dist/standalone` over
+these same files, with the same options — and ship the generated code; match it to the schema a
+backend serves by a digest of the schema itself, never by the version label alone. Auto-Pigeon's
+editor does exactly that (`NEW_267`, see `used-by.json`); the files here are unchanged by it.
+
 ## What the schema cannot say
 
 JSON Schema covers structure. The APMap rules numbered `SEM-*` — one id per object, relationship
