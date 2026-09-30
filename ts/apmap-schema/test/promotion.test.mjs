@@ -1,6 +1,7 @@
 /**
  * 1.4's additions — authorship and nested groups — and the promotion that carries every legacy
- * corpus into them. Tests only; nothing here is a runtime surface.
+ * corpus into the current contract (1.5, whose Quake III additions have their own file,
+ * quake3.test.mjs). Tests only; nothing here is a runtime surface.
  */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -107,7 +108,7 @@ test('authorship text is exact bytes through parse and canonical re-serializatio
   // The pinned specimens: SER-1..9 re-encoding must reproduce every byte, apostrophes, quotes,
   // em dashes, CJK, line breaks and TABs included. A reader that normalizes, trims or re-escapes
   // fails this; property-order changes cannot occur because canonical order is fixed.
-  for (const file of ['authorship-full.apmap', 'authorship-deliberately-blank.apmap', 'no-1-4-features.apmap']) {
+  for (const file of ['authorship-full.apmap', 'authorship-deliberately-blank.apmap', 'no-1-5-features.apmap']) {
     const bytes = vectorBytes('valid', file);
     assert.equal(`${JSON.stringify(JSON.parse(bytes), null, 2)}\n`, bytes, file);
   }
@@ -121,7 +122,7 @@ test('authorship text is exact bytes through parse and canonical re-serializatio
 });
 
 // ---------------------------------------------------------------------------------------------
-// Promotion — every deprecated corpus into 1.4
+// Promotion — every deprecated corpus into the current contract
 // ---------------------------------------------------------------------------------------------
 
 const corpora = fs.readdirSync(DEPRECATED_ROOT).filter((name) => /^\d+\.\d+$/.test(name)).sort();
@@ -143,7 +144,7 @@ function legacyDocuments() {
   return found;
 }
 
-test('every valid legacy document is valid under its own frozen contract, then promotes into 1.4', () => {
+test('every valid legacy document is valid under its own frozen contract, then promotes into the current contract', () => {
   const documents = legacyDocuments();
   assert.ok(documents.length > 40, `only ${documents.length} legacy documents found`);
   const frozen = new Map();
@@ -156,16 +157,23 @@ test('every valid legacy document is valid under its own frozen contract, then p
   }
 });
 
-test('promotion is idempotent and changes the header alone — no authorship, no nesting invented', () => {
-  for (const { file, document } of legacyDocuments()) {
+test('promotion is idempotent and changes the header alone — no authorship, nesting or patch invented', () => {
+  for (const { version, file, document } of legacyDocuments()) {
     const once = promoteToCurrent(document);
     assert.deepEqual(promoteToCurrent(once), once, `${file}: promoting twice differs from once`);
-    assert.ok(!('authorship' in once), `${file}: promotion invented authorship`);
+    assert.deepEqual(once.authorship, document.authorship, `${file}: promotion invented or changed authorship`);
     const { apmap_version: _v, groups: _g, ...restBefore } = document;
     const { apmap_version: _w, groups: after, ...restAfter } = once;
     assert.deepEqual(restAfter, restBefore, `${file}: promotion touched something other than the header`);
     assert.deepEqual(after, document.groups ?? [], `${file}: promotion changed the groups`);
-    assert.ok(after.every((group) => group.members.every((member) => member.kind !== 'group')));
+    // Only a 1.4 document can already hold a nested group or an authorship; nothing older gains one.
+    if (version !== '1.4') {
+      assert.ok(!('authorship' in once), `${file}: promotion invented authorship`);
+      assert.ok(after.every((group) => group.members.every((member) => member.kind !== 'group')));
+    }
+    // And no legacy document holds a Quake III surface: 1.5 is the first that can say one.
+    const text = JSON.stringify(once);
+    assert.ok(!text.includes('"patch"') && !text.includes('brush_primitives'), `${file}: a Quake III surface appeared`);
   }
 });
 

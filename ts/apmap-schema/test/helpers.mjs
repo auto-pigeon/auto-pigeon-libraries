@@ -177,6 +177,11 @@ export const deprecated10 = (...segments) => path.join(DEPRECATED_ROOT, '1.0', .
  * promoted document gains no author, no licence and no nesting it never declared; its one
  * relaxation (a group may hold one member) only admits documents 1.3 refused, so every valid 1.3
  * group is a valid 1.4 group byte for byte.
+ *
+ * 1.5 needed none either. Its additions — the `patch` content item, the `brush_primitives` face
+ * projection and the `patch` group member — are new arms of existing unions, and its relaxation
+ * (an object path may address a patch, `e<n>.p<n>`) only admits paths 1.4 refused. A promoted 1.4
+ * document therefore gains no patch, no texture matrix and no path it never had.
  */
 export const promoteToCurrent = (document, version = currentVersion()) => ({
   ...document,
@@ -185,7 +190,8 @@ export const promoteToCurrent = (document, version = currentVersion()) => ({
 });
 
 /**
- * THE REFERENCE SEMANTIC CHECK for the rules 1.4 changed or added — SEM-G-1..9 and SEM-A-1.
+ * THE REFERENCE SEMANTIC CHECK for the rules 1.4 and 1.5 changed or added — SEM-G-1..9, SEM-A-1
+ * and, from 1.5, SEM-Q-1..5 for the Quake III surfaces.
  *
  * Test-only, for the same reason `loadContractBundle` is: this package ships no runtime code, and
  * the one place the consumers' checkers (TypeScript in AUP, Go in AUE) can be held to the same
@@ -203,14 +209,40 @@ export function semanticFaults(document) {
   const faults = [];
   const fault = (rule, message) => faults.push({ rule, message });
 
-  // Object index: kind, and the owning object (entity for a brush, brush for a face).
+  // Object index: kind, and the owning object (entity for a brush or a patch, brush for a face).
   const objects = new Map();
+  const quake3 = document.game === 'quake3';
   for (const entity of document.entities ?? []) {
     objects.set(entity.entity_id, { kind: 'entity', parent: null });
     for (const item of entity.content ?? []) {
+      if (item.kind === 'patch') {
+        // SEM-Q-1: a patch id is unique across the document. The typed prefix already keeps it
+        // apart from every other kind, so a collision can only be with another patch.
+        if (objects.has(item.patch_id)) fault('SEM-Q-1', `patch_id ${item.patch_id} is declared twice`);
+        objects.set(item.patch_id, { kind: 'patch', parent: entity.entity_id });
+        // SEM-Q-2: the grid is exactly `width` columns of exactly `height` points.
+        const columns = item.control_points ?? [];
+        if (columns.length !== item.width || columns.some((column) => column.length !== item.height))
+          fault('SEM-Q-2', `${item.patch_id} declares ${item.width}x${item.height} but its grid is `
+            + `${columns.length} columns of ${[...new Set(columns.map((column) => column.length))].join('/')} points`);
+        if (!quake3) fault('SEM-Q-4', `${item.patch_id} is a patch in a ${document.game} document`);
+        continue;
+      }
       if (item.kind !== 'brush') continue;
       objects.set(item.brush_id, { kind: 'brush', parent: entity.entity_id });
-      for (const face of item.faces ?? []) objects.set(face.face_id, { kind: 'face', parent: item.brush_id });
+      let matrices = 0;
+      for (const face of item.faces ?? []) {
+        objects.set(face.face_id, { kind: 'face', parent: item.brush_id });
+        if (face.projection?.mode !== 'brush_primitives') continue;
+        matrices += 1;
+        // SEM-Q-3: the 2x2 part of the texture matrix is invertible, computed exactly as written.
+        const [[a, b], [d, e]] = face.projection.matrix;
+        if (a * e - b * d === 0) fault('SEM-Q-3', `${face.face_id} has a degenerate texture matrix`);
+        if (!quake3) fault('SEM-Q-4', `${face.face_id} has a brush_primitives projection in a ${document.game} document`);
+      }
+      // SEM-Q-5: one syntax per brush.
+      if (matrices > 0 && matrices < (item.faces ?? []).length)
+        fault('SEM-Q-5', `${item.brush_id} mixes brush_primitives with another projection mode`);
     }
   }
   const groups = new Map();
@@ -219,7 +251,7 @@ export function semanticFaults(document) {
     else groups.set(group.group_id, group);
   }
 
-  const idOf = (member) => member.entity_id ?? member.brush_id ?? member.face_id ?? member.group_id;
+  const idOf = (member) => member.entity_id ?? member.brush_id ?? member.face_id ?? member.patch_id ?? member.group_id;
   const parentOf = new Map();   // direct-member id -> the one group that lists it
   for (const group of groups.values()) {
     for (const member of group.members) {
@@ -268,7 +300,7 @@ export function semanticFaults(document) {
     fault('SEM-G-9', `groups nest ${deepest} deep; at most ${GROUP_MAX_DEPTH} is allowed`);
 
   // SEM-G-5 across the nesting: the root of a group tree reaches every object in the tree, so an
-  // object and one of its own ancestors (face -> brush -> entity) must not both be direct members
+  // object and one of its own ancestors (face -> brush -> entity, patch -> entity) must not both be direct members
   // anywhere in ONE tree. Linear: compare the roots of the two direct parents.
   for (const [id, group] of parentOf) {
     if (!objects.has(id)) continue;

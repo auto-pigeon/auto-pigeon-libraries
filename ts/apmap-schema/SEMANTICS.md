@@ -12,7 +12,9 @@
   with its own SCH-G-* and SEM-G-* rules; 1.3 adds the optional `group.source`, specified in the
   same section; 1.4 adds the optional document member `authorship` (§9b, SCH-A-*/SEM-A-*), lets a
   group contain another group, and lowers a persisted group's minimum from two members to one (§9a,
-  SCH-G-10..11, SEM-G-8..9 and the revised SEM-G-4/5/6).
+  SCH-G-10..11, SEM-G-8..9 and the revised SEM-G-4/5/6); 1.5 adds the Quake III surfaces — the
+  entity content item `patch`, the face projection `brush_primitives` and the group member kind
+  `patch` — with their own section (§9c), SCH-Q-*/SEM-Q-* rules and serialization rule SER-7Q.
 
   It was published at $MAPPER_ROOT/formats/apmap/1.0/README.md until this repository became the
   authority, so that a public clone can read the normative rule catalogue without a data root.
@@ -117,6 +119,15 @@ rather than guess. Quake 2-style trailing numeric face values still round-trip
 verbatim in `face.tail` (§6.3) because the MAP parser carries them; 1.0
 does not interpret them.
 
+**1.5 gives `quake3` + `quake3_extended` their meaning**: the Quake III `.map`
+grammar that Q3Map2 compiles — classic faces with the three-number tail,
+brushDef faces (§6.2a) and patchDef2 patches (§9c). It is also the only
+combination in which a `patch` or a `brush_primitives` face may appear
+(SEM-Q-4). What a *consumer* does with it is that consumer's decision, stated
+where it refuses: a component that cannot yet draw, edit or compile a Quake III
+surface refuses the document by name and never flattens, drops or converts
+what it does not implement.
+
 ---
 
 ## 3. Identity
@@ -160,7 +171,12 @@ because every operation and lease is scoped by `document_id`.
 entity  ent_<16 hex>       ^ent_[0-9A-Za-z]{8,64}$
 brush   brs_<16 hex>       ^brs_[0-9A-Za-z]{8,64}$
 face    fac_<16 hex>       ^fac_[0-9A-Za-z]{8,64}$
+patch   pat_<16 hex>       ^pat_[0-9A-Za-z]{8,64}$     (1.5)
 ```
+
+A patch id is not an `object_id` (§8): a relationship cannot name a patch in 1.5,
+and the `synthetic.source_object` pointer cannot either. Adding either is a
+later, additive decision.
 
 The typed prefix makes a relationship endpoint self-describing and makes a
 brush id used where an entity id belongs a schema error, not a silent bug.
@@ -183,8 +199,8 @@ digest   = lowercase_hex( SHA-256( UTF-8(payload) ) )[0:16]
 id       = prefix(kind) + "_" + digest
 ```
 
-`kind` is `entity`, `brush`, or `face`, and is part of the payload, so an entity
-and the brush at the same source path can never collide. `US` cannot occur in a
+`kind` is `entity`, `brush`, `face` or — from 1.5 — `patch`, and is part of the
+payload, so an entity and the brush at the same source path can never collide. `US` cannot occur in a
 component. SHA-256 is mandatory — never a language's built-in `hash()`, which is
 randomized per process.
 
@@ -204,7 +220,13 @@ addresses it inside **this** document. Both use the same grammar:
 e30            entity 30
 e30.b0         its first brush
 e30.b0.f0      that brush's first face
+e30.p0         its first patch (1.5)
 ```
+
+`b<n>` counts an entity's brushes and `p<n>` its patches, each from 0 and each in
+content order, so adding a patch never renumbers a brush. A patch has no
+sub-objects: there is no `e30.p0.f0`. The grammar was widened by `.p<n>` in 1.5
+(§13); every path 1.4 accepted means what it meant.
 
 Use `source_map` when the producer knows the exact source object and the source
 file's hash. Use `package` when the stable semantic identity is the published
@@ -332,6 +354,10 @@ An entity may legally carry **no brush at all** — that is a point entity. Keys
 and values are MAP strings and cannot contain a double quote, carriage return,
 or line feed, because the MAP writer cannot quote them.
 
+From 1.5 an item may also be a **patch** (§9c). It takes its position among the
+entity's items exactly as the source wrote it — a patch between two brushes stays
+between them — and a writer never sorts patches after brushes or properties.
+
 ---
 
 ## 6. Brushes and faces
@@ -379,6 +405,50 @@ one brush cannot mix face syntaxes in a `.map` file.
 
 `u_axis` and `v_axis` are `[x, y, z, shift]`.
 
+### 6.2a Brush primitives (1.5)
+
+A Quake III brushDef face carries a 2×3 texture matrix instead of shift, rotation
+and scale. 1.5 stores it **verbatim** as a third projection shape:
+
+```json
+"projection": { "mode": "brush_primitives", "matrix": [[0.0078125, 0, 0], [0, 0.0078125, 0]] }
+```
+
+A point `p` on the face gets texture coordinates, in **texture units** (1.0 is
+one repeat of the image, whatever its pixel size):
+
+```text
+x' = dot(p, texS)        y' = dot(p, texT)
+s  = m00·x' + m01·y' + m02
+t  = m10·x' + m11·y' + m12
+```
+
+`texS` and `texT` are the axis base Q3Map2 derives from the face normal `n`
+(computed from the three plane points as Q3Map2 does,
+`normalize((p0 − p1) × (p2 − p1))`), after zeroing any component of `n` whose
+magnitude is below 1e-6:
+
+```text
+rotY = −atan2(n.z, sqrt(n.x² + n.y²))      rotZ = atan2(n.y, n.x)
+texS = (−sin rotZ,            cos rotZ,            0)
+texT = (−sin rotY · cos rotZ, −sin rotY · sin rotZ, −cos rotY)
+```
+
+**Why not convert it to `classic`.** It was measured before the shape was
+chosen (`test/quake3.test.mjs`): a classic projection converts to a matrix and
+back with an error below 1e-9 on rotated, mirrored and sloped faces — **but only
+given the image's pixel size**, which the document does not hold, and a matrix
+with shear has no classic form at any size (a re-derived matrix lands more than
+1e-3 away). A conversion would therefore be either impossible or dependent on
+data outside the document, so the matrix is the source of truth and is never
+rewritten by a reader. The matrix must be non-degenerate (SEM-Q-3), and a brush's
+faces are all brush primitives or none are (SEM-Q-5); Q3Map2 itself refuses a
+`.map` that mixes brushDef brushes with classic ones, so a Quake III `.map`
+exporter converts or refuses — the document does not decide that for it.
+
+**Precision.** The coefficients Radiant writes carry six *significant* digits,
+not six decimal places, so SER-7's rounding would change them. They follow
+SER-7Q (§12).
 ### 6.3 Face tail
 
 Quake 2-style trailing numeric face values are preserved verbatim and
@@ -390,6 +460,11 @@ uninterpreted in 1.0:
 
 Absent when the source face had none. The MAP parser reads and writes
 these, so they survive a round trip without 1.0 assigning them meaning.
+
+A Quake III face — classic or brushDef — ends in three such numbers (content
+flags, surface flags, value). They are stored in `tail` exactly like Quake 2's,
+and 1.5 assigns them no meaning either: a shader's own `surfaceparm`s, not the
+map, are where Quake III usually says what a surface is.
 
 ---
 
@@ -765,6 +840,87 @@ When a prefab, extraction or excerpt is made from a document:
 `.map` has no place for any of this (§14): exporting to `.map` loses
 `authorship`, and only `.map` does.
 
+## 9c. Quake III patches (1.5)
+
+A **patch** is a Quake III bezier surface (`patchDef2`): a grid of control points
+that a renderer or a compiler tessellates into triangles. It is an entity content
+item beside properties and brushes:
+
+```json
+{
+  "kind": "patch",
+  "patch_id": "pat_q3arch00000001",
+  "texture": "base_trim/arch",
+  "width": 3,
+  "height": 3,
+  "control_points": [
+    [[0, 0, 64, 0, 0], [0, 8, 80, 0, 0.5], [0, 0, 96, 0, 1]],
+    [[16, 24, 64, 0.5, 0], [16, 32, 80, 0.5, 0.5], [16, 24, 96, 0.5, 1]],
+    [[32, 0, 64, 1, 0], [32, 8, 80, 1, 0.5], [32, 0, 96, 1, 1]]
+  ],
+  "tail": [0, 0, 0]
+}
+```
+
+| member | meaning |
+| --- | --- |
+| `patch_id` | stable identity (§3.3), never derived from geometry |
+| `derived_from` | provenance, exactly as for a brush (§3.5, path `e<n>.p<n>`) |
+| `texture` | the shader name, written as a face's `texture` is: no `textures/` prefix |
+| `width`, `height` | the grid's dimensions: odd, 3 to 31 |
+| `control_points` | `width` columns of `height` points, in patchDef2 text order |
+| `tail` | the three numbers after width and height in the patchDef2 header, verbatim |
+
+### The grid
+
+`control_points[c][r]` is column `c` (0 ≤ c < width), row `r` (0 ≤ r < height),
+and is the point Q3Map2 stores at `verts[r · width + c]` — the order the numbers
+appear in the `.map` text, so an importer writes what it reads and an exporter
+reads what it writes. Each point is `[x, y, z, s, t]`: a position in the
+document frame (§4) and a texture coordinate in texture units.
+
+| limit | value | why |
+| --- | --- | --- |
+| dimensions | odd, 3 … 31 | the grid is a mesh of 3×3 quadratic sub-patches sharing their edges; the engine refuses even sizes, and Q3Map2 refuses a dimension above 32 (`ParsePatch: bad size`, measured) |
+| points | at most 31 × 31 = 961 | follows from the dimensions; enforced by `maxItems` before anything counts |
+| every component | within ±131072 | Quake III's `MAX_WORLD_COORD`; also what makes a non-finite value a schema error |
+| grid = width × height | SEM-Q-2 | the schema cannot compare an array's length with a sibling member |
+
+A patch whose points are degenerate (collinear, coincident) is **not** a document
+fault: Quake III accepts it and the compiler drops what it cannot use. Validity
+here is structural, never a verdict on the geometry.
+
+### What a patch is not
+
+- **Not a solid.** It has no half-spaces, it does not seal a map, and no CSG
+  operation (carve, hollow, merge, clip) applies to it. A tool that needs a
+  closed solid leaves patches alone rather than treating one as a brush.
+- **Not a mesh.** Tessellation — how many triangles a curve becomes — is decided
+  by whoever draws or compiles the patch and is **never stored**. Two renderers,
+  or a preview and Q3Map2, may subdivide the same patch differently; the control
+  grid is the only source of truth.
+- **Not `patchDef3`.** patchDef3 carries an explicit subdivision; it is a Doom 3 /
+  Quake 4 grammar that Q3Map2 does not read (measured: `MatchToken( "(" )
+  failed`). 1.5 has no subdivision member, and an importer refuses patchDef3
+  rather than dropping its subdivision. A later minor version can add an optional
+  member once a supported compiler gives it a meaning.
+
+### Ownership, groups, editing, persistence
+
+| concern | rule |
+| --- | --- |
+| owner | the entity whose `content` lists it — worldspawn or a brush entity — exactly like a brush. Deleting the entity deletes its patches. |
+| position | its place in `content`, preserved; content order is semantic (SER-6) |
+| groups | a group member `{ "kind": "patch", "patch_id": … }` (§9a). One direct parent group at most (SEM-G-4); an entity and its own patch are never both reached by one group tree (SEM-G-5); deleting the patch removes its membership in the same transaction |
+| transform | moving, rotating or scaling a patch rewrites its control-point positions; `s`/`t` are unchanged unless an editor applies a texture operation. There is no per-patch transform member. |
+| copy / paste | a fresh `patch_id`, the same grid, texture and tail; group membership follows §9a's copy rule |
+| history | a patch edit is one map transaction and one undo step, like a brush edit |
+| persistence | the whole item is saved, stored and relayed **verbatim** — every storage and transport keeps it byte-for-byte at the value level, and none may drop it because it does not understand it |
+
+A component that cannot yet preserve patches **refuses** a document that has
+one, by name, before changing anything. It never strips the item, flattens it
+into a brush, or saves the rest of the document without it.
+
 ## 10. Rules enforced by JSON Schema
 
 | id | rule |
@@ -813,6 +969,20 @@ Added by 1.4, for nesting and `authorship` (§9a, §9b):
 | SCH-A-2 | each member is a string; `author` ≤ 256, `copyright_notice` ≤ 1024, `license` ≤ 4096 code points |
 | SCH-A-3 | `author` holds no control character (C0, DEL, C1); `copyright_notice` and `license` hold none except LF and TAB |
 
+Added by 1.5, for the Quake III surfaces (§6.2a, §9c):
+
+| id | rule |
+| --- | --- |
+| SCH-Q-1 | an entity content item may be `patch`; a patch requires `kind`, `patch_id`, `texture`, `width`, `height`, `control_points` and is closed |
+| SCH-Q-2 | `patch_id` matches `^pat_[0-9A-Za-z]{8,64}$` |
+| SCH-Q-3 | `width` and `height` are each one of 3, 5, … 31 |
+| SCH-Q-4 | `control_points` holds 3–31 columns of 3–31 points; a point is exactly 5 numbers, each within ±131072 |
+| SCH-Q-5 | a patch `texture` is non-empty and holds no whitespace or double quote (the face `texture` rule) |
+| SCH-Q-6 | a patch `tail`, when present, is exactly 3 numbers |
+| SCH-Q-7 | a face projection may be `brush_primitives`: `mode` and `matrix` only, the matrix exactly 2 rows of 3 numbers, each within ±1 000 000 |
+| SCH-Q-8 | a group member may be `{ "kind": "patch", "patch_id": … }`, closed |
+| SCH-Q-9 | `source_path` / `object_path` may address a patch, `e<n>.p<n>` |
+
 ## 11. Semantic validation rules
 
 These cannot be expressed in JSON Schema. A conforming validator enforces them
@@ -856,8 +1026,22 @@ is a statement about the rest of the document:
 | --- | --- |
 | SEM-A-1 | every `authorship` string is Unicode text: no unpaired surrogate. A reader whose JSON decoder would replace one with U+FFFD must refuse the document rather than re-emit it |
 
+The Quake III surfaces add five (§6.2a, §9c):
+
+| id | rule |
+| --- | --- |
+| SEM-Q-1 | every `patch_id` is unique across the document (SEM-1, extended to the fourth object kind) |
+| SEM-Q-2 | a patch's grid is exactly `width` columns of exactly `height` points |
+| SEM-Q-3 | a `brush_primitives` matrix is non-degenerate: `m00·m11 − m01·m10 ≠ 0`, computed in IEEE-754 double precision on the numbers as written |
+| SEM-Q-4 | a `patch` or a `brush_primitives` face appears only in a document whose `game` is `quake3` |
+| SEM-Q-5 | a brush's faces are all `brush_primitives` or none of them is |
+
+SEM-8 and SEM-10 cover a patch like any other object (§3.5, kind `patch`);
+SEM-11 is enforced for patch points and matrix coefficients by their schema
+bounds. SEM-G-1/2/4/5 treat a patch as an object its entity owns.
+
 `test-vectors/index.json`'s `semantic_invalid` set holds one schema-valid
-document per rule above that 1.4 added or changed, each naming the rule a
+document per rule above that 1.4 or 1.5 added or changed, each naming the rule a
 conforming semantic validator must report. `test/helpers.mjs`'s
 `semanticFaults` is the reference implementation those vectors are proved
 against.
@@ -877,14 +1061,24 @@ Two producers given the same document must emit the same bytes.
 | SER-2 | LF line endings only |
 | SER-3 | two-space indentation |
 | SER-4 | exactly one trailing newline at end of file |
-| SER-5 | object members in the order this specification declares them — `authorship` follows `provenance`, `groups` sits between `entities` and `relationships`, a group is `group_id`, `name`, `members`, `source`, a group member is `kind` then its id field, and `authorship` is `author`, `copyright_notice`, `license` |
+| SER-5 | object members in the order this specification declares them — `authorship` follows `provenance`, `groups` sits between `entities` and `relationships`, a group is `group_id`, `name`, `members`, `source`, a group member is `kind` then its id field, `authorship` is `author`, `copyright_notice`, `license`, a patch is `kind`, `patch_id`, `derived_from`, `texture`, `width`, `height`, `control_points`, `tail`, `extensions`, and a brush-primitives projection is `mode`, `matrix` |
 | SER-6 | arrays in **semantic** order — entity, content, face and relationship order is meaningful and is never sorted |
 | SER-7 | numbers are finite; a value that is mathematically an integer is emitted as a JSON integer; other values are rounded to 6 decimal places; `-0` is emitted as `0`; no exponent notation |
+| SER-7Q | 1.5: the five numbers of a patch control point and the six coefficients of a `brush_primitives` matrix are **not** rounded: each is emitted as the shortest decimal that parses back to the same IEEE-754 double, in positional notation (no exponent); integers as integers, `-0` as `0`. Every other number, a patch `tail` and a face `tail` included, still follows SER-7 |
 | SER-8 | a document that must be reproducible carries no wall-clock timestamp. `provenance.generated_at` is permitted but forfeits byte determinism |
 | SER-9 | non-ASCII characters are emitted literally, not `\u`-escaped |
 
 SER-7 matches AUE's MAP writer, which emits `192` rather than `192.0`,
 so nothing is lost crossing between the two formats.
+
+SER-7Q exists because six decimal places is not enough for a Quake III surface:
+a texture coordinate of `0.00260417` or a matrix coefficient of `0.0078125`
+(1/128) would be changed by SER-7, and at x' = 4096 a coefficient rounded that
+way shifts the texture by more than a quarter of a texel on a 128-pixel image.
+Shortest round-trip keeps exactly the double the source's text parsed to, so
+`.map` → APMap → `.map` re-emits the source's value, and it is still a fixed
+point. A writer that implements SER-7 but not SER-7Q must not write a document
+holding a patch or a brush-primitives face; it refuses instead (§9c).
 
 Canonical encoding is a **fixed point**: decoding a canonical document and
 re-encoding it must reproduce the original bytes. Every example and vector in
@@ -902,6 +1096,7 @@ apmap/1.1/apmap.schema.json
 apmap/1.2/apmap.schema.json
 apmap/1.3/apmap.schema.json
 apmap/1.4/apmap.schema.json
+apmap/1.5/apmap.schema.json
 apmap/2.0/apmap.schema.json
 ```
 
@@ -936,6 +1131,14 @@ apmap/2.0/apmap.schema.json
   result-group builder) are consumer migrations, listed in the 1.4 handoff.
   Promotion from 1.3 remains the header alone: `authorship` stays absent
   (unknown), and no group is nested that was not.
+- **1.5 has the second relaxation.** The object-path grammar — `source_path`
+  and `object_path` — admits `e<n>.p<n>` so a patch can be addressed. Every path
+  1.4 accepted is accepted and means what it meant; the only new spelling is a
+  patch's. `test/schema.test.mjs` allows exactly these two pattern changes
+  between the frozen 1.4 schema and 1.5. Everything else 1.5 adds is a new arm
+  of an existing union (content item, projection, group member) or a new
+  definition, so promotion from 1.4 is the header alone and a promoted document
+  gains no patch, no matrix and no path it did not have.
 
 ## 14. `.map` import and export loss boundaries
 
@@ -950,7 +1153,9 @@ APMap export → .map representation
 entity order · repeated keys · key order relative to brushes · brush order ·
 face order · 3-point planes · classic and Valve 220 projections · Quake 2
 numeric face tails · texture names · brushless point entities · unknown entity
-keys, verbatim
+keys, verbatim · from 1.5: patches (grid, texture coordinates, shader, header
+tail) at their content position, and brushDef texture matrices, for an importer
+that implements them
 
 ### Lost on import (`.map` → APMap)
 
@@ -960,7 +1165,8 @@ keys, verbatim
 | whitespace and indentation | the writer re-emits its own layout |
 | number spelling (`0.50` vs `0.5`, `+3` vs `3`) | numbers are re-normalized by SER-7 |
 | source line and column | only entity/brush/face indices survive, in `derived_from` |
-| brush primitives, bezier patches, Quake 3 patch meshes | the MAP parser does not read them; a document containing them cannot be imported at all |
+| brush primitives, bezier patches, Quake 3 patch meshes (**until 1.5**) | 1.0–1.4 have no place for them; an importer that does not implement 1.5's §6.2a/§9c still refuses a source containing them rather than dropping them |
+| `patchDef3` and `brushDef3` | Doom 3 / Quake 4 grammars Q3Map2 does not read (measured); 1.5 does not represent them and a Quake III importer refuses them |
 
 An unedited `.map` therefore re-exports **semantically identical, not
 byte-identical**. That is the same guarantee AUE's extraction round-trip
@@ -971,7 +1177,10 @@ equivalence check proves, at 0.0 plane error and 0.0 UV error.
 `.map` has nowhere to record APMap identity. Every `document_id`, `entity_id`,
 `brush_id`, `face_id`, `derived_from`, `relationship` and `extensions` value is
 dropped, and so are `groups` — the whole hierarchy, parents and children — and
-`authorship`. Each brush and entity is written **once**, whatever groups reach
+`authorship`. A Quake III `.map` keeps patches and brushDef matrices (they are
+`.map` syntax), but not their ids; one `.map` file uses one brush syntax, so an
+exporter facing a document that mixes brushDef and classic brushes converts
+(given the image sizes) or refuses. Each brush and entity is written **once**, whatever groups reach
 it, so grouping never changes the compiled world. The loss is `.map`'s alone:
 an `.apmap` export carries all of it, and reimporting that `.apmap` restores
 the exact hierarchy and authorship. **Reimporting an exported `.map` without its APMap sibling creates a

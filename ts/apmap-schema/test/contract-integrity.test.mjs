@@ -21,7 +21,7 @@ import {
 
 test('exactly one current schema sits directly under schema/', () => {
   const found = currentSchemaFiles();
-  assert.deepEqual(found, ['apmap-1.4.schema.json'],
+  assert.deepEqual(found, ['apmap-1.5.schema.json'],
     `schema/ must hold exactly one apmap-*.schema.json; found: ${found.join(', ') || '(none)'}`);
 });
 
@@ -32,7 +32,7 @@ test('the current schema is valid JSON and compiles', () => {
 });
 
 test('the current version is derived from the filename, not declared anywhere', () => {
-  assert.equal(currentVersion(), '1.4');
+  assert.equal(currentVersion(), '1.5');
   // The derivation, spelled out: nothing reads a version constant to get this.
   const derived = CURRENT_SCHEMA_PATTERN.exec(path.basename(currentSchemaPath()))[1];
   assert.equal(derived, currentVersion());
@@ -79,15 +79,19 @@ test('the deprecated schemas are readable legacy, and can never be the writer co
   // And 1.3 when 1.4 was promoted — the first promotion whose successor RELAXED a rule (a group
   // may hold one member), which is exactly why the frozen 1.3 file must keep saying two.
   assert.ok(!currentSchemaFiles().includes('apmap-1.3.schema.json'));
+  // And 1.4 when 1.5 was promoted. 1.5 widened the object-path grammar, so the frozen 1.4 file must
+  // keep refusing a `.p<n>` path — the relaxation is 1.5's, not a retroactive edit of 1.4.
+  assert.ok(!currentSchemaFiles().includes('apmap-1.4.schema.json'));
   assert.deepEqual(legacySchemaFiles(),
-    ['apmap-1.0.schema.json', 'apmap-1.1.schema.json', 'apmap-1.2.schema.json', 'apmap-1.3.schema.json']);
+    ['apmap-1.0.schema.json', 'apmap-1.1.schema.json', 'apmap-1.2.schema.json', 'apmap-1.3.schema.json',
+     'apmap-1.4.schema.json']);
 });
 
 test('the readable versions are derived from the layout, not from a maintained list', () => {
-  assert.deepEqual(readableVersions(), ['1.0', '1.1', '1.2', '1.3', '1.4']);
+  assert.deepEqual(readableVersions(), ['1.0', '1.1', '1.2', '1.3', '1.4', '1.5']);
   const bundle = loadContractBundle();
   assert.equal(bundle.current.version, currentVersion());
-  assert.equal(bundle.current.version, '1.4');
+  assert.equal(bundle.current.version, '1.5');
   // The current version is always readable — a build that could write a document it could not
   // read back would be a contract nobody could use.
   assert.ok(bundle.readable.has(bundle.current.version));

@@ -1,0 +1,1248 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.4/apmap.schema.json",
+  "apmap_version": "1.4",
+  "document_id": "vector-1-4-group-too-deep",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake1",
+  "map_dialect": "quake_standard",
+  "id_policy": "minted",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "aulibs-apmap-schema-vectors",
+    "producer_version": "1.1"
+  },
+  "entities": [
+    {
+      "entity_id": "ent_worldspawn0001",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_cube00000000a1",
+          "faces": [
+            {
+              "face_id": "fac_00cube0000",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    0,
+                    64
+                  ],
+                  [
+                    64,
+                    0,
+                    64
+                  ],
+                  [
+                    64,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_11cube0001",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    64,
+                    0
+                  ],
+                  [
+                    64,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_22cube0002",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    64
+                  ],
+                  [
+                    0,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_33cube0003",
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    64,
+                    0
+                  ],
+                  [
+                    64,
+                    64,
+                    64
+                  ],
+                  [
+                    64,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_44cube0004",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    64,
+                    0,
+                    0
+                  ],
+                  [
+                    64,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_55cube0005",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    64,
+                    0
+                  ],
+                  [
+                    0,
+                    64,
+                    64
+                  ],
+                  [
+                    64,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_cube00000000b2",
+          "faces": [
+            {
+              "face_id": "fac_00cubeb0000",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    0,
+                    64
+                  ],
+                  [
+                    192,
+                    0,
+                    64
+                  ],
+                  [
+                    192,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_11cubeb0001",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    0,
+                    0
+                  ],
+                  [
+                    128,
+                    64,
+                    0
+                  ],
+                  [
+                    192,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_22cubeb0002",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    0,
+                    0
+                  ],
+                  [
+                    128,
+                    0,
+                    64
+                  ],
+                  [
+                    128,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_33cubeb0003",
+              "plane": {
+                "points": [
+                  [
+                    192,
+                    64,
+                    0
+                  ],
+                  [
+                    192,
+                    64,
+                    64
+                  ],
+                  [
+                    192,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_44cubeb0004",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    0,
+                    0
+                  ],
+                  [
+                    192,
+                    0,
+                    0
+                  ],
+                  [
+                    192,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_55cubeb0005",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    64,
+                    0
+                  ],
+                  [
+                    128,
+                    64,
+                    64
+                  ],
+                  [
+                    192,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_cube00000000c3",
+          "faces": [
+            {
+              "face_id": "fac_00cubec0000",
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    0,
+                    64
+                  ],
+                  [
+                    320,
+                    0,
+                    64
+                  ],
+                  [
+                    320,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_11cubec0001",
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    0,
+                    0
+                  ],
+                  [
+                    256,
+                    64,
+                    0
+                  ],
+                  [
+                    320,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_22cubec0002",
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    0,
+                    0
+                  ],
+                  [
+                    256,
+                    0,
+                    64
+                  ],
+                  [
+                    256,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_33cubec0003",
+              "plane": {
+                "points": [
+                  [
+                    320,
+                    64,
+                    0
+                  ],
+                  [
+                    320,
+                    64,
+                    64
+                  ],
+                  [
+                    320,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_44cubec0004",
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    0,
+                    0
+                  ],
+                  [
+                    320,
+                    0,
+                    0
+                  ],
+                  [
+                    320,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_55cubec0005",
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    64,
+                    0
+                  ],
+                  [
+                    256,
+                    64,
+                    64
+                  ],
+                  [
+                    320,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_cube00000000d4",
+          "faces": [
+            {
+              "face_id": "fac_00cubed0000",
+              "plane": {
+                "points": [
+                  [
+                    384,
+                    0,
+                    64
+                  ],
+                  [
+                    448,
+                    0,
+                    64
+                  ],
+                  [
+                    448,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_11cubed0001",
+              "plane": {
+                "points": [
+                  [
+                    384,
+                    0,
+                    0
+                  ],
+                  [
+                    384,
+                    64,
+                    0
+                  ],
+                  [
+                    448,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_22cubed0002",
+              "plane": {
+                "points": [
+                  [
+                    384,
+                    0,
+                    0
+                  ],
+                  [
+                    384,
+                    0,
+                    64
+                  ],
+                  [
+                    384,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_33cubed0003",
+              "plane": {
+                "points": [
+                  [
+                    448,
+                    64,
+                    0
+                  ],
+                  [
+                    448,
+                    64,
+                    64
+                  ],
+                  [
+                    448,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_44cubed0004",
+              "plane": {
+                "points": [
+                  [
+                    384,
+                    0,
+                    0
+                  ],
+                  [
+                    448,
+                    0,
+                    0
+                  ],
+                  [
+                    448,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            },
+            {
+              "face_id": "fac_55cubed0005",
+              "plane": {
+                "points": [
+                  [
+                    384,
+                    64,
+                    0
+                  ],
+                  [
+                    384,
+                    64,
+                    64
+                  ],
+                  [
+                    448,
+                    64,
+                    64
+                  ]
+                ]
+              },
+              "texture": "METAL5_6",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_light000000001",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "32 32 96"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "grp_level000000000",
+      "name": "Level 0",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000001"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000001",
+      "name": "Level 1",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000002"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000002",
+      "name": "Level 2",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000003"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000003",
+      "name": "Level 3",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000004"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000004",
+      "name": "Level 4",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000005"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000005",
+      "name": "Level 5",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000006"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000006",
+      "name": "Level 6",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000007"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000007",
+      "name": "Level 7",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000008"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000008",
+      "name": "Level 8",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000009"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000009",
+      "name": "Level 9",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000010"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000010",
+      "name": "Level 10",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000011"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000011",
+      "name": "Level 11",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000012"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000012",
+      "name": "Level 12",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000013"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000013",
+      "name": "Level 13",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000014"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000014",
+      "name": "Level 14",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000015"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000015",
+      "name": "Level 15",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000016"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000016",
+      "name": "Level 16",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000017"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000017",
+      "name": "Level 17",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000018"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000018",
+      "name": "Level 18",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000019"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000019",
+      "name": "Level 19",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000020"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000020",
+      "name": "Level 20",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000021"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000021",
+      "name": "Level 21",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000022"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000022",
+      "name": "Level 22",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000023"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000023",
+      "name": "Level 23",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000024"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000024",
+      "name": "Level 24",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000025"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000025",
+      "name": "Level 25",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000026"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000026",
+      "name": "Level 26",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000027"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000027",
+      "name": "Level 27",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000028"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000028",
+      "name": "Level 28",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000029"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000029",
+      "name": "Level 29",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000030"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000030",
+      "name": "Level 30",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000031"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000031",
+      "name": "Level 31",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_level000000032"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_level000000032",
+      "name": "Level 32",
+      "members": [
+        {
+          "kind": "brush",
+          "brush_id": "brs_cube00000000a1"
+        }
+      ]
+    }
+  ]
+}

@@ -27,6 +27,44 @@ const schema11 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.1.schema.jso
 const schema12 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.2.schema.json'));
 /** The frozen 1.3 schema, moved down the day 1.4 was promoted. Also not edited. */
 const schema13 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.3.schema.json'));
+/** The frozen 1.4 schema, moved down the day 1.5 was promoted. Also not edited. */
+const schema14 = readJson(path.join(DEPRECATED_SCHEMA_DIR, 'apmap-1.4.schema.json'));
+
+/**
+ * The relaxations in the whole history, each argued in SEMANTICS.md §13. A walk over two schemas
+ * reports anything changed, removed or shortened; these paths are the only changes allowed, and each
+ * is allowed only from the version that made it.
+ */
+const PATH_GRAMMAR_14 = '^e[0-9]+(\\.b[0-9]+(\\.f[0-9]+)?)?$';
+const PATH_GRAMMAR_15 = '^e[0-9]+(\\.b[0-9]+(\\.f[0-9]+)?|\\.p[0-9]+)?$';
+const RELAXED_IN_15 = new Set([
+  '/$defs/derived_from_source_map/properties/source_path/pattern',
+  '/$defs/derived_from_package/properties/object_path/pattern',
+]);
+
+/** Every difference between two schema documents that is not an addition, as `changed <pointer>`. */
+function nonAdditiveChanges(before, after, ignore = () => false) {
+  const changes = [];
+  const walk = (a, b, at) => {
+    if (ignore(at)) return;
+    const isObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
+    if (isObject(a) && isObject(b)) {
+      for (const key of Object.keys(a)) {
+        if (!(key in b)) { changes.push(`removed ${at}/${key}`); continue; }
+        walk(a[key], b[key], `${at}/${key}`);
+      }
+      return;
+    }
+    if (Array.isArray(a) && Array.isArray(b)) {
+      if (b.length < a.length) { changes.push(`shortened ${at}`); return; }
+      a.forEach((item, position) => walk(item, b[position], `${at}/${position}`));
+      return;
+    }
+    if (JSON.stringify(a) !== JSON.stringify(b)) changes.push(`changed ${at}`);
+  };
+  walk(before, after, '');
+  return changes;
+}
 
 test('both schema documents compile as JSON Schema 2020-12', () => {
   assert.equal(schema10.$schema, 'https://json-schema.org/draft/2020-12/schema');
@@ -94,6 +132,28 @@ test('the frozen 1.3 schema refuses everything 1.4 added or relaxed', () => {
  * three documented differences and nothing else, so the next "small" relaxation has to be written
  * into this list — and into SEMANTICS.md §13 — rather than slipping through.
  */
+test('the frozen 1.4 schema is still pinned to groups, authorship and no Quake III surfaces', () => {
+  // What 1.4 said, and what a legacy 1.4 document is still held to. If any of these moves, the
+  // frozen copy has been edited to make a 1.4 file "pass".
+  assert.deepEqual(schema14.properties.apmap_version.enum, ['1.0', '1.1', '1.2', '1.3', '1.4']);
+  assert.equal(schema14.$defs.group.properties.members.minItems, 1);
+  assert.deepEqual(schema14.$defs.group_member.oneOf.map((arm) => arm.properties.kind.const), ['entity', 'brush', 'face', 'group']);
+  assert.deepEqual(schema14.$defs.content_item.oneOf.map((arm) => arm.$ref), ['#/$defs/property_item', '#/$defs/brush_item']);
+  assert.deepEqual(schema14.$defs.projection.oneOf.map((arm) => arm.$ref), ['#/$defs/projection_classic', '#/$defs/projection_valve220']);
+  assert.ok(!('patch_item' in schema14.$defs) && !('projection_brush_primitives' in schema14.$defs), '1.4 never had Quake III surfaces');
+  assert.equal(schema14.$defs.derived_from_source_map.properties.source_path.pattern, PATH_GRAMMAR_14);
+});
+
+test('the frozen 1.4 schema refuses everything 1.5 added', () => {
+  const frozen = compile(schema14);
+  for (const file of ['q3-patch-minimal.apmap', 'q3-brush-primitives.apmap', 'q3-patch-in-nested-group.apmap', 'q3-patch-derived-ids.apmap']) {
+    const document = { ...vector('valid', file), apmap_version: '1.4' };
+    assert.equal(frozen(document), false, `the frozen 1.4 contract accepted ${file}`);
+  }
+  // A document with none of 1.5's features, relabelled 1.4, is still a 1.4 document.
+  assert.ok(frozen({ ...vector('valid', 'no-1-5-features.apmap'), apmap_version: '1.4' }));
+});
+
 test('1.4 differs from 1.3 by additions and the one documented relaxation', () => {
   const RELAXED = new Set(['/$defs/group/properties/members/minItems']);
   const PROSE = /\/(description|title|\$id)$/;
@@ -115,11 +175,34 @@ test('1.4 differs from 1.3 by additions and the one documented relaxation', () =
     }
     if (JSON.stringify(before) !== JSON.stringify(after)) changes.push(`changed ${at}`);
   };
-  walk(schema13, current, '');
+  walk(schema13, schema14, '');
   assert.deepEqual(changes.filter((change) => !RELAXED.has(change.replace(/^changed /, ''))), []);
   assert.equal(schema13.$defs.group.properties.members.minItems, 2);
-  assert.equal(current.$defs.group.properties.members.minItems, 1);
-  assert.deepEqual(current.properties.apmap_version.enum, [...schema13.properties.apmap_version.enum, '1.4']);
+  assert.equal(schema14.$defs.group.properties.members.minItems, 1);
+  assert.deepEqual(schema14.properties.apmap_version.enum, [...schema13.properties.apmap_version.enum, '1.4']);
+});
+
+/**
+ * 1.4 -> 1.5 adds three union arms (content item `patch`, projection `brush_primitives`, group member
+ * `patch`) and new definitions, and makes one relaxation: the object-path grammar, in both places it
+ * is spelled, admits `e<n>.p<n>` so a patch can be addressed. Nothing else may differ.
+ */
+test('1.5 differs from 1.4 by additions and the one documented path relaxation', () => {
+  const PROSE = /\/(description|title|\$id)$/;
+  const changes = nonAdditiveChanges(schema14, current,
+    (at) => PROSE.test(at) || at === '/properties/apmap_version/enum');
+  assert.deepEqual(changes.filter((change) => !RELAXED_IN_15.has(change.replace(/^changed /, ''))), []);
+  assert.deepEqual(current.properties.apmap_version.enum, [...schema14.properties.apmap_version.enum, '1.5']);
+  for (const pointer of RELAXED_IN_15) {
+    const [before, after] = [schema14, current].map((schema) => pointer.split('/').slice(1).reduce((node, key) => node[key], schema));
+    assert.equal(before, PATH_GRAMMAR_14, pointer);
+    assert.equal(after, PATH_GRAMMAR_15, pointer);
+  }
+  // A relaxation, not a change of meaning: every path 1.4 accepted, 1.5 accepts, and the only new
+  // spelling is an entity's patch.
+  const [old14, new15] = [new RegExp(PATH_GRAMMAR_14), new RegExp(PATH_GRAMMAR_15)];
+  for (const path of ['e0', 'e30', 'e30.b0', 'e30.b12.f5', 'e1.p0', 'e1.p0.f0', 'e1.b0.p0', 'p0', 'e1.x0', 'e1.b0.f0.f1'])
+    assert.equal(new15.test(path), old14.test(path) || /^e[0-9]+\.p[0-9]+$/.test(path), path);
 });
 
 test('the frozen 1.0 schema is still pinned to 1.0', () => {
@@ -136,8 +219,10 @@ test('the frozen 1.0 schema is still pinned to 1.0', () => {
  * that a 1.0 document is accepted at runtime: it is refused at the version gate, before validation.
  * The test reads the deprecated schema by an explicit path for exactly that reason.
  */
-test('the current schema differs from the frozen one only by additions', () => {
-  const ALLOWED = new Set(['/$id', '/title', '/description', '/properties/apmap_version']);
+test('the current schema differs from the frozen one only by additions and the documented relaxations', () => {
+  // 1.4's minItems relaxation is on a member 1.0 did not have; 1.5's path relaxation is on members
+  // 1.0 did have, and is the only change this walk admits — see the 1.5 walk above for its proof.
+  const ALLOWED = new Set(['/$id', '/title', '/description', '/properties/apmap_version', ...RELAXED_IN_15]);
   const changes = [];
   const walk = (before, after, path) => {
     if (ALLOWED.has(path)) return;

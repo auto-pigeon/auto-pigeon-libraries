@@ -1,6 +1,6 @@
 {
-  "$schema": "https://auto-pigeon.org/schemas/apmap/1.4/apmap.schema.json",
-  "apmap_version": "1.4",
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
   "document_id": "vector-bad-operation-extra",
   "revision": 0,
   "role": "full_map",

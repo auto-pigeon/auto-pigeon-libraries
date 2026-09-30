@@ -7,7 +7,8 @@ Auto-Pigeon extractor (AUE) and shared by Auto-Pigeon, its backend, and the coll
 validator are a separate package.
 
 ```text
-1.4 = current READ + WRITE contract
+1.5 = current READ + WRITE contract
+1.4 = deprecated legacy READ contract
 1.3 = deprecated legacy READ contract
 1.2 = deprecated legacy READ contract
 1.1 = deprecated legacy READ contract
@@ -15,7 +16,8 @@ validator are a separate package.
 ```
 
 ```text
-schema/apmap-1.4.schema.json              THE current contract — exactly one file lives here
+schema/apmap-1.5.schema.json              THE current contract — exactly one file lives here
+schema/deprecated/apmap-1.4.schema.json   a supported LEGACY READ contract — never written
 schema/deprecated/apmap-1.3.schema.json   a supported LEGACY READ contract — never written
 schema/deprecated/apmap-1.2.schema.json   a supported LEGACY READ contract — never written
 schema/deprecated/apmap-1.1.schema.json   a supported LEGACY READ contract — never written
@@ -26,6 +28,7 @@ deprecated/1.0/                           the published 1.0 corpus and examples
 deprecated/1.1/                           the published 1.1 corpus
 deprecated/1.2/                           the published 1.2 corpus
 deprecated/1.3/                           the published 1.3 corpus
+deprecated/1.4/                           the published 1.4 corpus
 workspace/ (repository root)              the canonical workspace manifest
 ```
 
@@ -38,7 +41,7 @@ VALIDATE    with the schema matching the document being read
 WIRE/COLLAB current only
 ```
 
-Today that resolves to: read 1.0, 1.1, 1.2, 1.3 and 1.4, write 1.4.
+Today that resolves to: read 1.0, 1.1, 1.2, 1.3, 1.4 and 1.5, write 1.5.
 
 **It is not a compatibility matrix.** Nothing here, and nothing in any consumer, maintains a list of
 supported versions. The directory layout IS the policy, and every service derives both halves of it
@@ -89,16 +92,20 @@ evidence for this repository's own tests. It is not shipped and is not a runtime
 Each version was built **additively** from the one before, and `test/schema.test.mjs` walks the
 documents and fails if that stops being true. 1.1 added one `derived_from` kind (`operation`) and
 one optional brush member (`broken`). 1.2 added `groups`. 1.3 added one optional group member,
-`source`. 1.4 adds the optional document member `authorship` and a fourth group-member kind,
-`group` — and makes the one **relaxation** in the history: a persisted group needs one member,
-not two. The walk from 1.3 to 1.4 allows exactly that difference and nothing else.
+`source`. 1.4 added the optional document member `authorship` and a fourth group-member kind,
+`group` — and makes the first **relaxation** in the history: a persisted group needs one member,
+not two. The walk from 1.3 to 1.4 allows exactly that difference and nothing else. 1.5 adds the
+Quake III surfaces as new arms of existing unions — the content item `patch`, the projection
+`brush_primitives`, the group member `patch` — and makes the second relaxation: the object-path
+grammar admits `e<n>.p<n>`. The walk from 1.4 to 1.5 allows exactly those two pattern changes.
 
 That matters for exactly one reason: **promotion is mechanical**. A legacy document becomes a
 current one by rewriting the declared version and supplying the structural defaults the current
-contract requires — today exactly one, `groups: []`. No geometry is rebuilt, no id reminted, no
+contract requires — still exactly one, `groups: []`. No geometry is rebuilt, no id reminted, no
 provenance rewritten, and nothing is invented: 1.3's `source` is optional, so a promoted group
 carries no origin because it never had one recorded; 1.4's `authorship` is optional, so a promoted
-document names no author, copyright holder or licence it never declared. A legacy document is
+document names no author, copyright holder or licence it never declared; 1.5's surfaces are new
+union arms, so a promoted document gains no patch and no texture matrix. A legacy document is
 validated against its **own** frozen contract before it is promoted, so a 1.3 file with a
 one-member group is refused as the invalid 1.3 document it is, not laundered into valid 1.4.
 `test/helpers.mjs` holds that promotion in one place as `promoteToCurrent`;
@@ -108,7 +115,50 @@ one-member group is refused as the invalid 1.3 document it is, not laundered int
 consumer open a legacy document, promote it in memory, and write current bytes without a migration
 wizard or a lossy conversion.
 
-## What 1.4 adds
+## What 1.5 adds — Quake III surfaces
+
+`game: "quake3"` with `map_dialect: "quake3_extended"` now means the `.map` grammar Q3Map2
+compiles, and two of its constructs get a place in the document. Both are measured against the
+pinned Q3Map2 (`2.5.17n`): patchDef2 and brushDef compile; patchDef3 and brushDef3 are not Q3Map2
+grammars and are not represented.
+
+### `patch` — a bezier surface, never a solid
+
+```json
+{ "kind": "patch", "patch_id": "pat_q3arch00000001", "texture": "base_trim/arch",
+  "width": 3, "height": 3,
+  "control_points": [
+    [[0, 0, 64, 0, 0],       [0, 8, 80, 0, 0.5],       [0, 0, 96, 0, 1]],
+    [[16, 24, 64, 0.5, 0],   [16, 32, 80, 0.5, 0.5],   [16, 24, 96, 0.5, 1]],
+    [[32, 0, 64, 1, 0],      [32, 8, 80, 1, 0.5],      [32, 0, 96, 1, 1]] ],
+  "tail": [0, 0, 0] }
+```
+
+An entity content item beside properties and brushes, kept at its authored position. Dimensions are
+odd, 3 to 31; `control_points` is `width` columns of `height` `[x, y, z, s, t]` points in patchDef2
+text order (`control_points[c][r]` is Q3Map2's `verts[r*width+c]`); every component is within
+±131072. Tessellation is derived by whoever draws or compiles the patch and is never stored. A
+patch is grouped by `{ "kind": "patch", "patch_id": … }` and addressed in provenance as `e<n>.p<n>`.
+
+### `brush_primitives` — a brushDef face's texture matrix, verbatim
+
+```json
+"projection": { "mode": "brush_primitives", "matrix": [[0.0078125, 0, 0], [0, 0.0078125, 0]] }
+```
+
+Not converted to `classic`: `test/quake3.test.mjs` shows the conversion round-trips only when the
+image's pixel size is known — which a document never holds — and that a sheared matrix has no classic
+form at all. `SEMANTICS.md` §6.2a defines the axis base the matrix is applied in.
+
+### Precision, and what a consumer that is not ready does
+
+Patch points and matrix coefficients are serialized as the shortest round-trip decimal (SER-7Q), not
+rounded to six places — `0.00260417` survives. New semantic rules SEM-Q-1..5: unique patch ids, a
+grid that matches its dimensions, an invertible matrix, Quake III surfaces only in a `quake3`
+document, and one projection syntax per brush. A component that cannot yet preserve a patch
+**refuses the document by name**; it never strips, flattens or converts one. `SEMANTICS.md` §9c.
+
+## What 1.4 added
 
 ### `authorship` — who made the document
 

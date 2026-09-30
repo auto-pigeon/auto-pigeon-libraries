@@ -1,6 +1,6 @@
 {
-  "apmap_version": "1.4",
-  "description": "Conformance vectors for the CURRENT APMap contract. Every valid vector must be accepted by the one schema under schema/ AND pass every semantic rule; every invalid one must be rejected by the schema, and rejected for the reason recorded here rather than incidentally; every semantic_invalid one PASSES the schema and must be refused by a conforming semantic validator for exactly the SEM-* rule it names. A document declaring a deprecated version is not a vector here at all — it is validated against its own frozen contract and promoted, and deprecated/1.0/one-zero-document.apmap, deprecated/1.1/one-one-document.apmap, deprecated/1.2/one-two-document.apmap and deprecated/1.3/one-three-document.apmap are the fixtures for that.",
+  "apmap_version": "1.5",
+  "description": "Conformance vectors for the CURRENT APMap contract. Every valid vector must be accepted by the one schema under schema/ AND pass every semantic rule; every invalid one must be rejected by the schema, and rejected for the reason recorded here rather than incidentally; every semantic_invalid one PASSES the schema and must be refused by a conforming semantic validator for exactly the SEM-* rule it names. A document declaring a deprecated version is not a vector here at all — it is validated against its own frozen contract and promoted, and deprecated/1.0/one-zero-document.apmap, deprecated/1.1/one-one-document.apmap, deprecated/1.2/one-two-document.apmap and deprecated/1.3/one-three-document.apmap and deprecated/1.4/one-four-document.apmap are the fixtures for that.",
   "valid": [
     {
       "file": "operation-derived-brush.apmap",
@@ -39,8 +39,8 @@
       "exercises": "1.3's addition: the same group carrying source { kind: 'prefab', prefab_id }, the durable record that it was created by placing a prefab. The identity is the library's, so it holds slashes and no APMap prefix; nothing else about the prefab — no screenshot, no URL, no title, no owner — is in the document."
     },
     {
-      "file": "no-1-4-features.apmap",
-      "exercises": "a document declaring the current version with no group and no `authorship`. `groups` is required of a current writer, so the empty array is what 'no groups' looks like; `authorship` is optional, and its absence is what 'nobody recorded who made this' looks like — which is exactly what a promoted legacy document says."
+      "file": "no-1-5-features.apmap",
+      "exercises": "A plain Quake 1 document using none of 1.5's additions: no patch, no brush_primitives face, no patch group member. Its body is byte-identical to the frozen 1.4 corpus's no-1-4-features.apmap, so a consumer can prove that promotion to 1.5 is the header alone and that Quake 1 data is unchanged."
     },
     {
       "file": "group-one-member.apmap",
@@ -65,6 +65,26 @@
     {
       "file": "authorship-deliberately-blank.apmap",
       "exercises": "the three states side by side: `author` is the empty string (somebody deliberately recorded no author), `license` holds text, and `copyright_notice` is ABSENT (unknown). A consumer must keep all three distinct and must not fill the absent one."
+    },
+    {
+      "file": "q3-patch-minimal.apmap",
+      "exercises": "A Quake III map: a classic-syntax floor brush whose faces carry the Q3 three-number tail (contents, flags, value) and a 3x3 patch - the smallest legal control grid - whose texture coordinates need more than six decimal places (0.0078125, 0.00260417). SER-7Q: they must survive canonical re-serialization exactly."
+    },
+    {
+      "file": "q3-patch-max-grid.apmap",
+      "exercises": "The largest legal dimensions on each axis: a 31x3 patch and a 3x31 patch (31 is the largest odd dimension Q3Map2 accepts). The second omits `tail`, which a writer then emits as 0 0 0."
+    },
+    {
+      "file": "q3-brush-primitives.apmap",
+      "exercises": "brushDef faces: six texture matrices - axis-aligned, rotated, mirrored (negative), sheared, offset - each kept verbatim; a func_door whose content is property, brush, patch, property in authored order, so a patch sits among an entity's items exactly where the source put it."
+    },
+    {
+      "file": "q3-patch-in-nested-group.apmap",
+      "exercises": "Two patches grouped by patch_id, that group nested inside a parent with a loose brush, and an entity group beside it: patches take part in the 1.4 group graph like any other object."
+    },
+    {
+      "file": "q3-patch-derived-ids.apmap",
+      "exercises": "id_policy derived with a patch addressed as e0.p0: its id is the SHA-256 digest of ('patch', source_map, source_sha256, 'e0.p0') under the section 3.5 algorithm, beside the entity (e0), brush (e0.b0) and faces (e0.b0.fN) of the same source."
     }
   ],
   "invalid": [
@@ -343,6 +363,218 @@
         "keyword": "maxLength",
         "instancePath": "/license"
       }
+    },
+    {
+      "file": "patch-width-even.apmap",
+      "rule": "PAT-1",
+      "violation": "width 4. A control grid is a mesh of 3x3 quadratic sub-patches sharing edges, so both dimensions are odd; the engine refuses an even one.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "enum",
+        "instancePath": "/width"
+      }
+    },
+    {
+      "file": "patch-grid-too-small.apmap",
+      "rule": "PAT-1",
+      "violation": "height 1. The smallest patch is 3x3.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "enum",
+        "instancePath": "/height"
+      }
+    },
+    {
+      "file": "patch-grid-too-large.apmap",
+      "rule": "PAT-1",
+      "violation": "width 33. Q3Map2 refuses a dimension above 32 ('ParsePatch: bad size'); the largest odd legal one is 31.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "enum",
+        "instancePath": "/width"
+      }
+    },
+    {
+      "file": "patch-excess-columns.apmap",
+      "rule": "PAT-2",
+      "violation": "32 columns of control points. The grid is bounded by the same hard limit as its dimensions, so an oversized grid is refused before anything counts it.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "maxItems",
+        "instancePath": "/control_points"
+      }
+    },
+    {
+      "file": "patch-point-out-of-world.apmap",
+      "rule": "PAT-3",
+      "violation": "a control point at x = 131073, outside Quake III's world (+/-131072).",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "maximum",
+        "instancePath": "/control_points/1/2/0"
+      }
+    },
+    {
+      "file": "patch-point-nonfinite.apmap",
+      "rule": "PAT-3",
+      "violation": "a control point's s coordinate spelled 1e999, which every JSON decoder reads as Infinity or refuses. The world bound makes a non-finite value a schema error rather than a semantic afterthought.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "maximum",
+        "instancePath": "/control_points/0/0/3"
+      }
+    },
+    {
+      "file": "patch-point-four-components.apmap",
+      "rule": "PAT-4",
+      "violation": "a control point with four numbers. Every point is exactly [x, y, z, s, t].",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "minItems",
+        "instancePath": "/control_points/0/1"
+      }
+    },
+    {
+      "file": "patch-missing-texture.apmap",
+      "rule": "PAT-5",
+      "violation": "a patch with no shader. Every surface names one.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "required",
+        "instancePath": "",
+        "missingProperty": "texture"
+      }
+    },
+    {
+      "file": "patch-texture-whitespace.apmap",
+      "rule": "PAT-5",
+      "violation": "shader name 'vector/arch stone'. A .map token cannot hold whitespace; the name follows the face `texture` rule.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "pattern",
+        "instancePath": "/texture"
+      }
+    },
+    {
+      "file": "patch-texture-empty.apmap",
+      "rule": "PAT-5",
+      "violation": "an empty shader name.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "minLength",
+        "instancePath": "/texture"
+      }
+    },
+    {
+      "file": "patch-bad-id-prefix.apmap",
+      "rule": "PAT-6",
+      "violation": "a patch whose id carries the brush prefix. A patch is a different kind of object and its id says so.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "pattern",
+        "instancePath": "/patch_id"
+      }
+    },
+    {
+      "file": "patch-unknown-member.apmap",
+      "rule": "PAT-7",
+      "violation": "a patch carrying `subdivisions`. patchDef3's explicit subdivision is not part of 1.5 - Q3Map2 does not read patchDef3 - so it cannot be smuggled in as an undeclared member.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "additionalProperties",
+        "instancePath": "",
+        "additionalProperty": "subdivisions"
+      }
+    },
+    {
+      "file": "patch-tail-two-numbers.apmap",
+      "rule": "PAT-8",
+      "violation": "a header tail of two numbers. The patchDef2 header after width and height has exactly three.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/2",
+        "def": "patch_item",
+        "keyword": "minItems",
+        "instancePath": "/tail"
+      }
+    },
+    {
+      "file": "brush-primitives-matrix-three-rows.apmap",
+      "rule": "BPR-1",
+      "violation": "a texture matrix with three rows. It is exactly two rows of three.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/faces/0/projection",
+        "def": "projection_brush_primitives",
+        "keyword": "maxItems",
+        "instancePath": "/matrix"
+      }
+    },
+    {
+      "file": "brush-primitives-matrix-short-row.apmap",
+      "rule": "BPR-1",
+      "violation": "a texture matrix row with two coefficients.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/faces/0/projection",
+        "def": "projection_brush_primitives",
+        "keyword": "minItems",
+        "instancePath": "/matrix/1"
+      }
+    },
+    {
+      "file": "brush-primitives-matrix-out-of-range.apmap",
+      "rule": "BPR-2",
+      "violation": "a coefficient of 1000001, beyond the +/-1e6 bound.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/faces/0/projection",
+        "def": "projection_brush_primitives",
+        "keyword": "maximum",
+        "instancePath": "/matrix/0/2"
+      }
+    },
+    {
+      "file": "brush-primitives-matrix-nonfinite.apmap",
+      "rule": "BPR-2",
+      "violation": "a coefficient spelled 1e999 (Infinity). The bound makes it a schema error.",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/faces/0/projection",
+        "def": "projection_brush_primitives",
+        "keyword": "maximum",
+        "instancePath": "/matrix/0/0"
+      }
+    },
+    {
+      "file": "brush-primitives-mixed-members.apmap",
+      "rule": "BPR-3",
+      "violation": "a brush_primitives projection that also carries a classic `shift`. The matrix is the whole projection; mixing syntaxes is refused like classic/Valve 220 mixing (SCH-9).",
+      "expect_fragment": {
+        "pointer": "/entities/0/content/1/faces/0/projection",
+        "def": "projection_brush_primitives",
+        "keyword": "additionalProperties",
+        "instancePath": "",
+        "additionalProperty": "shift"
+      }
+    },
+    {
+      "file": "group-member-patch-wrong-id.apmap",
+      "rule": "GRP-10",
+      "violation": "a member declaring kind 'patch' whose patch_id holds a brush id.",
+      "expect_fragment": {
+        "pointer": "/groups/0/members/0",
+        "def": "group_member",
+        "keyword": "pattern",
+        "instancePath": "/patch_id"
+      }
     }
   ],
   "semantic_invalid": [
@@ -400,6 +632,56 @@
       "file": "authorship-lone-surrogate.apmap",
       "rule": "SEM-A-1",
       "violation": "`author` ends in the escape \\ud83d with no low surrogate after it. That is not Unicode text; a reader must refuse it rather than re-emit it as U+FFFD, which would silently change the author's words."
+    },
+    {
+      "file": "patch-transposed-grid.apmap",
+      "rule": "SEM-Q-2",
+      "violation": "width 5 and height 3, but the grid is written as three columns of five points - transposed. The declared dimensions and the grid disagree, and a reader that trusted either would draw a different surface."
+    },
+    {
+      "file": "patch-ragged-grid.apmap",
+      "rule": "SEM-Q-2",
+      "violation": "one column holds four points where the declared height is three: a ragged grid."
+    },
+    {
+      "file": "patch-duplicate-id.apmap",
+      "rule": "SEM-Q-1",
+      "violation": "two patches share one patch_id."
+    },
+    {
+      "file": "patch-in-quake1-document.apmap",
+      "rule": "SEM-Q-4",
+      "violation": "a patch in a document whose game is quake1. Quake 1 has no curved surfaces and its compilers cannot build one."
+    },
+    {
+      "file": "brush-primitives-in-quake1-document.apmap",
+      "rule": "SEM-Q-4",
+      "violation": "brushDef texture matrices in a quake1 document."
+    },
+    {
+      "file": "brush-primitives-degenerate-matrix.apmap",
+      "rule": "SEM-Q-3",
+      "violation": "a texture matrix whose 2x2 part has determinant zero: every point of the face maps onto one line of the image."
+    },
+    {
+      "file": "brush-primitives-mixed-brush.apmap",
+      "rule": "SEM-Q-5",
+      "violation": "a brush with five brushDef faces and one classic face. A brush is written in one syntax or the other."
+    },
+    {
+      "file": "group-dangling-patch.apmap",
+      "rule": "SEM-G-1",
+      "violation": "a group names a patch the document does not declare."
+    },
+    {
+      "file": "group-patch-with-its-entity.apmap",
+      "rule": "SEM-G-5",
+      "violation": "one group holds an entity and a patch that entity owns - the same geometry twice."
+    },
+    {
+      "file": "group-patch-two-groups.apmap",
+      "rule": "SEM-G-4",
+      "violation": "a patch is a direct member of two groups."
     }
   ]
 }
