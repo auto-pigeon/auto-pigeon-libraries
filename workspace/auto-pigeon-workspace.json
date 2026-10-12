@@ -57,6 +57,12 @@
       "directory": "auto-pigeon-telemetry",
       "clone_url": "https://github.com/auto-pigeon/auto-pigeon-telemetry.git",
       "role": "Deployment of the third-party observability software: GlitchTip, its PostgreSQL, Gatus."
+    },
+    {
+      "alias": "ERICW",
+      "directory": "ericw-tools",
+      "clone_url": "https://github.com/auto-pigeon/ericw-tools.git",
+      "role": "The Auto-Pigeon fork of ericw-tools: the Quake map compilers (qbsp, vis, light) the pinned releases are built from."
     }
   ]
 }

@@ -31,11 +31,17 @@ const schema = readJson(path.join(WORKSPACE_DIR, 'auto-pigeon-workspace.schema.j
  * deliberately, while remaining an explicitly addressable local checkout for as long as it is on
  * disk. Membership here is a product decision; a directory
  * merely existing beside the others is not.
+ *
+ * ERICW joined at `NEW_323F`, by HITL instruction (2026-10-12): `ericw-tools` is the Auto-Pigeon
+ * fork the pinned compiler releases are built from, and a prompt may now declare it as its
+ * `execution_repository`. The handoff tooling verifies a checkout against this list before it will
+ * write a handoff for it, so a fork that is worked in but not named here cannot be checkpointed.
  */
 const CANONICAL = {
   AUP: 'auto-pigeon', AUB: 'auto-pigeon-backend', AUC: 'auto-pigeon-collaboration',
   AUCOM: 'auto-pigeon-companion', AUE: 'auto-pigeon-extractor', AUG: 'auto-pigeon-gallery',
   AUT: 'auto-pigeon-tools', AULIBS: 'auto-pigeon-libraries', TEL: 'auto-pigeon-telemetry',
+  ERICW: 'ericw-tools',
 };
 
 test('the manifest validates against its schema', () => {
