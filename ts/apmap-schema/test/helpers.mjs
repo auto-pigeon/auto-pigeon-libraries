@@ -320,6 +320,43 @@ export function semanticFaults(document) {
   return faults;
 }
 
+/**
+ * THE REFERENCE QUAKE II BUILD ADMISSION — ADM-Q2-1..4 (SEMANTICS.md §6.3a), test-only like
+ * `semanticFaults`. These are not document-validity rules: every document that trips one is a valid
+ * 1.5 document a reader keeps byte for byte. They are what a Quake II `.map` build refuses before a
+ * compiler runs, naming the face or the entity key, and never repairs. `test-vectors/index.json`'s
+ * `quake2_admission` set is the answer sheet.
+ */
+export const INT32_MIN = -2147483648;
+export const INT32_MAX = 2147483647;
+const unsafeReference = (name) => {
+  const segments = name.replaceAll('\\', '/').split('/');
+  return name.startsWith('/') || name.startsWith('\\') || /^[A-Za-z]:/.test(name)
+    || segments.some((segment) => segment === '' || segment === '.' || segment === '..');
+};
+const RESOURCE_KEYS = new Set(['model', 'noise', 'sky']);
+
+export function quake2AdmissionFaults(document) {
+  const faults = [];
+  for (const entity of document.entities ?? []) {
+    for (const item of entity.content ?? []) {
+      if (item.kind === 'property' && RESOURCE_KEYS.has(item.key) && item.value !== ''
+          && !item.value.startsWith('*') && unsafeReference(item.value))
+        faults.push({ rule: 'ADM-Q2-4', entity_id: entity.entity_id, key: item.key });
+      if (item.kind !== 'brush') continue;
+      for (const face of item.faces) {
+        if (unsafeReference(face.texture)) faults.push({ rule: 'ADM-Q2-4', face_id: face.face_id });
+        if (face.tail === undefined) continue;
+        if (face.tail.length !== 3) faults.push({ rule: 'ADM-Q2-1', face_id: face.face_id });
+        else if (!face.tail.every(Number.isInteger)) faults.push({ rule: 'ADM-Q2-2', face_id: face.face_id });
+        else if (face.tail.some((value) => value < INT32_MIN || value > INT32_MAX))
+          faults.push({ rule: 'ADM-Q2-3', face_id: face.face_id });
+      }
+    }
+  }
+  return faults;
+}
+
 export const describeErrors = (errors) =>
   (errors ?? []).map((error) => `${error.keyword} @ ${error.instancePath || '/'}: ${error.message}`).join('\n  ');
 

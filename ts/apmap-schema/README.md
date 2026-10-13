@@ -158,6 +158,30 @@ grid that matches its dimensions, an invertible matrix, Quake III surfaces only 
 document, and one projection syntax per brush. A component that cannot yet preserve a patch
 **refuses the document by name**; it never strips, flattens or converts one. `SEMANTICS.md` §9c.
 
+## Quake II needs no new version
+
+`game: "quake2"` with `map_dialect` `quake_standard` (classic) or `valve_220` is a Quake II document
+under 1.5 exactly as it stands: the three Quake II face numbers live in the existing `face.tail`.
+Measured on a real nine-map corpus and on authored vectors (`Q2_001`), and written down in
+`SEMANTICS.md` §6.3a without changing a schema byte:
+
+- **order** — `tail` is the source line's `CONTENTS SURFACE_FLAGS VALUE`; a WAL header stores flags,
+  contents, value, and the two are never copied into each other by position;
+- **absent is not zero** — a face with no tail inherits the WAL header at compile time, `[0, 0, 0]`
+  does not, so a reader keeps the member absent and a writer emits no tail for it;
+- **signed 32-bit** — the sign bit is the integer `-2147483648`, unassigned bits are kept, nothing is
+  masked or re-spelled unsigned.
+
+The schema is deliberately more permissive than Quake II. A Quake II `.map` **build** refuses — and
+never rewrites — a tail that is not three integers in the signed 32-bit range, and a texture or
+resource name that leaves the game root: ADM-Q2-1..4. Those documents are still valid; the vectors
+under `test-vectors/quake2-admission/` (index key `quake2_admission`) say which face each build must
+name.
+
+```bash
+node --test test/quake2.test.mjs   # the Quake II vectors, ADM-Q2 answer sheet, projection math
+```
+
 ## What 1.4 added
 
 ### `authorship` — who made the document

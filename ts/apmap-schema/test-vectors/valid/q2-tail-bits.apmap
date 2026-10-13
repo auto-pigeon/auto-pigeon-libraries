@@ -1,0 +1,3522 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "vector-1-5-q2-tail-bits",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake2",
+  "map_dialect": "quake_standard",
+  "id_policy": "minted",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "aulibs-apmap-schema-vectors",
+    "producer_version": "1.5"
+  },
+  "entities": [
+    {
+      "entity_id": "ent_q2v03world0",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03floor0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03floor0f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -143,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -144,
+                    -15
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03floor0f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    144,
+                    1
+                  ],
+                  [
+                    144,
+                    145,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03floor0f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -144,
+                    -15
+                  ],
+                  [
+                    -143,
+                    -144,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03floor0f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    145,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03floor0f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -143,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -143,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03floor0f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    145,
+                    0
+                  ],
+                  [
+                    145,
+                    144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03ceil00",
+          "faces": [
+            {
+              "face_id": "fac_q2v03ceil00f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -143,
+                    128
+                  ],
+                  [
+                    -144,
+                    -144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ceil00f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    144,
+                    145
+                  ],
+                  [
+                    144,
+                    145,
+                    144
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ceil00f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -144,
+                    129
+                  ],
+                  [
+                    -143,
+                    -144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ceil00f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    145,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    144,
+                    145
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ceil00f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -143,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -143,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ceil00f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    145,
+                    144
+                  ],
+                  [
+                    145,
+                    144,
+                    144
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03wallw0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03wallw0f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -143,
+                    0
+                  ],
+                  [
+                    -144,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03wallw0f1",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    144,
+                    129
+                  ],
+                  [
+                    -128,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03wallw0f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -144,
+                    1
+                  ],
+                  [
+                    -143,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03wallw0f3",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -127,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03wallw0f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -143,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03wallw0f5",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    145,
+                    128
+                  ],
+                  [
+                    -127,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03walls0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03walls0f0",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -143,
+                    0
+                  ],
+                  [
+                    -128,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walls0f1",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -128,
+                    129
+                  ],
+                  [
+                    128,
+                    -127,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walls0f2",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -144,
+                    1
+                  ],
+                  [
+                    -127,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walls0f3",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    129,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -128,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walls0f4",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -127,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walls0f5",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -127,
+                    128
+                  ],
+                  [
+                    129,
+                    -128,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03walln0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03walln0f0",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    129,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walln0f1",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    144,
+                    129
+                  ],
+                  [
+                    128,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walln0f2",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    1
+                  ],
+                  [
+                    -127,
+                    128,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walln0f3",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    129,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walln0f4",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -127,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    129,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walln0f5",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    145,
+                    128
+                  ],
+                  [
+                    129,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03walle0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03walle0f0",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -143,
+                    0
+                  ],
+                  [
+                    128,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walle0f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    144,
+                    129
+                  ],
+                  [
+                    144,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walle0f2",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -144,
+                    1
+                  ],
+                  [
+                    129,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walle0f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    145,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walle0f4",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    129,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03walle0f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    145,
+                    128
+                  ],
+                  [
+                    145,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03detail000",
+          "faces": [
+            {
+              "face_id": "fac_q2v03detail000f0",
+              "plane": {
+                "points": [
+                  [
+                    -112,
+                    -12,
+                    16
+                  ],
+                  [
+                    -112,
+                    -11,
+                    16
+                  ],
+                  [
+                    -112,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                134217728,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03detail000f1",
+              "plane": {
+                "points": [
+                  [
+                    -92,
+                    12,
+                    40
+                  ],
+                  [
+                    -92,
+                    12,
+                    41
+                  ],
+                  [
+                    -92,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                134217728,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03detail000f2",
+              "plane": {
+                "points": [
+                  [
+                    -112,
+                    -12,
+                    16
+                  ],
+                  [
+                    -112,
+                    -12,
+                    17
+                  ],
+                  [
+                    -111,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                134217728,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03detail000f3",
+              "plane": {
+                "points": [
+                  [
+                    -92,
+                    12,
+                    40
+                  ],
+                  [
+                    -91,
+                    12,
+                    40
+                  ],
+                  [
+                    -92,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                134217728,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03detail000f4",
+              "plane": {
+                "points": [
+                  [
+                    -112,
+                    -12,
+                    16
+                  ],
+                  [
+                    -111,
+                    -12,
+                    16
+                  ],
+                  [
+                    -112,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                134217728,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03detail000f5",
+              "plane": {
+                "points": [
+                  [
+                    -92,
+                    12,
+                    40
+                  ],
+                  [
+                    -92,
+                    13,
+                    40
+                  ],
+                  [
+                    -91,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                134217728,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03ladderclp",
+          "faces": [
+            {
+              "face_id": "fac_q2v03ladderclpf0",
+              "plane": {
+                "points": [
+                  [
+                    -84,
+                    -12,
+                    16
+                  ],
+                  [
+                    -84,
+                    -11,
+                    16
+                  ],
+                  [
+                    -84,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                679673856,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ladderclpf1",
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    12,
+                    40
+                  ],
+                  [
+                    -64,
+                    12,
+                    41
+                  ],
+                  [
+                    -64,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                679673856,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ladderclpf2",
+              "plane": {
+                "points": [
+                  [
+                    -84,
+                    -12,
+                    16
+                  ],
+                  [
+                    -84,
+                    -12,
+                    17
+                  ],
+                  [
+                    -83,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                679673856,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ladderclpf3",
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    12,
+                    40
+                  ],
+                  [
+                    -63,
+                    12,
+                    40
+                  ],
+                  [
+                    -64,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                679673856,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ladderclpf4",
+              "plane": {
+                "points": [
+                  [
+                    -84,
+                    -12,
+                    16
+                  ],
+                  [
+                    -83,
+                    -12,
+                    16
+                  ],
+                  [
+                    -84,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                679673856,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03ladderclpf5",
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    12,
+                    40
+                  ],
+                  [
+                    -64,
+                    13,
+                    40
+                  ],
+                  [
+                    -63,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                679673856,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03solidsign",
+          "faces": [
+            {
+              "face_id": "fac_q2v03solidsignf0",
+              "plane": {
+                "points": [
+                  [
+                    -56,
+                    -12,
+                    16
+                  ],
+                  [
+                    -56,
+                    -11,
+                    16
+                  ],
+                  [
+                    -56,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483647,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03solidsignf1",
+              "plane": {
+                "points": [
+                  [
+                    -36,
+                    12,
+                    40
+                  ],
+                  [
+                    -36,
+                    12,
+                    41
+                  ],
+                  [
+                    -36,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483647,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03solidsignf2",
+              "plane": {
+                "points": [
+                  [
+                    -56,
+                    -12,
+                    16
+                  ],
+                  [
+                    -56,
+                    -12,
+                    17
+                  ],
+                  [
+                    -55,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483647,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03solidsignf3",
+              "plane": {
+                "points": [
+                  [
+                    -36,
+                    12,
+                    40
+                  ],
+                  [
+                    -35,
+                    12,
+                    40
+                  ],
+                  [
+                    -36,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483647,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03solidsignf4",
+              "plane": {
+                "points": [
+                  [
+                    -56,
+                    -12,
+                    16
+                  ],
+                  [
+                    -55,
+                    -12,
+                    16
+                  ],
+                  [
+                    -56,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483647,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03solidsignf5",
+              "plane": {
+                "points": [
+                  [
+                    -36,
+                    12,
+                    40
+                  ],
+                  [
+                    -36,
+                    13,
+                    40
+                  ],
+                  [
+                    -35,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483647,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03int32min0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03int32min0f0",
+              "plane": {
+                "points": [
+                  [
+                    -28,
+                    -12,
+                    16
+                  ],
+                  [
+                    -28,
+                    -11,
+                    16
+                  ],
+                  [
+                    -28,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483648,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03int32min0f1",
+              "plane": {
+                "points": [
+                  [
+                    -8,
+                    12,
+                    40
+                  ],
+                  [
+                    -8,
+                    12,
+                    41
+                  ],
+                  [
+                    -8,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483648,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03int32min0f2",
+              "plane": {
+                "points": [
+                  [
+                    -28,
+                    -12,
+                    16
+                  ],
+                  [
+                    -28,
+                    -12,
+                    17
+                  ],
+                  [
+                    -27,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483648,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03int32min0f3",
+              "plane": {
+                "points": [
+                  [
+                    -8,
+                    12,
+                    40
+                  ],
+                  [
+                    -7,
+                    12,
+                    40
+                  ],
+                  [
+                    -8,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483648,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03int32min0f4",
+              "plane": {
+                "points": [
+                  [
+                    -28,
+                    -12,
+                    16
+                  ],
+                  [
+                    -27,
+                    -12,
+                    16
+                  ],
+                  [
+                    -28,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483648,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03int32min0f5",
+              "plane": {
+                "points": [
+                  [
+                    -8,
+                    12,
+                    40
+                  ],
+                  [
+                    -8,
+                    13,
+                    40
+                  ],
+                  [
+                    -7,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                -2147483648,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03unkcont00",
+          "faces": [
+            {
+              "face_id": "fac_q2v03unkcont00f0",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    -12,
+                    16
+                  ],
+                  [
+                    0,
+                    -11,
+                    16
+                  ],
+                  [
+                    0,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1025,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkcont00f1",
+              "plane": {
+                "points": [
+                  [
+                    20,
+                    12,
+                    40
+                  ],
+                  [
+                    20,
+                    12,
+                    41
+                  ],
+                  [
+                    20,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1025,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkcont00f2",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    -12,
+                    16
+                  ],
+                  [
+                    0,
+                    -12,
+                    17
+                  ],
+                  [
+                    1,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1025,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkcont00f3",
+              "plane": {
+                "points": [
+                  [
+                    20,
+                    12,
+                    40
+                  ],
+                  [
+                    21,
+                    12,
+                    40
+                  ],
+                  [
+                    20,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1025,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkcont00f4",
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    -12,
+                    16
+                  ],
+                  [
+                    1,
+                    -12,
+                    16
+                  ],
+                  [
+                    0,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1025,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkcont00f5",
+              "plane": {
+                "points": [
+                  [
+                    20,
+                    12,
+                    40
+                  ],
+                  [
+                    20,
+                    13,
+                    40
+                  ],
+                  [
+                    21,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1025,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03unkflags0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03unkflags0f0",
+              "plane": {
+                "points": [
+                  [
+                    28,
+                    -12,
+                    16
+                  ],
+                  [
+                    28,
+                    -11,
+                    16
+                  ],
+                  [
+                    28,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                3072,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkflags0f1",
+              "plane": {
+                "points": [
+                  [
+                    48,
+                    12,
+                    40
+                  ],
+                  [
+                    48,
+                    12,
+                    41
+                  ],
+                  [
+                    48,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                3072,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkflags0f2",
+              "plane": {
+                "points": [
+                  [
+                    28,
+                    -12,
+                    16
+                  ],
+                  [
+                    28,
+                    -12,
+                    17
+                  ],
+                  [
+                    29,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                3072,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkflags0f3",
+              "plane": {
+                "points": [
+                  [
+                    48,
+                    12,
+                    40
+                  ],
+                  [
+                    49,
+                    12,
+                    40
+                  ],
+                  [
+                    48,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                3072,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkflags0f4",
+              "plane": {
+                "points": [
+                  [
+                    28,
+                    -12,
+                    16
+                  ],
+                  [
+                    29,
+                    -12,
+                    16
+                  ],
+                  [
+                    28,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                3072,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v03unkflags0f5",
+              "plane": {
+                "points": [
+                  [
+                    48,
+                    12,
+                    40
+                  ],
+                  [
+                    48,
+                    13,
+                    40
+                  ],
+                  [
+                    49,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                3072,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03lightval0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03lightval0f0",
+              "plane": {
+                "points": [
+                  [
+                    56,
+                    -12,
+                    16
+                  ],
+                  [
+                    56,
+                    -11,
+                    16
+                  ],
+                  [
+                    56,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                1,
+                300
+              ]
+            },
+            {
+              "face_id": "fac_q2v03lightval0f1",
+              "plane": {
+                "points": [
+                  [
+                    76,
+                    12,
+                    40
+                  ],
+                  [
+                    76,
+                    12,
+                    41
+                  ],
+                  [
+                    76,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                1,
+                300
+              ]
+            },
+            {
+              "face_id": "fac_q2v03lightval0f2",
+              "plane": {
+                "points": [
+                  [
+                    56,
+                    -12,
+                    16
+                  ],
+                  [
+                    56,
+                    -12,
+                    17
+                  ],
+                  [
+                    57,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                1,
+                300
+              ]
+            },
+            {
+              "face_id": "fac_q2v03lightval0f3",
+              "plane": {
+                "points": [
+                  [
+                    76,
+                    12,
+                    40
+                  ],
+                  [
+                    77,
+                    12,
+                    40
+                  ],
+                  [
+                    76,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                1,
+                300
+              ]
+            },
+            {
+              "face_id": "fac_q2v03lightval0f4",
+              "plane": {
+                "points": [
+                  [
+                    56,
+                    -12,
+                    16
+                  ],
+                  [
+                    57,
+                    -12,
+                    16
+                  ],
+                  [
+                    56,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                1,
+                300
+              ]
+            },
+            {
+              "face_id": "fac_q2v03lightval0f5",
+              "plane": {
+                "points": [
+                  [
+                    76,
+                    12,
+                    40
+                  ],
+                  [
+                    76,
+                    13,
+                    40
+                  ],
+                  [
+                    77,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                1,
+                300
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v03allflags0",
+          "faces": [
+            {
+              "face_id": "fac_q2v03allflags0f0",
+              "plane": {
+                "points": [
+                  [
+                    84,
+                    -12,
+                    16
+                  ],
+                  [
+                    84,
+                    -11,
+                    16
+                  ],
+                  [
+                    84,
+                    -12,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                2147483647,
+                2147483647
+              ]
+            },
+            {
+              "face_id": "fac_q2v03allflags0f1",
+              "plane": {
+                "points": [
+                  [
+                    104,
+                    12,
+                    40
+                  ],
+                  [
+                    104,
+                    12,
+                    41
+                  ],
+                  [
+                    104,
+                    13,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                2147483647,
+                2147483647
+              ]
+            },
+            {
+              "face_id": "fac_q2v03allflags0f2",
+              "plane": {
+                "points": [
+                  [
+                    84,
+                    -12,
+                    16
+                  ],
+                  [
+                    84,
+                    -12,
+                    17
+                  ],
+                  [
+                    85,
+                    -12,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                2147483647,
+                2147483647
+              ]
+            },
+            {
+              "face_id": "fac_q2v03allflags0f3",
+              "plane": {
+                "points": [
+                  [
+                    104,
+                    12,
+                    40
+                  ],
+                  [
+                    105,
+                    12,
+                    40
+                  ],
+                  [
+                    104,
+                    12,
+                    41
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                2147483647,
+                2147483647
+              ]
+            },
+            {
+              "face_id": "fac_q2v03allflags0f4",
+              "plane": {
+                "points": [
+                  [
+                    84,
+                    -12,
+                    16
+                  ],
+                  [
+                    85,
+                    -12,
+                    16
+                  ],
+                  [
+                    84,
+                    -11,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                2147483647,
+                2147483647
+              ]
+            },
+            {
+              "face_id": "fac_q2v03allflags0f5",
+              "plane": {
+                "points": [
+                  [
+                    104,
+                    12,
+                    40
+                  ],
+                  [
+                    104,
+                    13,
+                    40
+                  ],
+                  [
+                    105,
+                    12,
+                    40
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                1,
+                2147483647,
+                2147483647
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v03start0",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_start"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "64 64 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v03light0",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 96"
+        },
+        {
+          "kind": "property",
+          "key": "light",
+          "value": "300"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

@@ -85,6 +85,30 @@
     {
       "file": "q3-patch-derived-ids.apmap",
       "exercises": "id_policy derived with a patch addressed as e0.p0: its id is the SHA-256 digest of ('patch', source_map, source_sha256, 'e0.p0') under the section 3.5 algorithm, beside the entity (e0), brush (e0.b0) and faces (e0.b0.fN) of the same source."
+    },
+    {
+      "file": "q2-classic-sealed-room.apmap",
+      "exercises": "Quake II (game quake2, map_dialect quake_standard): AUT's authored sealed control room in classic projection. Every face carries the explicit tail [0,0,0] (CONTENTS, SURFACE FLAGS, VALUE) EXCEPT the floor's top face, whose `tail` is ABSENT; an interior brush carries [1,2,300]. Absent and [0,0,0] are different data: a Quake II compiler gives an absent tail the WAL header's flags/contents/value and gives an explicit [0,0,0] zeros (measured, SEMANTICS.md §6.3). A reader must not fill the absent tail or drop the explicit one."
+    },
+    {
+      "file": "q2-tail-bits.apmap",
+      "exercises": "Quake II tails that carry the bits real maps use, each on its own brush: DETAIL alone (134217728 = 0x08000000), LADDER|DETAIL|CURRENT_DOWN|MONSTERCLIP|PLAYERCLIP (679673856), the sign bit as signed int32 (-2147483647 = 0x80000001, and INT32_MIN -2147483648 alone), an unassigned contents bit (1025), unassigned surface-flag bits (3072), SURF_LIGHT with value 300, and INT32_MAX flags and value. Every number must survive byte-exact as a JSON integer — no exponent, no unsigned re-spelling, no masking."
+    },
+    {
+      "file": "q2-classic-projections.apmap",
+      "exercises": "Quake II classic projections on one brush: rotations 0, 90 and 15 degrees, signed and non-uniform scales (-0.5, 2, -1), fractional shifts (7.5, 3.25). The reference texture coordinates are computed in test/quake2.test.mjs."
+    },
+    {
+      "file": "q2-valve220-oblique.apmap",
+      "exercises": "Quake II in Valve 220 (map_dialect valve_220): a wedge whose sloped face is textured along its own plane at scales 0.5/2 with a 15-degree in-plane rotation and fractional axis shifts. No classic projection expresses those axes, so a Valve 220 -> classic conversion of that face must be refused, not approximated (SEMANTICS.md §6.3a)."
+    },
+    {
+      "file": "q2-groups-entities.apmap",
+      "exercises": "Quake II editor metadata: a nested group ('Lift room' holds the group 'Lift' and a point light), a brush entity func_door with its own tailed brush, light keys (_color, style) and authorship. Groups and authorship are APMap data, never runtime entities."
+    },
+    {
+      "file": "q2-entity-keys.apmap",
+      "exercises": "Quake II entity keys: repeated keys (two `target`, two `sky` on worldspawn, an unknown `_aulibs_unknown` twice at different positions) and an empty `message` value. Order and repetition are data: a reader that builds an object from the keys has lost the second value."
     }
   ],
   "invalid": [
@@ -682,6 +706,57 @@
       "file": "group-patch-two-groups.apmap",
       "rule": "SEM-G-4",
       "violation": "a patch is a direct member of two groups."
+    },
+    {
+      "file": "q2-patch-in-quake2-document.apmap",
+      "rule": "SEM-Q-4",
+      "violation": "a Quake III patch inside a game quake2 document. Quake II has no Bezier patches; changing a document's game label does not give it one. A consumer refuses the document by name and keeps the original unchanged."
     }
-  ]
+  ],
+  "quake2_admission": [
+    {
+      "file": "tail-four-numbers.apmap",
+      "rule": "ADM-Q2-1",
+      "face_id": "fac_q2v01mark0f0",
+      "violation": "a four-number tail; both pinned EricW builds stop with \"Invalid brush plane format\"."
+    },
+    {
+      "file": "tail-two-numbers.apmap",
+      "rule": "ADM-Q2-1",
+      "face_id": "fac_q2v01mark0f0",
+      "violation": "a two-number tail; EricW fills a zero value, id qbsp3 reads the next line's token: compiler-dependent."
+    },
+    {
+      "file": "tail-fractional.apmap",
+      "rule": "ADM-Q2-2",
+      "face_id": "fac_q2v01mark0f0",
+      "violation": "contents 1.5; std::stoi truncates it to 1 without a diagnostic."
+    },
+    {
+      "file": "tail-unsigned-sign-bit.apmap",
+      "rule": "ADM-Q2-3",
+      "face_id": "fac_q2v01mark0f0",
+      "violation": "the sign bit spelled unsigned; fork 1.4518 crashes in stoi, alpha7 wraps it to 0x80000000. The signed spelling is -2147483648."
+    },
+    {
+      "file": "tail-below-int32.apmap",
+      "rule": "ADM-Q2-3",
+      "face_id": "fac_q2v01mark0f0",
+      "violation": "one below INT32_MIN; no 32-bit int holds it."
+    },
+    {
+      "file": "texture-escapes-root.apmap",
+      "rule": "ADM-Q2-4",
+      "face_id": "fac_q2v01mark0f0",
+      "violation": "a texture name whose `..` segments leave textures/: resolving it would read outside the admitted game root."
+    },
+    {
+      "file": "model-escapes-root.apmap",
+      "rule": "ADM-Q2-4",
+      "entity_id": "ent_q2admmodel0",
+      "key": "model",
+      "violation": "a model key whose `..` segments leave the game root; a resolver must not open it, and the document keeps it verbatim."
+    }
+  ],
+  "quake2_admission_description": "Documents that pass the schema AND every semantic rule — they are valid 1.5 documents and every reader keeps them byte for byte — but that a Quake II `.map` build must refuse before running a compiler, naming the face (or entity key) given here, for exactly the ADM-Q2-* rule given here (SEMANTICS.md §6.3a). A build never rewrites them."
 }

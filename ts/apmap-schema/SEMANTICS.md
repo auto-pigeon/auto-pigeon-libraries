@@ -15,6 +15,9 @@
   SCH-G-10..11, SEM-G-8..9 and the revised SEM-G-4/5/6); 1.5 adds the Quake III surfaces — the
   entity content item `patch`, the face projection `brush_primitives` and the group member kind
   `patch` — with their own section (§9c), SCH-Q-*/SEM-Q-* rules and serialization rule SER-7Q.
+  Quake II needed no version: §6.3a (Q2_001) documents what 1.5 already carries for it — the tail
+  order, the absent-versus-zero distinction, the signed 32-bit range — and the ADM-Q2-* rules a
+  Quake II `.map` build applies, which refuse at build time without making any document invalid.
 
   It was published at $MAPPER_ROOT/formats/apmap/1.0/README.md until this repository became the
   authority, so that a public clone can read the normative rule catalogue without a data root.
@@ -127,6 +130,17 @@ combination in which a `patch` or a `brush_primitives` face may appear
 where it refuses: a component that cannot yet draw, edit or compile a Quake III
 surface refuses the document by name and never flattens, drops or converts
 what it does not implement.
+
+**`quake2` needs no new member, and 1.5 is sufficient for it** (Q2_001, measured
+on a real nine-map corpus and on independently authored vectors). A Quake II
+document is `game: quake2` with `map_dialect` naming the **face projection
+form** — `quake_standard` (classic) or `valve_220` — exactly as for Quake 1;
+the three Quake II face numbers live in `face.tail` (§6.3a), so the reserved
+`quake2_extended` names nothing a document must say and no producer writes
+it. A reader decides the game from the document's `game`, never from a file
+extension: Quake 1, II and III `.map` files share most of their grammar, and a
+`.map` with three-number tails is not thereby Quake II (Quake III faces carry
+them too).
 
 ---
 
@@ -465,6 +479,78 @@ A Quake III face — classic or brushDef — ends in three such numbers (content
 flags, surface flags, value). They are stored in `tail` exactly like Quake 2's,
 and 1.5 assigns them no meaning either: a shader's own `surfaceparm`s, not the
 map, are where Quake III usually says what a surface is.
+
+### 6.3a Quake II face metadata (1.5, documented by Q2_001)
+
+What follows changes no schema byte and adds no SEM-* rule: every document
+that was valid before is valid now. It says what the numbers a `quake2`
+document carries **are**, so that every consumer preserves the same thing, and
+it names the checks a Quake II **build** applies (ADM-Q2-*).
+
+**Order.** A Quake II face line ends `CONTENTS SURFACE_FLAGS VALUE`, and
+`tail` keeps that order: `tail[0]` is the contents mask, `tail[1]` the surface
+flags, `tail[2]` the value (light emission for `SURF_LIGHT`, or a
+game-specific number). A WAL texture header stores the same three fields in a
+**different** order — flags, contents, value — and a reader must never copy a
+WAL header into a tail, or a tail into a WAL header, by position. Measured
+with the pinned compilers: the tail `1 2 300` compiles to brush contents `0x1`
+(SOLID) and texinfo flags `0x2` (SLICK) with value 300.
+
+**Absent is not zero.** A face whose source line had no tail has no `tail`
+member; a face that said `0 0 0` has `"tail": [0, 0, 0]`. They compile
+differently: a Quake II compiler gives an absent tail the WAL header's
+contents, flags and value, and gives an explicit `0 0 0` zeros (measured on
+both pinned EricW builds with an authored WAL whose header says `SURF_LIGHT`,
+value 200: absent → flags `0x1`, value 200; `0 0 0` → flags 0, value 0;
+`0 0 50` → flags 0, value 50). A reader keeps the member absent, a writer
+emits no tail for it, and neither fills it in. Real maps mix both on purpose:
+every map in the measured corpus has faces of each kind.
+
+**Range and spelling.** The three numbers are C `int`s — **signed 32-bit**,
+written in decimal. The sign bit is an ordinary mask bit: contents
+`0x80000001` is the tail value `-2147483647`, and `INT32_MIN` is
+`-2147483648`. A document stores each number as the JSON integer the source
+spelled; SER-7 already emits an integer as an integer, so `134217728`
+(`CONTENTS_DETAIL`), `679673856` and `-2147483648` round-trip exactly, and
+no reader may mask, reinterpret as unsigned, or re-spell them. Bits Quake II
+does not assign — contents `0x400`, surface flags `0xC00` — are preserved
+like any other: both pinned compilers write them through to the BSP's brush
+contents and texinfo flags unchanged, and real maps carry them.
+
+**What this does not say.** It gives the bits no game meaning. `tail` is a
+cross-game member (Quake II and III use it, a Quake 1 face may carry one), so
+no consumer applies Quake II bitfield semantics to a tail outside a `quake2`
+document, and a `quake2` document's bits are interpreted only by the
+component that needs them — a renderer hiding `SURF_NODRAW`, a build deciding
+what seals.
+
+**The schema is more permissive than Quake II, by design.** A face `tail` is
+any number of finite numbers, because 1.0–1.4 documents were written that way
+and are frozen. A Quake II build does not rewrite such a tail; it refuses it,
+naming the face, before any compiler runs. Measured on the pinned compilers,
+every rule below prevents a silent wrong result or an opaque crash:
+
+| id | a Quake II `.map` build refuses a face whose `tail` … | why (measured) |
+| --- | --- | --- |
+| ADM-Q2-1 | is present with other than exactly 3 numbers | 4 numbers: both EricW builds stop with `Invalid brush plane format`; 1 or 2: EricW fills zeros but id's original `qbsp3` reads three tokens regardless, so the meaning depends on the compiler |
+| ADM-Q2-2 | holds a number that is not an integer | `1.5` is truncated to `1` by `std::stoi` with no diagnostic |
+| ADM-Q2-3 | holds an integer outside `-2147483648 … 2147483647` | `2147483648` (the unsigned spelling of the sign bit) crashes fork 1.4518 (`stoi`) and is silently wrapped to `0x80000000` by alpha7: the same map gives two results. The diagnostic names the signed spelling; the build never substitutes it |
+
+A build also never resolves a texture or model reference outside the admitted
+game root: a name with an empty, `.` or `..` segment, a drive or an absolute
+path is refused by the resolver that would have opened it (ADM-Q2-4), and the
+document keeps the name verbatim. `test-vectors/quake2-admission/` holds one
+schema-valid, semantically valid document per rule, with the face it must name.
+
+**Texture projections.** Quake II classic and Valve 220 projections are the
+Quake 1 ones (§6.2). Classic → Valve 220 is exact: the Valve axes are the
+classic base axes after rotation, with the same shift and scale, so world-space
+texture coordinates are unchanged (`test/quake2.test.mjs` measures four probe
+points per face, |Δ| < 1e-9 texels before SER-7 and < 0.01 texels after it
+for coordinates within ±4096). Valve 220 → classic exists only when a face's
+axes are the classic base axes of its plane, rotated in-plane; an oblique
+face — the slope in `q2-valve220-oblique.apmap` — has none, and a converter
+refuses it by name rather than approximating.
 
 ---
 
@@ -1206,7 +1292,8 @@ Recorded here so nobody looks for it:
   consumer.
 - **Compiled artifacts** — `.bsp`, `.prt`, lightmaps, visibility.
 - **Quake 2 surface flag semantics** — the numbers survive in `tail`; their
-  meaning is not defined in 1.0.
+  meaning is not defined in 1.0. §6.3a fixes their order, range and the
+  absent-versus-zero distinction, still without assigning the bits a meaning.
 
 ---
 
@@ -1227,4 +1314,8 @@ one violates.
 Vector coverage spans: minimal document · real prefab core · Valve 220 ·
 Quake 2 face tails · repeated entity keys · cropped-context synthetic faces ·
 journal-derived authored ids · typed relationships · brushless point entities ·
-namespaced extensions.
+namespaced extensions · from Q2_001, Quake II (`q2-*.apmap`): an absent tail
+beside explicit ones, signed 32-bit and unassigned bits, classic and oblique
+Valve 220 projections, nested groups over Quake II entities, repeated and empty
+keys, and a patch refused in a `quake2` document; `quake2-admission/` holds the
+build refusals ADM-Q2-1..4.

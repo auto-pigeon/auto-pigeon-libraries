@@ -1,0 +1,1865 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "vector-1-5-q2-groups-entities",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake2",
+  "map_dialect": "quake_standard",
+  "id_policy": "minted",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "aulibs-apmap-schema-vectors",
+    "producer_version": "1.5"
+  },
+  "authorship": {
+    "author": "AULIBS vector author",
+    "copyright_notice": "Independently authored for the APMap contract.",
+    "license": "Apache-2.0"
+  },
+  "entities": [
+    {
+      "entity_id": "ent_q2v05world0",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05floor0",
+          "faces": [
+            {
+              "face_id": "fac_q2v05floor0f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -143,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -144,
+                    -15
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05floor0f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    144,
+                    1
+                  ],
+                  [
+                    144,
+                    145,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05floor0f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -144,
+                    -15
+                  ],
+                  [
+                    -143,
+                    -144,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05floor0f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    145,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05floor0f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -143,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -143,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05floor0f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    145,
+                    0
+                  ],
+                  [
+                    145,
+                    144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05ceil00",
+          "faces": [
+            {
+              "face_id": "fac_q2v05ceil00f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -143,
+                    128
+                  ],
+                  [
+                    -144,
+                    -144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05ceil00f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    144,
+                    145
+                  ],
+                  [
+                    144,
+                    145,
+                    144
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05ceil00f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -144,
+                    129
+                  ],
+                  [
+                    -143,
+                    -144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05ceil00f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    145,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    144,
+                    145
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05ceil00f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -143,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -143,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05ceil00f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    145,
+                    144
+                  ],
+                  [
+                    145,
+                    144,
+                    144
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05wallw0",
+          "faces": [
+            {
+              "face_id": "fac_q2v05wallw0f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -143,
+                    0
+                  ],
+                  [
+                    -144,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05wallw0f1",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    144,
+                    129
+                  ],
+                  [
+                    -128,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05wallw0f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -144,
+                    1
+                  ],
+                  [
+                    -143,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05wallw0f3",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -127,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05wallw0f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -143,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05wallw0f5",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    145,
+                    128
+                  ],
+                  [
+                    -127,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05walls0",
+          "faces": [
+            {
+              "face_id": "fac_q2v05walls0f0",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -143,
+                    0
+                  ],
+                  [
+                    -128,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walls0f1",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -128,
+                    129
+                  ],
+                  [
+                    128,
+                    -127,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walls0f2",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -144,
+                    1
+                  ],
+                  [
+                    -127,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walls0f3",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    129,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -128,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walls0f4",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -127,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walls0f5",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -127,
+                    128
+                  ],
+                  [
+                    129,
+                    -128,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05walln0",
+          "faces": [
+            {
+              "face_id": "fac_q2v05walln0f0",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    129,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walln0f1",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    144,
+                    129
+                  ],
+                  [
+                    128,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walln0f2",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    1
+                  ],
+                  [
+                    -127,
+                    128,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walln0f3",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    129,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walln0f4",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -127,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    129,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walln0f5",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    145,
+                    128
+                  ],
+                  [
+                    129,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05walle0",
+          "faces": [
+            {
+              "face_id": "fac_q2v05walle0f0",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -143,
+                    0
+                  ],
+                  [
+                    128,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walle0f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    144,
+                    129
+                  ],
+                  [
+                    144,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walle0f2",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -144,
+                    1
+                  ],
+                  [
+                    129,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walle0f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    145,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walle0f4",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    129,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05walle0f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    145,
+                    128
+                  ],
+                  [
+                    145,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v05start0",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_start"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "64 64 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v05light0",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 100"
+        },
+        {
+          "kind": "property",
+          "key": "light",
+          "value": "300"
+        },
+        {
+          "kind": "property",
+          "key": "_color",
+          "value": "1 0.5 0.25"
+        },
+        {
+          "kind": "property",
+          "key": "style",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v05door00",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "func_door"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "-1"
+        },
+        {
+          "kind": "property",
+          "key": "speed",
+          "value": "100"
+        },
+        {
+          "kind": "property",
+          "key": "targetname",
+          "value": "lift1"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v05door00",
+          "faces": [
+            {
+              "face_id": "fac_q2v05door00f0",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    0
+                  ],
+                  [
+                    -32,
+                    -31,
+                    0
+                  ],
+                  [
+                    -32,
+                    -32,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05door00f1",
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    8
+                  ],
+                  [
+                    32,
+                    32,
+                    9
+                  ],
+                  [
+                    32,
+                    33,
+                    8
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05door00f2",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    0
+                  ],
+                  [
+                    -32,
+                    -32,
+                    1
+                  ],
+                  [
+                    -31,
+                    -32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05door00f3",
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    8
+                  ],
+                  [
+                    33,
+                    32,
+                    8
+                  ],
+                  [
+                    32,
+                    32,
+                    9
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05door00f4",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    0
+                  ],
+                  [
+                    -31,
+                    -32,
+                    0
+                  ],
+                  [
+                    -32,
+                    -31,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v05door00f5",
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    8
+                  ],
+                  [
+                    32,
+                    33,
+                    8
+                  ],
+                  [
+                    33,
+                    32,
+                    8
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "grp_q2v05outer00",
+      "name": "Lift room",
+      "members": [
+        {
+          "kind": "group",
+          "group_id": "grp_q2v05inner00"
+        },
+        {
+          "kind": "entity",
+          "entity_id": "ent_q2v05light0"
+        }
+      ]
+    },
+    {
+      "group_id": "grp_q2v05inner00",
+      "name": "Lift",
+      "members": [
+        {
+          "kind": "entity",
+          "entity_id": "ent_q2v05door00"
+        }
+      ]
+    }
+  ]
+}

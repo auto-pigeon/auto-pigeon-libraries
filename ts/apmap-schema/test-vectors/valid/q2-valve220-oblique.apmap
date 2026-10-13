@@ -1,0 +1,2141 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "vector-1-5-q2-valve220-oblique",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake2",
+  "map_dialect": "valve_220",
+  "id_policy": "minted",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "aulibs-apmap-schema-vectors",
+    "producer_version": "1.5"
+  },
+  "entities": [
+    {
+      "entity_id": "ent_q2v04world1",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "mapversion",
+          "value": "220"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04vfloor0",
+          "faces": [
+            {
+              "face_id": "fac_q2v04vfloor0f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -143,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -144,
+                    -15
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vfloor0f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    144,
+                    1
+                  ],
+                  [
+                    144,
+                    145,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vfloor0f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -144,
+                    -15
+                  ],
+                  [
+                    -143,
+                    -144,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vfloor0f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    145,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vfloor0f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -143,
+                    -144,
+                    -16
+                  ],
+                  [
+                    -144,
+                    -143,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vfloor0f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    0
+                  ],
+                  [
+                    144,
+                    145,
+                    0
+                  ],
+                  [
+                    145,
+                    144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04vceil00",
+          "faces": [
+            {
+              "face_id": "fac_q2v04vceil00f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -143,
+                    128
+                  ],
+                  [
+                    -144,
+                    -144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vceil00f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    144,
+                    145
+                  ],
+                  [
+                    144,
+                    145,
+                    144
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vceil00f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -144,
+                    129
+                  ],
+                  [
+                    -143,
+                    -144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vceil00f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    145,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    144,
+                    145
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vceil00f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    128
+                  ],
+                  [
+                    -143,
+                    -144,
+                    128
+                  ],
+                  [
+                    -144,
+                    -143,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vceil00f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    144
+                  ],
+                  [
+                    144,
+                    145,
+                    144
+                  ],
+                  [
+                    145,
+                    144,
+                    144
+                  ]
+                ]
+              },
+              "texture": "aut_q2/ceil",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04vwallw0",
+          "faces": [
+            {
+              "face_id": "fac_q2v04vwallw0f0",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -143,
+                    0
+                  ],
+                  [
+                    -144,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwallw0f1",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    144,
+                    129
+                  ],
+                  [
+                    -128,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwallw0f2",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -144,
+                    1
+                  ],
+                  [
+                    -143,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwallw0f3",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -127,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwallw0f4",
+              "plane": {
+                "points": [
+                  [
+                    -144,
+                    -144,
+                    0
+                  ],
+                  [
+                    -143,
+                    -144,
+                    0
+                  ],
+                  [
+                    -144,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwallw0f5",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    144,
+                    128
+                  ],
+                  [
+                    -128,
+                    145,
+                    128
+                  ],
+                  [
+                    -127,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04vwalls0",
+          "faces": [
+            {
+              "face_id": "fac_q2v04vwalls0f0",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -143,
+                    0
+                  ],
+                  [
+                    -128,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalls0f1",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -128,
+                    129
+                  ],
+                  [
+                    128,
+                    -127,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalls0f2",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -144,
+                    1
+                  ],
+                  [
+                    -127,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalls0f3",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    129,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -128,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalls0f4",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -144,
+                    0
+                  ],
+                  [
+                    -127,
+                    -144,
+                    0
+                  ],
+                  [
+                    -128,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalls0f5",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    128
+                  ],
+                  [
+                    128,
+                    -127,
+                    128
+                  ],
+                  [
+                    129,
+                    -128,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04vwalln0",
+          "faces": [
+            {
+              "face_id": "fac_q2v04vwalln0f0",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    129,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalln0f1",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    144,
+                    129
+                  ],
+                  [
+                    128,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalln0f2",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    1
+                  ],
+                  [
+                    -127,
+                    128,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalln0f3",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    129,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalln0f4",
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -127,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    129,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalln0f5",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    144,
+                    128
+                  ],
+                  [
+                    128,
+                    145,
+                    128
+                  ],
+                  [
+                    129,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04vwalle0",
+          "faces": [
+            {
+              "face_id": "fac_q2v04vwalle0f0",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -143,
+                    0
+                  ],
+                  [
+                    128,
+                    -144,
+                    1
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalle0f1",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    144,
+                    129
+                  ],
+                  [
+                    144,
+                    145,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalle0f2",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -144,
+                    1
+                  ],
+                  [
+                    129,
+                    -144,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalle0f3",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    145,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    144,
+                    129
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalle0f4",
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -144,
+                    0
+                  ],
+                  [
+                    129,
+                    -144,
+                    0
+                  ],
+                  [
+                    128,
+                    -143,
+                    0
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04vwalle0f5",
+              "plane": {
+                "points": [
+                  [
+                    144,
+                    144,
+                    128
+                  ],
+                  [
+                    144,
+                    145,
+                    128
+                  ],
+                  [
+                    145,
+                    144,
+                    128
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_q2v04valve0",
+          "faces": [
+            {
+              "face_id": "fac_q2v04valve0f0",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    16
+                  ],
+                  [
+                    -32,
+                    -31,
+                    16
+                  ],
+                  [
+                    -32,
+                    -32,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04valve0f1",
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    48
+                  ],
+                  [
+                    32,
+                    32,
+                    49
+                  ],
+                  [
+                    32,
+                    33,
+                    48
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  2
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04valve0f2",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    16
+                  ],
+                  [
+                    -32,
+                    -32,
+                    17
+                  ],
+                  [
+                    -31,
+                    -32,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  2,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04valve0f3",
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    16
+                  ],
+                  [
+                    33,
+                    32,
+                    16
+                  ],
+                  [
+                    32,
+                    32,
+                    17
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  1,
+                  1
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04valve0f4",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    16
+                  ],
+                  [
+                    -31,
+                    -32,
+                    16
+                  ],
+                  [
+                    -32,
+                    -31,
+                    16
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_q2v04valve0f5",
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    16
+                  ],
+                  [
+                    -32,
+                    32,
+                    48
+                  ],
+                  [
+                    32,
+                    32,
+                    48
+                  ]
+                ]
+              },
+              "texture": "aut_q2/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.965926,
+                  0.231495,
+                  0.115747,
+                  3.5
+                ],
+                "v_axis": [
+                  -0.258819,
+                  0.86395,
+                  0.431975,
+                  -12.25
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.5,
+                  2
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v04start1",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_start"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "64 64 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_q2v04light1",
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 96"
+        },
+        {
+          "kind": "property",
+          "key": "light",
+          "value": "300"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}
