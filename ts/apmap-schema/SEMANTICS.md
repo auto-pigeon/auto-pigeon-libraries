@@ -1237,11 +1237,12 @@ APMap export → .map representation
 ### Preserved exactly
 
 entity order · repeated keys · key order relative to brushes · brush order ·
-face order · 3-point planes · classic and Valve 220 projections · Quake 2
-numeric face tails · texture names · brushless point entities · unknown entity
-keys, verbatim · from 1.5: patches (grid, texture coordinates, shader, header
-tail) at their content position, and brushDef texture matrices, for an importer
-that implements them
+face order · 3-point planes · classic and Valve 220 projections (a classic one
+as the texture mapping it compiles to — see *Classic projections and SER-7*
+below) · Quake 2 numeric face tails · texture names · brushless point entities ·
+unknown entity keys, verbatim · from 1.5: patches (grid, texture coordinates,
+shader, header tail) at their content position, and brushDef texture matrices,
+for an importer that implements them
 
 ### Lost on import (`.map` → APMap)
 
@@ -1253,10 +1254,47 @@ that implements them
 | source line and column | only entity/brush/face indices survive, in `derived_from` |
 | brush primitives, bezier patches, Quake 3 patch meshes (**until 1.5**) | 1.0–1.4 have no place for them; an importer that does not implement 1.5's §6.2a/§9c still refuses a source containing them rather than dropping them |
 | `patchDef3` and `brushDef3` | Doom 3 / Quake 4 grammars Q3Map2 does not read (measured); 1.5 does not represent them and a Quake III importer refuses them |
+| texture alignment of a classic face on a base-plane tie that the two base planes see through a shear (described below) | SER-7 rounds the plane points that decide the tie, and no classic numbers express the source's mapping on the other base plane; an importer keeps the literal numbers and names the face |
 
 An unedited `.map` therefore re-exports **semantically identical, not
 byte-identical**. That is the same guarantee AUE's extraction round-trip
 equivalence check proves, at 0.0 plane error and 0.0 UV error.
+
+### Classic projections and SER-7
+
+A classic face stores five numbers and no axes: every reader re-derives the
+base plane its texture is projected through from the face's three points (the
+compiler's `TextureAxisFromPlane`). On an exact 45° plane that choice is a tie,
+decided by the last bits of the normal, and SER-7's six-place rounding of the
+points (§12) can decide it the other way. The same five numbers then project the
+texture through another world plane — measured on real Quake II maps at
+hundreds of texels — and a scale such as `0.0625004768` rounded to `0.0625`
+moves a texture a tenth of a texel thousands of units from the origin. Neither
+is "precision SER-7 permits": what this section preserves is the projection's
+meaning, and a texture that compiles somewhere else is a different meaning.
+
+So an importer that writes a classic face chooses its five numbers for the
+points the document will hold, and measures the result against the source's
+mapping at the corners of the face those points describe:
+
+1. the SER-7 spelling of the source's own numbers is kept whenever it is within
+   **0.01 texel** of the source everywhere on the face — nearly always;
+2. otherwise the source's mapping, restricted to the stored plane, is
+   re-expressed on the base plane the stored points select. That is possible
+   only when the restriction is a rotation and two scales there (its two texture
+   gradients orthogonal on that plane), and is used only when the rounded result
+   is within the bound; the face then stores other numbers that draw the same
+   texels, and a re-import reproduces them unchanged;
+3. otherwise — a tie between two base planes with a non-zero third normal
+   component, which those planes see through a shear — the literal numbers are
+   kept and the importer names the face. That is the loss row above.
+
+Geometry is never moved to change a face's base plane, and a classic face is
+never converted to Valve 220 by this rule. Quake III documents keep Q3Map2's
+own base-axis rule and are not re-expressed. This is a rule for producers of
+the existing format: no schema, version, SER-7 spelling or test vector changes,
+and a reader needs nothing new. AUP's `apmap/classicFidelity.ts` and AUE's
+`internal/apmap/classicfidelity.go` implement it.
 
 ### Lost on export (APMap → `.map`)
 
