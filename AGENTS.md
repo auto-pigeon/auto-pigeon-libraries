@@ -113,8 +113,12 @@ These are unconditional. Everything else is routed.
 - **Print `WORKFLOW.md`'s end-of-task marker as the literal last line of the final response**, at
   every status and however the session was started. This repo's `<ALIAS>` is `AULIBS`, recorded in
   `.agent-repo.json`.
-- **`./run.sh test` is the entrypoint and must pass.** A task that ran the tests some other way
-  still has to leave `./run.sh test` passing. TypeScript packages run through the package manager's
+- **Read `TEST-SKILL.md` before selecting, resuming or qualifying tests** (canonical: AUT
+  `skills/auto-pigeon-testing/SKILL.md`).
+- **`./run.sh test` is the entrypoint and must pass** for every task that changes a package, a
+  test or the build. A task that ran the tests some other way still has to leave `./run.sh test`
+  passing. A documentation-only change (`TEST-SKILL.md`, `AGENTS.md` routes, `docs/agent/`) runs the
+  router gate and AUT's `test_skill_sync.py check` instead, and says so. TypeScript packages run through the package manager's
   own `test` script; Go packages through `go test ./...`, once any Go package exists. With no
   packages present it exits 0 and *reports* that there is nothing to test rather than printing a
   green summary implying a suite ran. **A package with no tests is not accepted** — not "add tests
