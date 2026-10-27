@@ -9,7 +9,10 @@ own.
 
 ## Licence
 
-Apache License 2.0. See [`LICENSE`](LICENSE).
+Apache License 2.0. See [`LICENSE`](LICENSE), the unmodified Apache text; the copyright
+notice (Andrea D'Intino) is in [`NOTICE`](NOTICE). Until 2026-10-27 the root `LICENSE` file carried
+the MIT text while every package already declared Apache-2.0; copies obtained under that file keep
+the grant it gave.
 
 ## Validation happens only when you ask for it
 
