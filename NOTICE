@@ -6,3 +6,7 @@ the text is in LICENSE.
 
 Third-party material carried here keeps its own licence and notices, which this
 file does not change.
+
+go/mapio/pysum reproduces the behaviour of CPython's builtin sum() over floats.
+CPython is Copyright (c) 2001 Python Software Foundation, All Rights Reserved,
+and is distributed under the PSF License Agreement.

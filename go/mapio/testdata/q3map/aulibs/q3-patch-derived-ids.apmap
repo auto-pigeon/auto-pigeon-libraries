@@ -1,0 +1,430 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "vector-1-5-q3-patch-derived-ids",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "quake3_extended",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "aulibs-apmap-schema-vectors",
+    "producer_version": "1.5"
+  },
+  "entities": [
+    {
+      "entity_id": "ent_bf19e400561fc7fd",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "vector.map",
+        "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+        "source_path": "e0",
+        "source_entity_index": 0
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_2b6d40f7f6f0eade",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "vector.map",
+            "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+            "source_path": "e0.b0",
+            "source_entity_index": 0
+          },
+          "faces": [
+            {
+              "face_id": "fac_285a85e6ccc2d0ae",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "vector.map",
+                "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+                "source_path": "e0.b0.f0",
+                "source_entity_index": 0
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    32,
+                    64
+                  ],
+                  [
+                    32,
+                    32,
+                    64
+                  ],
+                  [
+                    32,
+                    -32,
+                    64
+                  ]
+                ]
+              },
+              "texture": "vector/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_7320a3d4e19385e8",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "vector.map",
+                "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+                "source_path": "e0.b0.f1",
+                "source_entity_index": 0
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    0
+                  ],
+                  [
+                    32,
+                    -32,
+                    0
+                  ],
+                  [
+                    32,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "vector/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_48293d04dcbf0988",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "vector.map",
+                "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+                "source_path": "e0.b0.f2",
+                "source_entity_index": 0
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    -32,
+                    64
+                  ],
+                  [
+                    32,
+                    32,
+                    64
+                  ],
+                  [
+                    32,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "vector/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_4c4bbbc0a19a1d23",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "vector.map",
+                "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+                "source_path": "e0.b0.f3",
+                "source_entity_index": 0
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    32,
+                    64
+                  ],
+                  [
+                    -32,
+                    -32,
+                    64
+                  ],
+                  [
+                    -32,
+                    -32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "vector/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_b0720e5de227af7d",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "vector.map",
+                "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+                "source_path": "e0.b0.f4",
+                "source_entity_index": 0
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    64
+                  ],
+                  [
+                    -32,
+                    32,
+                    64
+                  ],
+                  [
+                    -32,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "vector/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_24e0d6b8e7af0f37",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "vector.map",
+                "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+                "source_path": "e0.b0.f5",
+                "source_entity_index": 0
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    -32,
+                    64
+                  ],
+                  [
+                    32,
+                    -32,
+                    64
+                  ],
+                  [
+                    32,
+                    -32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "vector/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "patch",
+          "patch_id": "pat_70e8670bcbd4094b",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "vector.map",
+            "source_sha256": "197a7d3e967c129cc12aeeadcc8e1274297448418fcb3023fca617112cfb89d8",
+            "source_path": "e0.p0",
+            "source_entity_index": 0
+          },
+          "texture": "vector/arch",
+          "width": 3,
+          "height": 3,
+          "control_points": [
+            [
+              [
+                0,
+                0,
+                64,
+                0,
+                0
+              ],
+              [
+                0,
+                8,
+                80,
+                0,
+                0.5
+              ],
+              [
+                0,
+                0,
+                96,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                16,
+                24,
+                64,
+                0.5,
+                0
+              ],
+              [
+                16,
+                32,
+                80,
+                0.5,
+                0.5
+              ],
+              [
+                16,
+                24,
+                96,
+                0.5,
+                1
+              ]
+            ],
+            [
+              [
+                32,
+                0,
+                64,
+                1,
+                0
+              ],
+              [
+                32,
+                8,
+                80,
+                1,
+                0.5
+              ],
+              [
+                32,
+                0,
+                96,
+                1,
+                1
+              ]
+            ]
+          ],
+          "tail": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

@@ -1,0 +1,15 @@
+{
+  "package": "go/mapio",
+  "consumers": [
+    {
+      "repo": "auto-pigeon-extractor",
+      "usage": "Its one implementation of .map, APMap and RMF: internal/convert is a thin adapter over mapio.Convert for the CLI and HTTP conversion operations, and its extraction, normalization, prefab and analysis packages import mapio/apmap, mapfile, rmf, convex and pysum directly. Pinned to an exact revision in go.mod.",
+      "added": "2026-10-30"
+    },
+    {
+      "repo": "auto-pigeon-companion",
+      "usage": "cmd/mapio wraps mapio.Convert as the auto-pigeon-mapio[.exe] converter the Companion ships and supervises for every build's APMap to .map conversion; it reads capabilities and module identity from the library. Pinned to an exact revision in go.mod.",
+      "added": "2026-10-30"
+    }
+  ]
+}

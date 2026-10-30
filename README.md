@@ -1,8 +1,8 @@
 # Auto-Pigeon Libraries
 
-Shared libraries for the Auto-Pigeon project — TypeScript now, Go later —
-consumed by the Auto-Pigeon editor, backend, collaboration server, gallery, and
-extractor.
+Shared libraries for the Auto-Pigeon project, in TypeScript and Go, consumed by
+the Auto-Pigeon editor, backend, collaboration server, gallery, extractor and
+Companion.
 
 This repository ships libraries. It is not a service and has no runtime of its
 own.
@@ -35,7 +35,7 @@ auto-pigeon-libraries/
 ├── fixtures/                 # shared apmap fixtures (see fixtures/README.md)
 ├── games/<game>/             # one folder per per-game data package
 ├── ts/                       # one folder per TypeScript package
-└── go/                       # one folder per Go package (none yet)
+└── go/                       # one folder per Go package, in the module at the repository root
 ```
 
 Every package folder carries its own `README.md` and its own `used-by.json`,
@@ -50,6 +50,11 @@ which names the repositories that consume it and validates against
 | [`ts/operational-notice-contract`](ts/operational-notice-contract/) | the operational-notice contract: AUB's closed read response for scheduled-maintenance and other operator notices, the store's text and schedule rules, and the ONE client policy AUP, AUG and AUCOM share — server-time phase, public/authenticated visibility, per-revision dismissal, conditional polling with backoff and a public-only cache — plus IANA-zone/DST vectors for the operator CLI. Contract data plus a dependency-free reference implementation. |
 | [`ts/lighting-rules`](ts/lighting-rules/) | the lighting rule-inference contract: the game-independent **analysis** and **held-out validation** artifacts, and the shape of the per-game lighting **vocabulary** they are read through. The separation is the point — geometry is the same in every engine, `light` meaning intensity is not — and a test asserts the generic schemas name no game's classnames. Schemas only, no runtime code. |
 | [`ts/offline-workspace-contract`](ts/offline-workspace-contract/) | the cross-stack contract for **Offline Shared Workspaces** — the durable, AUB-authoritative collaboration model that sits beside, and is deliberately not, an AUC Real-time session. Every durable object as one closed schema, the Offline role → capability table under its own version, 58 stable refusal codes each carrying a remedy, nine state machines whose unlisted transitions are illegal by definition, and the product's fixed durations labelled `product` or `contract_default`. Contract data plus a dependency-free reference implementation — no persistence, no endpoint, no UI, no discovery. |
+
+| [`go/mapio`](go/mapio/) | the Go map-format library: converts and validates `.map`, APMap and Worldcraft `.rmf` as bytes in, bytes out, with the APMap contract compiled in. A library only; the Companion's `auto-pigeon-mapio` executable and the extractor both wrap it. See its README for the conversion matrix and known limitations. |
+
+The Go module is `github.com/auto-pigeon/auto-pigeon-libraries`, at the repository root. Depend on an
+exact revision: `go get github.com/auto-pigeon/auto-pigeon-libraries@<full commit sha>`.
 
 The TypeScript APMap reader/writer/validator is next; it will consume
 `apmap-schema` rather than carry its own copy.
@@ -75,8 +80,8 @@ See [`ts/health-contract`](ts/health-contract/) for the format and the reasoning
 ./run.sh test
 ```
 
-It runs every TypeScript package's own `test` script and, once Go packages
-exist, `go test ./...`. A package whose dependencies are not installed yet gets
+It runs every TypeScript package's own `test` script and `go test ./...` from the
+repository root, which is what reaches every Go package. A package whose dependencies are not installed yet gets
 them installed on that first run. With no packages present at all it exits 0 and
 says there is nothing to test, rather than failing or printing a green summary
 for a suite that never ran.

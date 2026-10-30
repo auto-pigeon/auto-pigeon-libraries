@@ -15,6 +15,7 @@ topics:
 paths:
   - ts/offline-workspace-contract/**
   - ts/incident-contract/**
+  - go/mapio/**
 ---
 
 # Validation is on-demand only — nothing here wakes up and declares a map broken

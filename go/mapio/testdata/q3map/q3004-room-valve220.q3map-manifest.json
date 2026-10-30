@@ -1,0 +1,62 @@
+{
+  "format": "auto-pigeon.q3map-conversion-manifest",
+  "format_version": 1,
+  "direction": "apmap-to-q3map",
+  "source": {
+    "name": "q3004-room-valve220.apmap",
+    "sha256": "1a6f633e09459f8c1365edb77a15a32cec62b4ff764db67b8185c89f6114c8cd",
+    "bytes": 52602
+  },
+  "output": {
+    "name": "q3004-room-valve220.map",
+    "sha256": "5674c2504ac1905e955004f60718da1b705b6e49f98ec7be4bb5207880e32931",
+    "bytes": 4177
+  },
+  "document": {
+    "document_id": "q3004-room-valve220:full_map",
+    "apmap_version": "1.5",
+    "game": "quake3",
+    "map_dialect": "valve_220",
+    "role": "full_map"
+  },
+  "brush_syntax": "valve220",
+  "counts": {
+    "entities": 4,
+    "properties": 11,
+    "brushes": 6,
+    "faces": 36,
+    "patches": 0,
+    "patch_control_points": 0
+  },
+  "shaders": [
+    {
+      "name": "textures/q3004/ceiling",
+      "written": "q3004/ceiling",
+      "faces": 6,
+      "patches": 0
+    },
+    {
+      "name": "textures/q3004/floor",
+      "written": "q3004/floor",
+      "faces": 6,
+      "patches": 0
+    },
+    {
+      "name": "textures/q3004/wall",
+      "written": "q3004/wall",
+      "faces": 24,
+      "patches": 0
+    }
+  ],
+  "models": [],
+  "sounds": [
+    {
+      "name": "sound/q3004/hum.wav",
+      "keys": [
+        "noise"
+      ],
+      "entities": 1
+    }
+  ],
+  "warnings": []
+}

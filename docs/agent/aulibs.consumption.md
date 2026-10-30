@@ -36,8 +36,15 @@ for deployment**. Stated honestly rather than presented as finished:
   or a Go `replace` directive). Simplest, and it makes a change visible to its
   consumer immediately.
 - **Fallback:** a git-URL dependency, pinned to a commit.
-- **Deferred:** npm publication and Go module publication. Not done, not
-  scheduled, and not to be introduced as a side effect of another task.
+- **Deferred:** npm publication. Not done, not scheduled, and not to be
+  introduced as a side effect of another task.
+- **Go: an exact revision of the public module.** Since `NEW_371` the module at the
+  repository root is consumed the way any public Go module is: `go.mod` pins a
+  pseudo-version of a real commit and `go.sum` its checksum. No registry, no
+  token, no tag is needed, and `go/mapio/README.md` shows the commands. A
+  committed `replace` pointing at a sibling checkout is not allowed, because a
+  clean checkout of the consumer could not build: local development uses an
+  untracked `go.work`.
 
 ### Known unsolved issue: Docker build context
 

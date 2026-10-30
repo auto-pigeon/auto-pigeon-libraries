@@ -4,7 +4,9 @@ The canonical JSON Schema for **APMap**, the native JSON geometry document produ
 Auto-Pigeon extractor (AUE) and shared by Auto-Pigeon, its backend, and the collaboration service.
 
 **Schema and conformance vectors only — no runtime code.** The TypeScript reader, writer, and
-validator are a separate package.
+validator are a separate package. The Go codec is [`go/mapio`](../../go/mapio/), which compiles a
+generated snapshot of `schema/`; this directory stays the only copy anybody edits, and
+`./run.sh test` fails when the snapshot differs from it.
 
 ```text
 1.5 = current READ + WRITE contract

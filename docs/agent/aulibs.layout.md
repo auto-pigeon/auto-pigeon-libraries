@@ -37,13 +37,21 @@ auto-pigeon-libraries/
 │   └── used-by.schema.json  # JSON Schema for every package's used-by.json
 ├── fixtures/                # apmap fixtures, shared across packages
 ├── ts/                      # one folder per TypeScript package
-└── go/                      # one folder per Go package (none yet)
+└── go/                      # one folder per Go library, in the one module at the root
 ```
 
 Rules:
 
 - **One folder per package** under `ts/` and `go/`. No nesting packages inside
   packages, no shared-source folder that several packages reach into.
+- **A Go library is one folder under `go/`, and may contain ordinary Go packages.**
+  `go/mapio` is the library; `go/mapio/apmap` and the rest are its Go packages and
+  `go/mapio/internal/` its private ones. They share the library's README and
+  `used-by.json`, because they version, ship and are consumed together. This is
+  a statement about Go packages inside one library, never a licence to nest an
+  independent library, and an independent library still gets its own folder and
+  its own consumer manifest. All of it is one Go module at the repository root,
+  with no nested `go.mod`, so `./run.sh test` reaches it.
 - **Every package folder contains its own `used-by.json`**, validating against
   `meta/used-by.schema.json`, and its own `README.md` saying what the package
   is and how to use it.

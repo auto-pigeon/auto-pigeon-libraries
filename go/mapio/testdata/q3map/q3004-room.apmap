@@ -1,0 +1,1772 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3004-room:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "quake3_extended",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3004-room.map",
+      "map_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_8964d67d2831d189",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room.map",
+        "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "message",
+          "value": "Q3_004 synthetic room"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_bbf314bc9e7e1f18",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room.map",
+            "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_f75b6dd3fdfcfadf",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_99f5daa5dbee1935",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    -16
+                  ],
+                  [
+                    272,
+                    -272,
+                    -16
+                  ],
+                  [
+                    272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_3a56124dac48cc47",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_494b3f311d44e2e2",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    -272,
+                    -272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_5a8174d955ae300a",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_00336db0d32a8fc6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_0b4cdacda22492d0",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room.map",
+            "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+            "source_path": "e0.b1"
+          },
+          "faces": [
+            {
+              "face_id": "fac_2066952ac8c77328",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b1.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    272
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_7f51867a8ae21b5c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b1.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_4002ec00992d3122",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b1.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_90e0a31912ca0dfa",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b1.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    -272,
+                    272
+                  ],
+                  [
+                    -272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_c205aad42e6974bf",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b1.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_be3c186f8bb2d40b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b1.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_f1fb6f4436594685",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room.map",
+            "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+            "source_path": "e0.b2"
+          },
+          "faces": [
+            {
+              "face_id": "fac_cecc6b1e0fd1bd9c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b2.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_796de77bfac9ce85",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b2.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_a0aebb8c8728ead6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b2.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_200649f0d3d3488a",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b2.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    -272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_67cd844847309cda",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b2.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_5f632af7235ce167",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b2.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_e1dda6027357541f",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room.map",
+            "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+            "source_path": "e0.b3"
+          },
+          "faces": [
+            {
+              "face_id": "fac_6c4ab4ecb27cd9f8",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b3.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_30dd2679feabc4b1",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b3.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_016b5d65065586bb",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b3.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_3692305090bbd058",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b3.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_335b60a71233063f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b3.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_1c07b4b669398ac6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b3.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_cdf1f77a9a50ed7a",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room.map",
+            "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+            "source_path": "e0.b4"
+          },
+          "faces": [
+            {
+              "face_id": "fac_c67d886678670b4a",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b4.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_f0cf29af14c8dc4e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b4.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    0
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ],
+                  [
+                    256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_9e790ba95d2ed670",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b4.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_a6d85f283cef677b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b4.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_0f65872476c217dc",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b4.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_72adba3ff021a279",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b4.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_cc076a9d17d7fd06",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room.map",
+            "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+            "source_path": "e0.b5"
+          },
+          "faces": [
+            {
+              "face_id": "fac_576cdcf704576fbc",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b5.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_0da17e8d4c4af4ee",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b5.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    256,
+                    0
+                  ],
+                  [
+                    256,
+                    256,
+                    0
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_c8f9e1b6a546f9c1",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b5.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_9a1d87728b116075",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b5.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    256,
+                    256
+                  ],
+                  [
+                    -256,
+                    256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": -12.5,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            },
+            {
+              "face_id": "fac_25f227af6795e068",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b5.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_3bf59c68f2220115",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room.map",
+                "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+                "source_path": "e0.b5.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  -16.5,
+                  8.25
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.333333
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_43e5842b9a45d457",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room.map",
+        "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+        "source_path": "e1"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 192"
+        },
+        {
+          "kind": "property",
+          "key": "light",
+          "value": "600"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_58b18cecff515acb",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room.map",
+        "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+        "source_path": "e2"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_deathmatch"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "-128 -128 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "45"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_a751f5e0a910bd63",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room.map",
+        "source_sha256": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+        "source_path": "e3"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "target_speaker"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "128 128 64"
+        },
+        {
+          "kind": "property",
+          "key": "noise",
+          "value": "sound/q3004/hum.wav"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

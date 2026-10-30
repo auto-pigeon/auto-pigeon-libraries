@@ -17,8 +17,13 @@
       "added": "2026-08-20"
     },
     {
+      "repo": "auto-pigeon-companion",
+      "usage": "Reads no schema file of its own: its auto-pigeon-mapio converter compiles this contract through go/mapio's generated embedded snapshot at the AULIBS revision its go.mod pins, and reports the versions it reads and writes.",
+      "added": "2026-10-30"
+    },
+    {
       "repo": "auto-pigeon-extractor",
-      "usage": "Embeds this package's schema/ directory in its binary, fetched at every build by its scripts/sync-apmap-schemas.sh with a provenance manifest of the AULIBS commit and each schema sha256; APMAP_SCHEMA_DIR, when set, still wins. It reads every readable version and its APMap producer declares the current one, derived from the layout. Since 1.4 (NEW_262) its validator supports minProperties, it implements SEM-G-1..9 and SEM-A-1 (legacy SEM-G-5 is a warning), and Rebuild carries `groups` and `authorship`; APMap to .map conversion drops both, writing each brush once. Since 1.5 (Q3_001) it implements SEM-Q-1..5 and patch identity (`e<n>.p<n>`), writes SER-7Q, and refuses — whole, with a typed error — any APMap to .map conversion, Rebuild or Quake 2 texture-dependency report of a document holding a patch or a brush-primitives face (Q3_004 owns the conversion). Since Q2_001 `convert --validate-off` keeps the version gate, and apmap-to-q2map refuses a document by ADM-Q2-1..4 (`q2map_*`, typed Quake2AdmissionError) before writing; its tests read the contract's `quake2_admission` answer sheet.",
+      "usage": "Since NEW_371 it compiles this contract through go/mapio's generated embedded snapshot at the AULIBS revision its go.mod pins; APMAP_SCHEMA_DIR, when set, still wins. It reads every readable version and its APMap producer declares the current one, derived from the layout. Since 1.4 (NEW_262) its validator supports minProperties, it implements SEM-G-1..9 and SEM-A-1 (legacy SEM-G-5 is a warning), and Rebuild carries `groups` and `authorship`; APMap to .map conversion drops both, writing each brush once. Since 1.5 (Q3_001) it implements SEM-Q-1..5 and patch identity (`e<n>.p<n>`), writes SER-7Q, and refuses — whole, with a typed error — any APMap to .map conversion, Rebuild or Quake 2 texture-dependency report of a document holding a patch or a brush-primitives face (Q3_004 owns the conversion). Since Q2_001 `convert --validate-off` keeps the version gate, and apmap-to-q2map refuses a document by ADM-Q2-1..4 (`q2map_*`, typed Quake2AdmissionError) before writing; its tests read the contract's `quake2_admission` answer sheet.",
       "added": "2026-08-20"
     },
     {

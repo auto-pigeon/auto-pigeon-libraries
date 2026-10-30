@@ -1,0 +1,21 @@
+{
+"classname" "worldspawn"
+"message" "q2 compatibility"
+"_q2_unknown" "verbatim // value"
+{
+( 64 64 64 ) ( 64 -64 64 ) ( -64 64 64 ) e1u1/brtrim1_5 0 0 0 0.5 0.5 0 0 0
+( 64 64 64 ) ( -64 64 64 ) ( 64 64 -64 ) e1u1/brtrim1_5 -8 4 90 1 1 1 2 3
+( 64 64 64 ) ( 64 64 -64 ) ( 64 -64 64 ) e1u1/brtrim1_5 0 0 0 1 1 0 0 0
+( -64 -64 -64 ) ( 64 -64 -64 ) ( -64 64 -64 ) e1u1/brtrim1_5 0 0 0 1 1 0 0 0
+( -64 -64 -64 ) ( -64 -64 64 ) ( 64 -64 -64 ) e1u1/brtrim1_5 0 0 0 1 1 0 0 0
+( -64 -64 -64 ) ( -64 64 -64 ) ( -64 -64 64 ) e1u1/brtrim1_5 0 0 0 1 1 0 0 0
+}
+}
+{
+"classname" "target_speaker"
+"targetname" "speaker_secret"
+"noise" "world/misc/secret.wav"
+"spawnflags" "1"
+"attenuation" "3"
+"_user_1998_key" "preserve this"
+}

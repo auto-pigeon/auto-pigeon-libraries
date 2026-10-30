@@ -1,0 +1,1970 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3004-room-brushdef:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "quake3_extended",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3004-room-brushdef.map",
+      "map_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_befa6051ed44f62c",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-brushdef.map",
+        "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "message",
+          "value": "Q3_004 synthetic room"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_a43bb51462eedbc4",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-brushdef.map",
+            "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_92ab1132f93950b8",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_a3489de0f286d382",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    -16
+                  ],
+                  [
+                    272,
+                    -272,
+                    -16
+                  ],
+                  [
+                    272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00390625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.00390625,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_86d7325b2a7c27e6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00552427172802,
+                    -0.00552427172802,
+                    0
+                  ],
+                  [
+                    0.00552427172802,
+                    0.00552427172802,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_9cd0661fb1141804",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    -272,
+                    -272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    -0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0.125
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_1e7536acbd5f10c8",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_9dc4250d9081d234",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0.0000305175781
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_0fb49a5069796ea7",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-brushdef.map",
+            "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+            "source_path": "e0.b1"
+          },
+          "faces": [
+            {
+              "face_id": "fac_819c9f5a15200fee",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b1.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    272
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_80e106026aaa2550",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b1.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00390625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.00390625,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_64bc29ccdca0ecf3",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b1.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00552427172802,
+                    -0.00552427172802,
+                    0
+                  ],
+                  [
+                    0.00552427172802,
+                    0.00552427172802,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_10c6d43f6901e0fa",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b1.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    -272,
+                    272
+                  ],
+                  [
+                    -272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    -0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0.125
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_67669bb4fa23cbec",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b1.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_4e5d09dc2e88d74a",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b1.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0.0000305175781
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_6c9d69c676c586e1",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-brushdef.map",
+            "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+            "source_path": "e0.b2"
+          },
+          "faces": [
+            {
+              "face_id": "fac_581dbaf841f485ee",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b2.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_218a3feba27c5e6f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b2.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00390625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.00390625,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_b798655559e16c88",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b2.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00552427172802,
+                    -0.00552427172802,
+                    0
+                  ],
+                  [
+                    0.00552427172802,
+                    0.00552427172802,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_36dde01e4ed1e5e3",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b2.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    -272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    -0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0.125
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_da5bc7dd8348eef3",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b2.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_46364e5d88f17ae4",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b2.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0.0000305175781
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_2f016931baf88a1f",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-brushdef.map",
+            "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+            "source_path": "e0.b3"
+          },
+          "faces": [
+            {
+              "face_id": "fac_e032402d20321c3b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b3.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_7a1469ea65951b86",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b3.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00390625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.00390625,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_4620523b961aee0e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b3.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00552427172802,
+                    -0.00552427172802,
+                    0
+                  ],
+                  [
+                    0.00552427172802,
+                    0.00552427172802,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_9af757dd7510dc79",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b3.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    -0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0.125
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_b6518c74ddca5294",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b3.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_25a72920468b002f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b3.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0.0000305175781
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_aabace0231591af2",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-brushdef.map",
+            "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+            "source_path": "e0.b4"
+          },
+          "faces": [
+            {
+              "face_id": "fac_befdea0b6a9d2559",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b4.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_82f30545b566d482",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b4.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    0
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ],
+                  [
+                    256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00390625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.00390625,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_5d0ad0d799d3be56",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b4.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00552427172802,
+                    -0.00552427172802,
+                    0
+                  ],
+                  [
+                    0.00552427172802,
+                    0.00552427172802,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_e664f4446ba44595",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b4.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    -0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0.125
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_43e85de6f22dca4d",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b4.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_038594f74b4c353a",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b4.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0.0000305175781
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_e0a24f46e8600597",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-brushdef.map",
+            "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+            "source_path": "e0.b5"
+          },
+          "faces": [
+            {
+              "face_id": "fac_e83c6e0e9cda98f4",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b5.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_68d442ee588ed568",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b5.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    256,
+                    0
+                  ],
+                  [
+                    256,
+                    256,
+                    0
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00390625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.00390625,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_209580e5110ae03a",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b5.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.00552427172802,
+                    -0.00552427172802,
+                    0
+                  ],
+                  [
+                    0.00552427172802,
+                    0.00552427172802,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_fc3364d9fa2dbb3c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b5.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    256,
+                    256
+                  ],
+                  [
+                    -256,
+                    256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    -0.0078125,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0.125
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_eb412d830c8a2647",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b5.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_ea4563619a73b557",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-brushdef.map",
+                "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+                "source_path": "e0.b5.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.0078125,
+                    0,
+                    0.0000305175781
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    0
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_01599bad914836d5",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-brushdef.map",
+        "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+        "source_path": "e1"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 192"
+        },
+        {
+          "kind": "property",
+          "key": "light",
+          "value": "600"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_1715ade383289cce",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-brushdef.map",
+        "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+        "source_path": "e2"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_deathmatch"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "-128 -128 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "45"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_c0faca6cad798414",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-brushdef.map",
+        "source_sha256": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+        "source_path": "e3"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "target_speaker"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "128 128 64"
+        },
+        {
+          "kind": "property",
+          "key": "noise",
+          "value": "sound/q3004/hum.wav"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

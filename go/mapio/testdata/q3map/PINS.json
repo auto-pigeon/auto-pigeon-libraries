@@ -1,0 +1,42 @@
+{
+  "$comment": "Q3_004 apmap-to-q3map parity fixtures. Editor-side files are produced by scripts/q3map-parity.sh --update from an AUP checkout, never by this repository's writer; *.q3map-manifest.json are this writer's (go test ./go/mapio -update-q3map-manifests). Every digest is checked by TestQuake3FixturesMatchTheirPins.",
+  "provenance": {
+    "aup_commit": "eb223a67bccc0cc90c1bce2096077df86eb980a3",
+    "aup_writer": "packages/quake-geometry/src/map/writer.ts mapTextFromApmap (default options: the UI's Export map)",
+    "aup_importer": "packages/quake-geometry/src/map/quake3.ts parseQuake3Map + src/apmap/quake3Encode.ts apmapFromQuake3Map",
+    "apmap_version": "1.5",
+    "aulibs_commit": "1c893822730da0e1e69d663378f292a84e800c8c",
+    "aulibs_vectors": "ts/apmap-schema/test-vectors/valid (copied into aulibs/)"
+  },
+  "files": {
+    "aulibs/no-1-5-features.apmap": "61cfa156f44d9188a8b8edc8e1cd10e51079aae8a0fc55ab53d80d6179719a10",
+    "aulibs/q3-brush-primitives.apmap": "cca9b1c515690ac8a95d21c611c52fd1fd47ff138a34bfdc8461fe3759ae622c",
+    "aulibs/q3-brush-primitives.golden.map": "18b7a3b4f16ffe5aec552e4e037f37b381f86ec35d57538ef801db0ef60c08f6",
+    "aulibs/q3-patch-derived-ids.apmap": "0ee0d26a022d4f8b439d9bfd865fea01d7556fc90cb742017ac8d09908afb1c0",
+    "aulibs/q3-patch-derived-ids.golden.map": "5347a077e532a733541956ea39a93d43128de0ec9445e9201ac0b27883d57457",
+    "aulibs/q3-patch-in-nested-group.apmap": "6c9d648516b2dfb8f945046642d231a92c17e8acdcc38335bd54b0bb07397720",
+    "aulibs/q3-patch-in-nested-group.golden.map": "62eeda7e6df69243c384c64ecd98e401163ac21f87d3f8f05c8aab5374de55cf",
+    "aulibs/q3-patch-max-grid.apmap": "0cbc23de1aa8d7fa8fbc02a776b079af5d1502d2378e80daa997b8d4d01fbd67",
+    "aulibs/q3-patch-max-grid.golden.map": "09d269dc39b4744feab2f1806ee5fa06737f9e12160a19118fe2886976344330",
+    "aulibs/q3-patch-minimal.apmap": "5db4a6cdb3c94f2e7299285e3da839ee74ef6864d0647ce788405c13b31e0acd",
+    "aulibs/q3-patch-minimal.golden.map": "6f1bee37e52345e8dd1c21f44e13d8f5baaf775da8e1ac1bd56e6259377e520e",
+    "number-spellings.json": "c8546387b2562b97b3c8d578eb42cb9d8ac4b432f15512a63bb1e6219fc4ffdd",
+    "q3004-malicious-missing-material.apmap": "949d0c936c40446a23c72c0a1fd45a3f668a2c03c2c261c152e5ffef79794b15",
+    "q3004-room-brushdef.apmap": "20f07c36dd6c0711666e2627cdaed8672bfdd390f8ecdab5a36aaadf65b1fccf",
+    "q3004-room-brushdef.golden.map": "f430df58e6abc3f2057ae99ca2bed618846e1426907bb4b2086ad15609fc0354",
+    "q3004-room-brushdef.map": "91c03cee2ddcef8628d23ff74cd9c8ebacdb0637b411b349faa6cbad25bdcb01",
+    "q3004-room-brushdef.q3map-manifest.json": "e89e6c6584ad718b9008e06fb211b18005df56b9888569c11c7c0dff6987fcd4",
+    "q3004-room-patch.apmap": "3305a41b2c70563c926dee9eff5bab6fd471a52901d2ca425bd8fb5d888b06f7",
+    "q3004-room-patch.golden.map": "8838724210d17862b8112db69be72ec2226380d12e3b5b72a0e11018e2629e18",
+    "q3004-room-patch.map": "5e7956f5045dcda5a8cc8c311ba7326df8f4445bc96561e9d39975eeca295ca9",
+    "q3004-room-patch.q3map-manifest.json": "8593dae7f39b8cbc1dbfc1124e98033f69a1140c97bbb426aa7c3acfbb86d5ca",
+    "q3004-room-valve220.apmap": "1a6f633e09459f8c1365edb77a15a32cec62b4ff764db67b8185c89f6114c8cd",
+    "q3004-room-valve220.golden.map": "5674c2504ac1905e955004f60718da1b705b6e49f98ec7be4bb5207880e32931",
+    "q3004-room-valve220.map": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+    "q3004-room-valve220.q3map-manifest.json": "0dd321314b1f7225896108a73549ee9d9e7e0ea1fd4fafaca72adec5be6f8f7a",
+    "q3004-room.apmap": "96a5f1a007abb2a5205dfd045fdb9fc8cce69ac2da736326d989f4e89c9e0444",
+    "q3004-room.golden.map": "8b2dd98580ed9cde174bcc6959ab12801de1ed2a4e6bd8559f26ea5285e766a5",
+    "q3004-room.map": "64d128ac87c48e313bcda742278112d49403350b12c35176c80b0a1607243078",
+    "q3004-room.q3map-manifest.json": "e11c0900a94bb23e4a0b2b4c23666f0a41e6dda5cdbb1aab34e85528eabaf271"
+  }
+}

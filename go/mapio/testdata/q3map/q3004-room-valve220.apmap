@@ -1,0 +1,1970 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3004-room-valve220:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "valve_220",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3004-room-valve220.map",
+      "map_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_0e994562f3a24bf4",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-valve220.map",
+        "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "message",
+          "value": "Q3_004 synthetic room"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_ef8dadd6f810fe94",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-valve220.map",
+            "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_3f9ef22bfc4d480e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_06eb8d40546da28b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    -16
+                  ],
+                  [
+                    272,
+                    -272,
+                    -16
+                  ],
+                  [
+                    272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_58a6aae0798c931d",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_aeb5d2929f9169be",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    -272,
+                    -272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": -30,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_c201da7e99cdf422",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    272,
+                    0
+                  ],
+                  [
+                    -272,
+                    272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_4d0ede04a86c6c9b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "q3004/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_43afd2d72d80ee3b",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-valve220.map",
+            "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+            "source_path": "e0.b1"
+          },
+          "faces": [
+            {
+              "face_id": "fac_3f69d70c89d65fa1",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b1.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    272
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_ddf85f02f65e31f6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b1.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_91ec9485bb4f2551",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b1.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_05806f628441fd16",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b1.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    -272,
+                    272
+                  ],
+                  [
+                    -272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": -30,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_86f2c080ff24cce6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b1.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    272,
+                    272
+                  ],
+                  [
+                    -272,
+                    272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_edabac8168a8be24",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b1.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    272
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_f4056855978f315a",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-valve220.map",
+            "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+            "source_path": "e0.b2"
+          },
+          "faces": [
+            {
+              "face_id": "fac_ca9035d53ac0e51b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b2.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_ba7927a9ca17ea2f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b2.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    0
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_742d34744dc4c653",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b2.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_8a55e3e7761123e2",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b2.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    -272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": -30,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_9a264475894bc0b9",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b2.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    272,
+                    256
+                  ],
+                  [
+                    -272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_dc62290ae2e1cb74",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b2.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -272,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_380f7d0ca4674196",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-valve220.map",
+            "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+            "source_path": "e0.b3"
+          },
+          "faces": [
+            {
+              "face_id": "fac_9491831dd48f206c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b3.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_a66ff49d158674c8",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b3.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_1f4d5f47eb7c1f7e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b3.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    272,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_471696255b6cf7a3",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b3.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": -30,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_e54a37cf82443f2b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b3.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    272,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_9b8ea5d2390e4d76",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b3.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    256
+                  ],
+                  [
+                    272,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_fe74b370877d2afd",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-valve220.map",
+            "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+            "source_path": "e0.b4"
+          },
+          "faces": [
+            {
+              "face_id": "fac_43851d67ffff3d32",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b4.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_f1f7ada4ae70f935",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b4.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    0
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ],
+                  [
+                    256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_7840ba7f08bd1edc",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b4.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_4f53fce8390d64f0",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b4.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    -256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": -30,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_4fbdb9ef0d897313",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b4.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -256,
+                    256
+                  ],
+                  [
+                    -256,
+                    -256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_736b75ad6cad5bbd",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b4.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    256
+                  ],
+                  [
+                    256,
+                    -272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_edb8e4a65eb00ad8",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3004-room-valve220.map",
+            "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+            "source_path": "e0.b5"
+          },
+          "faces": [
+            {
+              "face_id": "fac_40d3277f97e96e9c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b5.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    256
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_8dfa6a46f880a7b9",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b5.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    256,
+                    0
+                  ],
+                  [
+                    256,
+                    256,
+                    0
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_582d564203ec3a13",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b5.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_8c5d09f3c6627986",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b5.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    256,
+                    256
+                  ],
+                  [
+                    -256,
+                    256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0,
+                  1,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": -30,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_a7e188d2c97c1ef0",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b5.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    256
+                  ],
+                  [
+                    -256,
+                    272,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_2a44930629e07b19",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3004-room-valve220.map",
+                "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+                "source_path": "e0.b5.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    256
+                  ],
+                  [
+                    256,
+                    256,
+                    0
+                  ]
+                ]
+              },
+              "texture": "q3004/wall",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  -16
+                ],
+                "v_axis": [
+                  0,
+                  0,
+                  -1,
+                  8.5
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_7300c1fbfbff1975",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-valve220.map",
+        "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+        "source_path": "e1"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "light"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 192"
+        },
+        {
+          "kind": "property",
+          "key": "light",
+          "value": "600"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_e26162fb202ee8df",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-valve220.map",
+        "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+        "source_path": "e2"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_deathmatch"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "-128 -128 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "45"
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_3ead57167bd9c1d5",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3004-room-valve220.map",
+        "source_sha256": "078f3826ca4f1fdfec0599f94eba7744dc8004370dfad00e89e31d81b822daf1",
+        "source_path": "e3"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "target_speaker"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "128 128 64"
+        },
+        {
+          "kind": "property",
+          "key": "noise",
+          "value": "sound/q3004/hum.wav"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

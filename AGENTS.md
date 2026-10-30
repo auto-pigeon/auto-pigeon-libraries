@@ -37,8 +37,8 @@ like the cause of whatever you are investigating, say so and stop.
 
 ## 1. What this repository is
 
-**auto-pigeon-libraries** is a **public**, Apache-2.0 repository of shared libraries — TypeScript
-now, Go later — consumed by the other repositories in this workspace (`auto-pigeon`,
+**auto-pigeon-libraries** is a **public**, Apache-2.0 repository of shared libraries, in TypeScript
+and Go, consumed by the other repositories in this workspace (`auto-pigeon`,
 `auto-pigeon-backend`, `auto-pigeon-collaboration`, `auto-pigeon-gallery`, `auto-pigeon-extractor`,
 `auto-pigeon-companion`, and any added later), abbreviated **AULIBS**. Its expected location is
 `mapper-code/auto-pigeon-libraries/`; the sibling source workspace is `..` and durable mapper data
