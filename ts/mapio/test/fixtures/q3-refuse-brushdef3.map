@@ -1,0 +1,10 @@
+// Authored for @auto-pigeon/mapio's tests (NEW_388). Original work, Apache-2.0. No part of it comes from any other map.
+{
+"classname" "worldspawn"
+{
+brushDef3
+{
+( 0 0 1 -64 ) ( ( 0.015625 0 0 ) ( 0 0.015625 0 ) ) "mapio/x" 0 0 0
+}
+}
+}

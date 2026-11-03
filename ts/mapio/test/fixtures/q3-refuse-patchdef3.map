@@ -1,0 +1,13 @@
+// Authored for @auto-pigeon/mapio's tests (NEW_388). Original work, Apache-2.0. No part of it comes from any other map.
+{
+"classname" "worldspawn"
+{
+patchDef3
+{
+mapio/curve
+( 3 3 4 4 0 0 0 )
+(
+)
+}
+}
+}

@@ -1,0 +1,9 @@
+@auto-pigeon/mapio — part of Auto-Pigeon Libraries
+Copyright 2026 Andrea D'Intino
+
+Licensed under the Apache License, Version 2.0; the text is in LICENSE.
+
+This package was extracted from the Auto-Pigeon editor (NEW_388) and contains no
+third-party source code. Comments citing Q3Map2, ericw-tools qbsp or the Quake engines
+describe the file formats and compiler behaviour it is compatible with; none of their
+code is reproduced here. Its one runtime dependency, ajv (MIT), is installed, not copied.

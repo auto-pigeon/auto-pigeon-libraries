@@ -1,0 +1,13 @@
+// Authored for @auto-pigeon/mapio's tests (NEW_388). Original work, Apache-2.0. No part of it comes from any other map.
+{
+"classname" "worldspawn"
+{
+( 0 64 64 ) ( 64 64 64 ) ( 64 0 64 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+( 0 64 64 ) ( 64 64 64 ) ( 64 0 64 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+( 0 0 0 ) ( 64 0 0 ) ( 64 64 0 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+( 64 0 64 ) ( 64 64 64 ) ( 64 64 0 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+( 0 64 64 ) ( 0 0 64 ) ( 0 0 0 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+( 64 64 64 ) ( 0 64 64 ) ( 0 64 0 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+( 0 0 64 ) ( 64 0 64 ) ( 64 0 0 ) mapio/box 0 0 0 0.5 0.5 0 0 0
+}
+}

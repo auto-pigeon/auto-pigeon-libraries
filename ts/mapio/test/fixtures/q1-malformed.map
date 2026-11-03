@@ -1,0 +1,6 @@
+// Authored for @auto-pigeon/mapio's tests (NEW_388). Original work, Apache-2.0. No part of it comes from any other map.
+{
+"classname" "worldspawn"
+{
+( 0 0 0 ) ( 1 0 0 ) ( 0 1 0 ) tex 0 0 0 1
+}

@@ -50,14 +50,16 @@ which names the repositories that consume it and validates against
 | [`ts/operational-notice-contract`](ts/operational-notice-contract/) | the operational-notice contract: AUB's closed read response for scheduled-maintenance and other operator notices, the store's text and schedule rules, and the ONE client policy AUP, AUG and AUCOM share — server-time phase, public/authenticated visibility, per-revision dismissal, conditional polling with backoff and a public-only cache — plus IANA-zone/DST vectors for the operator CLI. Contract data plus a dependency-free reference implementation. |
 | [`ts/lighting-rules`](ts/lighting-rules/) | the lighting rule-inference contract: the game-independent **analysis** and **held-out validation** artifacts, and the shape of the per-game lighting **vocabulary** they are read through. The separation is the point — geometry is the same in every engine, `light` meaning intensity is not — and a test asserts the generic schemas name no game's classnames. Schemas only, no runtime code. |
 | [`ts/offline-workspace-contract`](ts/offline-workspace-contract/) | the cross-stack contract for **Offline Shared Workspaces** — the durable, AUB-authoritative collaboration model that sits beside, and is deliberately not, an AUC Real-time session. Every durable object as one closed schema, the Offline role → capability table under its own version, 58 stable refusal codes each carrying a remedy, nine state machines whose unlisted transitions are illegal by definition, and the product's fixed durations labelled `product` or `contract_default`. Contract data plus a dependency-free reference implementation — no persistence, no endpoint, no UI, no discovery. |
+| [`ts/mapio`](ts/mapio/) | the TypeScript map/APMap IO core, for browsers, workers and Node: Quake 1 (Classic, Valve 220), Quake II (face tails, ADM-Q2 export admission) and Quake III (`brushDef`, `patchDef2`) `.map` readers and writers, APMap decode with legacy promotion, canonical serialization, identity and provenance, and on-demand validation against `apmap-schema`. Moved from the Auto-Pigeon editor by `NEW_388`; the editor consumes it. No `.rmf` (that is Go's), no rendering, no UI. |
 
 | [`go/mapio`](go/mapio/) | the Go map-format library: converts and validates `.map`, APMap and Worldcraft `.rmf` as bytes in, bytes out, with the APMap contract compiled in. A library only; the Companion's `auto-pigeon-mapio` executable and the extractor both wrap it. See its README for the conversion matrix and known limitations. |
 
 The Go module is `github.com/auto-pigeon/auto-pigeon-libraries`, at the repository root. Depend on an
 exact revision: `go get github.com/auto-pigeon/auto-pigeon-libraries@<full commit sha>`.
 
-The TypeScript APMap reader/writer/validator is next; it will consume
-`apmap-schema` rather than carry its own copy.
+The TypeScript APMap reader/writer/validator is [`ts/mapio`](ts/mapio/); like the Go library it consumes
+`apmap-schema` rather than carrying its own copy. The two are separate implementations because they
+serve different runtimes; each README states its own route matrix.
 
 ## This repository's own version
 

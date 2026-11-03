@@ -1,0 +1,46 @@
+{
+  "name": "@auto-pigeon/mapio",
+  "version": "0.1.0",
+  "description": "Quake .map and APMap IO for TypeScript: Quake 1 (Classic, Valve 220), Quake II and Quake III (brushDef, patchDef2) readers and writers, APMap decode with legacy promotion, canonical serialization, identity and provenance, and on-demand validation. Browser, worker and Node; no UI, no network.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "auto-pigeon-source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./*": {
+      "auto-pigeon-source": "./src/*.ts",
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
+    "test": "npm run typecheck && vitest run"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0"
+  },
+  "devDependencies": {
+    "@auto-pigeon/apmap-schema": "file:../apmap-schema",
+    "@types/node": "^22.20.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

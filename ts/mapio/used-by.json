@@ -1,0 +1,10 @@
+{
+  "package": "ts/mapio",
+  "consumers": [
+    {
+      "repo": "auto-pigeon",
+      "usage": "Its browser editor's whole map/APMap IO since NEW_388: packages/quake-geometry re-exports every moved module from a byte-identical copy at frontend/vendor/mapio (src/test/mapioVendorDrift.test.ts holds it to this package), so Quake 1/II/III .map import and export, APMap decode/promotion/canonical text, explicit validation, identity repair and the Quake III patch/brush-primitives surfaces all run this code — in the page, in its workers and in its Node CLIs. AUP keeps file choice, Game Profile, progress UI, cancellation ownership, notices, translations and AUB transport.",
+      "added": "2026-11-03"
+    }
+  ]
+}

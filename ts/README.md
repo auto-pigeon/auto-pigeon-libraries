@@ -9,9 +9,10 @@ One folder per package.
 | [`incident-contract/`](incident-contract/) | the cross-stack incident envelope, the canonical incident-code taxonomy, the correlation-id convention and the central redaction rules. Contract data plus a dependency-free reference implementation; no transport and no SDK. |
 | [`lighting-rules/`](lighting-rules/) | the lighting rule-inference contract: the game-independent analysis and held-out validation artifacts, and the shape of the per-game lighting vocabulary they are read through. Schemas only, no runtime code. |
 | [`offline-workspace-contract/`](offline-workspace-contract/) | the cross-stack contract for Offline Shared Workspaces: the entity schemas, the Offline role → capability table, the stable refusal codes, the state machines with their guards and idempotency identities, and the product's fixed durations. Contract data plus a dependency-free reference implementation; no persistence, no endpoints, no UI. |
+| [`mapio/`](mapio/) | the TypeScript map/APMap IO core: Quake 1/II/III `.map` readers and writers, APMap decode, canonical text, identity and on-demand validation. TypeScript source plus a `tsc` build to `dist/` on pack; one runtime dependency, `ajv`. |
 
-The APMap reader/writer/validator library is the next to land here, and consumes
-`apmap-schema` rather than embedding a copy of it.
+The APMap reader/writer/validator library is `mapio/`, and it consumes `apmap-schema` rather than
+embedding a copy of it.
 
 Each package folder contains, at minimum:
 
