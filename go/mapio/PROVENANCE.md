@@ -20,6 +20,16 @@ distributed.
 | `internal/convert/testdata/`, `*_test.go` | `go/mapio/testdata/`, `go/mapio/*_test.go` | synthetic fixtures, authored for these tests |
 | `internal/apmap/embedded/schema` | `go/mapio/apmap/embedded/schema` | regenerated from `ts/apmap-schema/schema` by `internal/schemasync`; the bytes of every schema are identical |
 
+## The Quake III importer (`NEW_389`)
+
+`quake3map/`, `legality/`, `apmap/quake3import.go` and `quake3import.go` are a Go port of this
+repository's own `ts/mapio` (Apache-2.0, moved from the Auto-Pigeon editor by `NEW_388` under its
+owner's publication decision): `src/map/quake3.ts` (reader), `src/apmap/quake3Encode.ts` (encoder),
+and `src/geometry/brushLegality.ts`, `convexity.ts`, `reconstructBrush.ts`, `quakeWinding.ts`,
+`brushPrimitives.ts` (admission). No other source was used. The tokenizer reproduces Q3Map2's
+`scriplib.c` rule as a behaviour, measured, not copied; `Hypot` reproduces V8's documented
+`Math.hypot` algorithm. The conformance fixtures under `ts/mapio/test/fixtures/` are authored.
+
 Tests that need a private corpus stayed with their owner: the Worldcraft `.rmf` export comparison, the
 Quake II oracle pairs, and the real RMF 1.6 document.
 

@@ -1,0 +1,339 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3-redundant-plane-unbounding:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "quake3_extended",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3-redundant-plane-unbounding.map",
+      "map_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_6072aae7e4deead6",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-redundant-plane-unbounding.map",
+        "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_868214b15d046eb8",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-redundant-plane-unbounding.map",
+            "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_3f6143399ba952de",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-redundant-plane-unbounding.map",
+                "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    64,
+                    64
+                  ],
+                  [
+                    64,
+                    64,
+                    64
+                  ],
+                  [
+                    64,
+                    0,
+                    64
+                  ]
+                ]
+              },
+              "texture": "mapio/box",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_385194b52f734b47",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-redundant-plane-unbounding.map",
+                "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    64,
+                    0,
+                    0
+                  ],
+                  [
+                    64,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/box",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_1b924ab710e1e92d",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-redundant-plane-unbounding.map",
+                "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    0,
+                    64
+                  ],
+                  [
+                    64,
+                    64,
+                    64
+                  ],
+                  [
+                    64,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/box",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_324ed6d40879bf0e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-redundant-plane-unbounding.map",
+                "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    64,
+                    64
+                  ],
+                  [
+                    0,
+                    0,
+                    64
+                  ],
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/box",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_e34f3b4ee74e60f0",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-redundant-plane-unbounding.map",
+                "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    64,
+                    64
+                  ],
+                  [
+                    0,
+                    64,
+                    64
+                  ],
+                  [
+                    0,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/box",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_ee68ff4ae2c44dcd",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-redundant-plane-unbounding.map",
+                "source_sha256": "cb01bd0afdd2526b1c73a6f19a92654a5cc55fa0bda8e1cef5e9f9c6f8956cba",
+                "source_path": "e0.b0.f6"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    0,
+                    64
+                  ],
+                  [
+                    64,
+                    0,
+                    64
+                  ],
+                  [
+                    64,
+                    0,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/box",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

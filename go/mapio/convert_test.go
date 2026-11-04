@@ -73,7 +73,7 @@ func convertOrFail(t *testing.T, name string, data []byte, direction string, opt
 func TestDirectionsAreComplete(t *testing.T) {
 	want := []string{
 		"apmap-to-q1map", "apmap-to-q2map", "apmap-to-q2rmf", "apmap-to-q3map",
-		"q1map-to-apmap", "q2map-to-apmap", "q2rmf-to-apmap",
+		"q1map-to-apmap", "q2map-to-apmap", "q2rmf-to-apmap", "q3map-to-apmap",
 	}
 	got := DirectionNames()
 	if strings.Join(got, ",") != strings.Join(want, ",") {

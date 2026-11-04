@@ -1,0 +1,12 @@
+// Authored for @auto-pigeon/mapio conformance (NEW_389): a generated brush whose planes face both ways and bound no single solid. Original work, Apache-2.0.
+{
+"classname" "worldspawn"
+{
+( 0 0 64 ) ( 0.5 0.0 0.0 ) ( 0.5 -64 0 ) mapio/wall 34 4 90 0.5 1 134217728 0
+( 0 0 -64 ) ( 0 0 0 ) ( -0.5 -64 0 ) mapio/floor 0 4 0 1 1
+( 0 64 -64 ) ( 0 64 0 ) ( -64 64.5 0 ) mapio/caulk -16 0 120 1 0.5
+( -0 64 64 ) ( -0 64 0 ) ( -64 64 0 ) mapio/trim 8 4 21.577380980965923 0 1 1 1 1
+( 0 64 128 ) ( 0 0 128 ) ( -64 0 128 ) mapio/wall 0 4 90 0 0.5 0
+( 0 -64 0 ) ( 0 0 -0.0 ) ( -64 0 0 ) mapio/wall 0 4 0 0.25 1 0
+}
+}

@@ -1,0 +1,20 @@
+// Authored for @auto-pigeon/mapio conformance (NEW_389). Original work, Apache-2.0. No part of it comes from any other map.
+{
+"classname" "worldspawn"
+{
+( 64 0 16 ) ( 64 64 16 ) ( 0 64 16 ) mapio/floor 0 0 0 0.5 0.5
+( 64 64 0 ) ( 64 0 0 ) ( 0 0 0 ) mapio/floor 0 0 0 0.5 0.5
+( 64 64 0 ) ( 64 64 16 ) ( 64 0 16 ) mapio/floor 0 0 0 0.5 0.5
+( 0 0 0 ) ( 0 0 16 ) ( 0 64 16 ) mapio/floor 0 0 0 0.5 0.5
+( 0 64 0 ) ( 0 64 16 ) ( 64 64 16 ) mapio/floor 0 0 0 0.5 0.5
+( 64 0 0 ) ( 64 0 16 ) ( 0 0 16 ) mapio/floor 0 0 0 0.5 0.5
+}
+{
+( 96 64 16 ) ( 128 64 16 ) ( 128 0 16 ) mapio/floor 0 0 0 0.5 0.5
+( 96 0 0 ) ( 128 0 0 ) ( 128 64 0 ) mapio/floor 0 0 0 0.5 0.5
+( 128 0 16 ) ( 128 64 16 ) ( 128 64 0 ) mapio/floor 0 0 0 0.5 0.5
+( 96 64 16 ) ( 96 0 16 ) ( 96 0 0 ) mapio/floor 0 0 0 0.5 0.5
+( 128 64 16 ) ( 96 64 16 ) ( 96 64 0 ) mapio/floor 0 0 0 0.5 0.5
+( 96 0 16 ) ( 128 0 16 ) ( 128 0 0 ) mapio/floor 0 0 0 0.5 0.5
+}
+}

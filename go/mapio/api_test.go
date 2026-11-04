@@ -326,9 +326,17 @@ func TestCapabilitiesAreDerivedFromTheContract(t *testing.T) {
 	if len(capabilities.Directions) != len(Directions()) {
 		t.Fatalf("directions = %+v", capabilities.Directions)
 	}
+	// Both Quake III directions are advertised, each naming its game; no other direction reads q3map.
+	readers := 0
 	for _, direction := range capabilities.Directions {
 		if direction.From == FormatQ3Map {
-			t.Fatalf("a Quake III importer is advertised: %+v", direction)
+			readers++
+			if direction.Name != "q3map-to-apmap" || direction.To != FormatAPMap || direction.Game != "quake3" {
+				t.Fatalf("an unexpected Quake III reader is advertised: %+v", direction)
+			}
 		}
+	}
+	if readers != 1 {
+		t.Fatalf("%d Quake III readers advertised, want q3map-to-apmap alone", readers)
 	}
 }

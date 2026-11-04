@@ -1,0 +1,15 @@
+{
+  "code": "quake3_import_brush_illegal",
+  "message": "1 brushDef brush has a texture matrix with determinant 0 and the map was not imported: entity 0 brush 0 (line 4: texture_basis_degenerate). Q3Map2 compiles such a face with its texture collapsed; an APMap document cannot hold the matrix (SEM-Q-3). Fit the texture on those faces in the source editor and import again.",
+  "parse": [],
+  "rejected": [
+    {
+      "entity": 0,
+      "brush": 0,
+      "line": 4,
+      "codes": [
+        "texture_basis_degenerate"
+      ]
+    }
+  ]
+}

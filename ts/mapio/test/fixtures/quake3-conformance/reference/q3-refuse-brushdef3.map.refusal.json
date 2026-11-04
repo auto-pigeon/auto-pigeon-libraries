@@ -1,0 +1,15 @@
+{
+  "code": "quake3_import_parse",
+  "message": "The Quake III map could not be read: 1 error, the first at line 5, column 1 (Q3_DOOM3_GRAMMAR_UNSUPPORTED): brushDef3 is a Doom 3 / Quake 4 grammar that Q3Map2 does not read. Nothing was imported.",
+  "parse": [
+    [
+      "Q3_DOOM3_GRAMMAR_UNSUPPORTED",
+      5,
+      1,
+      0,
+      0,
+      "brushDef3 is a Doom 3 / Quake 4 grammar that Q3Map2 does not read"
+    ]
+  ],
+  "rejected": []
+}

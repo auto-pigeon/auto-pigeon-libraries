@@ -49,6 +49,7 @@ import (
 
 	"github.com/auto-pigeon/auto-pigeon-libraries/go/mapio/apmap"
 	"github.com/auto-pigeon/auto-pigeon-libraries/go/mapio/mapfile"
+	"github.com/auto-pigeon/auto-pigeon-libraries/go/mapio/quake3map"
 	"github.com/auto-pigeon/auto-pigeon-libraries/go/mapio/rmf"
 )
 
@@ -60,8 +61,9 @@ const (
 	FormatQ2Map Format = "q2map"
 	FormatQ2RMF Format = "q2rmf"
 	FormatAPMap Format = "apmap"
-	// FormatQ3Map is Quake III `.map` text as Q3Map2 compiles it (Q3_004). It is written only, from
-	// an APMap whose game is "quake3"; there is no Quake III `.map` importer in this package.
+	// FormatQ3Map is Quake III `.map` text as Q3Map2 reads it: read by q3map-to-apmap (classic,
+	// Valve 220, brushDef and patchDef2, through the quake3map reader) and written by apmap-to-q3map
+	// from an APMap whose game is "quake3" (Q3_004).
 	FormatQ3Map Format = "q3map"
 )
 
@@ -81,6 +83,12 @@ func (f Format) Extension() string {
 // the text it writes, both linear in the input, so the bound is what keeps a conversion's memory
 // bounded; it is well above the largest map in the private Quake III corpus (a few MiB).
 const MaxQuake3MapInputBytes = 256 << 20
+
+// MaxQuake3MapImportBytes bounds one q3map-to-apmap input. The reader's tree and the document it
+// becomes are each several times the text, so this bound is lower than the writer's; it is still an
+// order of magnitude above the largest Quake III source in the private corpus. Every brush is also
+// bounded (apmap.MaxQuake3BrushFaces) and every patch grid is (3..31 per side, by the format).
+const MaxQuake3MapImportBytes = 64 << 20
 
 // Direction is one supported conversion.
 //
@@ -136,8 +144,14 @@ var directions = []Direction{
 		Summary: "APMap to Quake 2 Worldcraft .rmf",
 	},
 	{
-		// Conversion only: there is no q3map-to-apmap here (the editor imports Quake III) and no
-		// Quake III extraction anywhere in this build.
+		// The Go port of the editor's Quake III importer (ts/mapio quake3.ts + quake3Encode.ts), held
+		// to it by shared conformance fixtures. The game is never guessed from a `.map`: a classic
+		// Quake III face and a Quake 2 one look alike, so the caller names this direction.
+		Name: "q3map-to-apmap", From: FormatQ3Map, To: FormatAPMap, Game: "quake3",
+		Summary: "Quake III .map (classic, Valve 220, brushDef, patchDef2) to APMap",
+	},
+	{
+		// Conversion only: there is no Quake III extraction anywhere in this build.
 		Name: "apmap-to-q3map", From: FormatAPMap, To: FormatQ3Map, Game: "quake3",
 		Summary: "APMap (game quake3) to Quake III .map for Q3Map2, with a manifest",
 	},
@@ -206,6 +220,12 @@ const (
 	WarningSemantic                   WarningCode = "semantic_warning"
 	WarningQuake3Map                  WarningCode = "q3map_warning"
 	WarningRMFBrushWithoutVertexCache WarningCode = "rmf_brush_without_vertex_cache"
+	// WarningQuake3RedundantPlanes is q3map-to-apmap leaving out planes that bound nothing, by brush.
+	WarningQuake3RedundantPlanes WarningCode = "q3map_redundant_planes"
+	// WarningQuake3ImportRisk is a legality finding that did not refuse the import, by code and count.
+	WarningQuake3ImportRisk WarningCode = "q3map_import_risk"
+	// WarningQuake3ShaderPrefix is shader names written with `textures/`, stored without it.
+	WarningQuake3ShaderPrefix WarningCode = "q3map_shader_prefix_removed"
 )
 
 // Result describes one completed conversion.
@@ -235,6 +255,9 @@ type Result struct {
 	// output. Both are empty when the direction writes none.
 	ManifestName  string
 	ManifestBytes []byte
+	// Quake3Import is q3map-to-apmap's summary — counts, risks and every brush that lost a plane —
+	// and nil for every other direction.
+	Quake3Import *apmap.Quake3ImportSummary
 }
 
 // ValidationError is a conversion refused because an APMap document did not
@@ -321,6 +344,9 @@ const (
 	RefusalQuake3Map RefusalCode = "quake3_map"
 	// RefusalQuake3Surface is a Quake III surface sent to a format that has no place for it.
 	RefusalQuake3Surface RefusalCode = "quake3_surface"
+	// RefusalQuake3Import is a Quake III `.map` q3map-to-apmap refused whole; Refusal.Detail is its
+	// code (quake3_import_parse, quake3_import_brush_illegal, quake3_import_empty, apmap_encode_*).
+	RefusalQuake3Import RefusalCode = "quake3_import"
 	// RefusalCancelled is a conversion stopped by its context.
 	RefusalCancelled RefusalCode = "cancelled"
 	// RefusalTooLarge is an input over a direction's size bound.
@@ -350,14 +376,22 @@ func RefusalOf(err error) Refusal {
 		admission  *apmap.Quake2AdmissionError
 		quake3     *apmap.Quake3MapError
 		surface    *apmap.Quake3UnsupportedError
+		imported   *apmap.Quake3ImportError
+		syntax     *Quake3SyntaxError
 	)
 	switch {
 	case errors.Is(err, context.Canceled), errors.Is(err, context.DeadlineExceeded):
 		refusal.Code = RefusalCancelled
 	case errors.As(err, &validation):
 		refusal.Code = RefusalValidation
-	case errors.As(err, &game):
+	case errors.As(err, &game), errors.As(err, &syntax):
 		refusal.Code = RefusalGame
+	case errors.As(err, &imported):
+		refusal.Code = RefusalQuake3Import
+		refusal.Detail = imported.Code
+		if imported.Code == apmap.Quake3ImportTooLarge {
+			refusal.Code = RefusalTooLarge
+		}
 	case errors.As(err, &version):
 		refusal.Code = RefusalVersion
 	case errors.As(err, &admission):
@@ -538,10 +572,29 @@ func (e *GameError) Error() string {
 		e.Direction)
 }
 
+// Quake3SyntaxError is a Quake 1 or Quake 2 read of a file that holds Quake III-only syntax: said to
+// be one, by the direction that reads it, rather than failing as a malformed Quake 1 map.
+type Quake3SyntaxError struct {
+	Name      string
+	Direction string
+	// Cause is the parse error the Quake 1 / Quake 2 reader stopped at.
+	Cause error
+}
+
+func (e *Quake3SyntaxError) Error() string {
+	return fmt.Sprintf("unsupported game: %s holds Quake III brush syntax (brushDef or patchDef2), which %s does not read; "+
+		"convert it with q3map-to-apmap (%v)", e.Name, e.Direction, e.Cause)
+}
+
+func (e *Quake3SyntaxError) Unwrap() error { return e.Cause }
+
 // toAPMap handles every direction whose target is APMap.
 func toAPMap(ctx context.Context, direction Direction, name string, data []byte, opts Options, result *Result) ([]byte, error) {
 	if err := ctx.Err(); err != nil {
 		return nil, err
+	}
+	if direction.From == FormatQ3Map {
+		return quake3ToAPMap(ctx, direction, name, data, opts, result)
 	}
 	geometry, err := readGeometry(direction, name, data)
 	if err != nil {
@@ -650,7 +703,11 @@ func readGeometry(direction Direction, name string, data []byte) (*mapfile.MapFi
 		// for either and which a Quake 1 file simply does not have. The
 		// direction still distinguishes the two, because the `game` field of
 		// the produced document is not something the syntax reveals.
-		return mapfile.ParseNamed(string(data), name)
+		geometry, err := mapfile.ParseNamed(string(data), name)
+		if err != nil && quake3map.HasQuake3OnlySyntax(string(data)) {
+			return nil, &Quake3SyntaxError{Name: name, Direction: direction.Name, Cause: err}
+		}
+		return geometry, err
 	case FormatQ2RMF:
 		document, _, err := rmf.Decode(data)
 		return document, err

@@ -1,0 +1,1211 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3-classic-patches:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "quake3_extended",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3-classic-patches.map",
+      "map_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_ece9a4e6c3a5b364",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-classic-patches.map",
+        "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "message",
+          "value": "mapio q3 classic"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_c98d94b7c7a392dc",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-classic-patches.map",
+            "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_69c1a0d9b462bd89",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    128,
+                    128,
+                    0
+                  ],
+                  [
+                    128,
+                    -128,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_4baef92bee742ab0",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -128,
+                    -16
+                  ],
+                  [
+                    128,
+                    -128,
+                    -16
+                  ],
+                  [
+                    128,
+                    128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_1303766216309a4c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    0
+                  ],
+                  [
+                    128,
+                    128,
+                    0
+                  ],
+                  [
+                    128,
+                    128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_36e8e14c800fba9c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    -128,
+                    0
+                  ],
+                  [
+                    -128,
+                    -128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_3ed42da7b7c841a7",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_c87abf14745eb579",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -128,
+                    0
+                  ],
+                  [
+                    128,
+                    -128,
+                    0
+                  ],
+                  [
+                    128,
+                    -128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_ad2335253a523597",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-classic-patches.map",
+            "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+            "source_path": "e0.b1"
+          },
+          "faces": [
+            {
+              "face_id": "fac_eb8b009956b54e92",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b1.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    96,
+                    48
+                  ],
+                  [
+                    96,
+                    96,
+                    48
+                  ],
+                  [
+                    96,
+                    32,
+                    48
+                  ]
+                ]
+              },
+              "texture": "mapio/crate",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  4,
+                  -12
+                ],
+                "rotation": 30,
+                "scale": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_b6d8e285531eb487",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b1.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    0
+                  ],
+                  [
+                    96,
+                    32,
+                    0
+                  ],
+                  [
+                    96,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/crate",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  4,
+                  -12
+                ],
+                "rotation": 30,
+                "scale": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_572d1734bdf8220d",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b1.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    96,
+                    32,
+                    48
+                  ],
+                  [
+                    96,
+                    96,
+                    48
+                  ],
+                  [
+                    96,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/crate",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  4,
+                  -12
+                ],
+                "rotation": 30,
+                "scale": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_33601833e438de1f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b1.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    96,
+                    48
+                  ],
+                  [
+                    32,
+                    32,
+                    48
+                  ],
+                  [
+                    32,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/crate",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  4,
+                  -12
+                ],
+                "rotation": 30,
+                "scale": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_efde9ae4d03b7757",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b1.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    96,
+                    96,
+                    48
+                  ],
+                  [
+                    32,
+                    96,
+                    48
+                  ],
+                  [
+                    32,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/crate",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  4,
+                  -12
+                ],
+                "rotation": 30,
+                "scale": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_34e2f3792c876aa6",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e0.b1.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    48
+                  ],
+                  [
+                    96,
+                    32,
+                    48
+                  ],
+                  [
+                    96,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/crate",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  4,
+                  -12
+                ],
+                "rotation": 30,
+                "scale": [
+                  0.25,
+                  0.75
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "patch",
+          "patch_id": "pat_4e1d93177dbe6ef6",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-classic-patches.map",
+            "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+            "source_path": "e0.p0"
+          },
+          "texture": "mapio/curve",
+          "width": 3,
+          "height": 3,
+          "control_points": [
+            [
+              [
+                -96,
+                -96,
+                24,
+                0,
+                0
+              ],
+              [
+                -96,
+                -64,
+                24,
+                0,
+                0.5
+              ],
+              [
+                -96,
+                -32,
+                24,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                -64,
+                -96,
+                24,
+                0.5,
+                0
+              ],
+              [
+                -64,
+                -64,
+                40,
+                0.5,
+                0.5
+              ],
+              [
+                -64,
+                -32,
+                24,
+                0.5,
+                1
+              ]
+            ],
+            [
+              [
+                -32,
+                -96,
+                24,
+                1,
+                0
+              ],
+              [
+                -32,
+                -64,
+                24,
+                1,
+                0.5
+              ],
+              [
+                -32,
+                -32,
+                24,
+                1,
+                1
+              ]
+            ]
+          ],
+          "tail": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_cc6a48c36b16411e",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-classic-patches.map",
+        "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+        "source_path": "e1"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "func_static"
+        },
+        {
+          "kind": "property",
+          "key": "targetname",
+          "value": "bent"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_19f75c3207b7bc64",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-classic-patches.map",
+            "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+            "source_path": "e1.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_56b78c34f4ad5939",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e1.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    96,
+                    24
+                  ],
+                  [
+                    0,
+                    96,
+                    24
+                  ],
+                  [
+                    0,
+                    64,
+                    24
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_b6db7d4eca39de5c",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e1.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    64,
+                    0
+                  ],
+                  [
+                    0,
+                    64,
+                    0
+                  ],
+                  [
+                    0,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_7fd3658ab80c496e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e1.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    64,
+                    24
+                  ],
+                  [
+                    0,
+                    96,
+                    24
+                  ],
+                  [
+                    0,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_ba539e31a448e305",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e1.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    96,
+                    24
+                  ],
+                  [
+                    -32,
+                    64,
+                    24
+                  ],
+                  [
+                    -32,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_f640ff97b22faa76",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e1.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    96,
+                    24
+                  ],
+                  [
+                    -32,
+                    96,
+                    24
+                  ],
+                  [
+                    -32,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_e9b1c8c55838e774",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-classic-patches.map",
+                "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+                "source_path": "e1.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    64,
+                    24
+                  ],
+                  [
+                    0,
+                    64,
+                    24
+                  ],
+                  [
+                    0,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "patch",
+          "patch_id": "pat_7b1f6cc28ad1f52a",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-classic-patches.map",
+            "source_sha256": "282ab9930d8ce31b4019e638bf75b851619139386db0a4f3f03994fc4fb10319",
+            "source_path": "e1.p0"
+          },
+          "texture": "mapio/curve",
+          "width": 7,
+          "height": 3,
+          "control_points": [
+            [
+              [
+                -32,
+                64,
+                24,
+                0,
+                0
+              ],
+              [
+                -32,
+                96,
+                24,
+                0,
+                0.5
+              ],
+              [
+                -32,
+                128,
+                24,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                64,
+                24,
+                0.166667,
+                0
+              ],
+              [
+                0,
+                96,
+                40,
+                0.166667,
+                0.5
+              ],
+              [
+                0,
+                128,
+                24,
+                0.166667,
+                1
+              ]
+            ],
+            [
+              [
+                32,
+                64,
+                24,
+                0.333333,
+                0
+              ],
+              [
+                32,
+                96,
+                24,
+                0.333333,
+                0.5
+              ],
+              [
+                32,
+                128,
+                24,
+                0.333333,
+                1
+              ]
+            ],
+            [
+              [
+                64,
+                64,
+                24,
+                0.5,
+                0
+              ],
+              [
+                64,
+                96,
+                40,
+                0.5,
+                0.5
+              ],
+              [
+                64,
+                128,
+                24,
+                0.5,
+                1
+              ]
+            ],
+            [
+              [
+                96,
+                64,
+                24,
+                0.666667,
+                0
+              ],
+              [
+                96,
+                96,
+                24,
+                0.666667,
+                0.5
+              ],
+              [
+                96,
+                128,
+                24,
+                0.666667,
+                1
+              ]
+            ],
+            [
+              [
+                128,
+                64,
+                24,
+                0.833333,
+                0
+              ],
+              [
+                128,
+                96,
+                40,
+                0.833333,
+                0.5
+              ],
+              [
+                128,
+                128,
+                24,
+                0.833333,
+                1
+              ]
+            ],
+            [
+              [
+                160,
+                64,
+                24,
+                1,
+                0
+              ],
+              [
+                160,
+                96,
+                24,
+                1,
+                0.5
+              ],
+              [
+                160,
+                128,
+                24,
+                1,
+                1
+              ]
+            ]
+          ],
+          "tail": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

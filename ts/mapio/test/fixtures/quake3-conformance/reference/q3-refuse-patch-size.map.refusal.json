@@ -1,0 +1,15 @@
+{
+  "code": "quake3_import_parse",
+  "message": "The Quake III map could not be read: 1 error, the first at line 5, column 1 (Q3_PATCH_SIZE_UNSUPPORTED): a 4x3 patch is outside APMap 1.5's grid: each dimension must be odd, 3 to 31. Nothing was imported.",
+  "parse": [
+    [
+      "Q3_PATCH_SIZE_UNSUPPORTED",
+      5,
+      1,
+      0,
+      0,
+      "a 4x3 patch is outside APMap 1.5's grid: each dimension must be odd, 3 to 31"
+    ]
+  ],
+  "rejected": []
+}

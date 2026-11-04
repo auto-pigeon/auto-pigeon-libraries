@@ -1,0 +1,1633 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3-mixed:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "quake3_extended",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3-mixed.map",
+      "map_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_676e1cd1d16944cf",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-mixed.map",
+        "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "message",
+          "value": "mapio q3 mixed"
+        },
+        {
+          "kind": "property",
+          "key": "_ambient",
+          "value": "5"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_0d94d04aed2786cc",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_c8e39fe020c7fe6e",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    128,
+                    128,
+                    0
+                  ],
+                  [
+                    128,
+                    -128,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_d93ec29fa6bf5055",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -128,
+                    -16
+                  ],
+                  [
+                    128,
+                    -128,
+                    -16
+                  ],
+                  [
+                    128,
+                    128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_cf363359bc8391f0",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    0
+                  ],
+                  [
+                    128,
+                    128,
+                    0
+                  ],
+                  [
+                    128,
+                    128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_931141db5b2ef3ef",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    -128,
+                    0
+                  ],
+                  [
+                    -128,
+                    -128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_2d45f5a1dce3eb33",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    0
+                  ],
+                  [
+                    -128,
+                    128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_c743fac8458a8fa9",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -128,
+                    0
+                  ],
+                  [
+                    128,
+                    -128,
+                    0
+                  ],
+                  [
+                    128,
+                    -128,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_70724cc5682cfb64",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e0.b1"
+          },
+          "faces": [
+            {
+              "face_id": "fac_e73a19b32df7b94b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b1.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    208
+                  ],
+                  [
+                    128,
+                    128,
+                    208
+                  ],
+                  [
+                    128,
+                    -128,
+                    208
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  8,
+                  -8
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_fdd2d599ddd4fafe",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b1.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -128,
+                    192
+                  ],
+                  [
+                    128,
+                    -128,
+                    192
+                  ],
+                  [
+                    128,
+                    128,
+                    192
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  8,
+                  -8
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_7fbba9edd55bad40",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b1.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    -128,
+                    208
+                  ],
+                  [
+                    128,
+                    128,
+                    208
+                  ],
+                  [
+                    128,
+                    128,
+                    192
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  8,
+                  -8
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_f00dd76ce7ac6dce",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b1.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    128,
+                    208
+                  ],
+                  [
+                    -128,
+                    -128,
+                    208
+                  ],
+                  [
+                    -128,
+                    -128,
+                    192
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  8,
+                  -8
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_23921f4a54575b27",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b1.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    128,
+                    128,
+                    208
+                  ],
+                  [
+                    -128,
+                    128,
+                    208
+                  ],
+                  [
+                    -128,
+                    128,
+                    192
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  8,
+                  -8
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_9c6e96d85e03a069",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b1.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -128,
+                    -128,
+                    208
+                  ],
+                  [
+                    128,
+                    -128,
+                    208
+                  ],
+                  [
+                    128,
+                    -128,
+                    192
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  8,
+                  -8
+                ],
+                "rotation": 15,
+                "scale": [
+                  0.25,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_05ac35d5db7fe84d",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e0.b2"
+          },
+          "faces": [
+            {
+              "face_id": "fac_34ef8a37199a9b0f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b2.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    96,
+                    48
+                  ],
+                  [
+                    96,
+                    96,
+                    48
+                  ],
+                  [
+                    96,
+                    32,
+                    48
+                  ]
+                ]
+              },
+              "texture": "mapio/brushdef_0",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_484c8265fe63edd0",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b2.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    0
+                  ],
+                  [
+                    96,
+                    32,
+                    0
+                  ],
+                  [
+                    96,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/brushdef_1",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0.125
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_1083474149c31ea1",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b2.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    96,
+                    32,
+                    48
+                  ],
+                  [
+                    96,
+                    96,
+                    48
+                  ],
+                  [
+                    96,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/brushdef_0",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0.25
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_5e25c363a17b5b5b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b2.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    96,
+                    48
+                  ],
+                  [
+                    32,
+                    32,
+                    48
+                  ],
+                  [
+                    32,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/brushdef_1",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0.375
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_ed7fe243d782bf5f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b2.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    96,
+                    96,
+                    48
+                  ],
+                  [
+                    32,
+                    96,
+                    48
+                  ],
+                  [
+                    32,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/brushdef_0",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_1f8f30bd24b1a0ef",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e0.b2.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    32,
+                    32,
+                    48
+                  ],
+                  [
+                    96,
+                    32,
+                    48
+                  ],
+                  [
+                    96,
+                    32,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/brushdef_1",
+              "projection": {
+                "mode": "brush_primitives",
+                "matrix": [
+                  [
+                    0.015625,
+                    0,
+                    0.625
+                  ],
+                  [
+                    0,
+                    0.0078125,
+                    -0.25
+                  ]
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "patch",
+          "patch_id": "pat_9db7926da37a42eb",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e0.p0"
+          },
+          "texture": "mapio/curve",
+          "width": 3,
+          "height": 3,
+          "control_points": [
+            [
+              [
+                -96,
+                -96,
+                24,
+                0,
+                0
+              ],
+              [
+                -96,
+                -64,
+                24,
+                0,
+                0.5
+              ],
+              [
+                -96,
+                -32,
+                24,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                -64,
+                -96,
+                24,
+                0.5,
+                0
+              ],
+              [
+                -64,
+                -64,
+                40,
+                0.5,
+                0.5
+              ],
+              [
+                -64,
+                -32,
+                24,
+                0.5,
+                1
+              ]
+            ],
+            [
+              [
+                -32,
+                -96,
+                24,
+                1,
+                0
+              ],
+              [
+                -32,
+                -64,
+                24,
+                1,
+                0.5
+              ],
+              [
+                -32,
+                -32,
+                24,
+                1,
+                1
+              ]
+            ]
+          ],
+          "tail": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "kind": "patch",
+          "patch_id": "pat_49b9ed0828857f45",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e0.p1"
+          },
+          "texture": "mapio/arch",
+          "width": 5,
+          "height": 3,
+          "control_points": [
+            [
+              [
+                0,
+                -96,
+                24,
+                0,
+                0
+              ],
+              [
+                0,
+                -64,
+                24,
+                0,
+                0.5
+              ],
+              [
+                0,
+                -32,
+                24,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                32,
+                -96,
+                24,
+                0.25,
+                0
+              ],
+              [
+                32,
+                -64,
+                40,
+                0.25,
+                0.5
+              ],
+              [
+                32,
+                -32,
+                24,
+                0.25,
+                1
+              ]
+            ],
+            [
+              [
+                64,
+                -96,
+                24,
+                0.5,
+                0
+              ],
+              [
+                64,
+                -64,
+                24,
+                0.5,
+                0.5
+              ],
+              [
+                64,
+                -32,
+                24,
+                0.5,
+                1
+              ]
+            ],
+            [
+              [
+                96,
+                -96,
+                24,
+                0.75,
+                0
+              ],
+              [
+                96,
+                -64,
+                40,
+                0.75,
+                0.5
+              ],
+              [
+                96,
+                -32,
+                24,
+                0.75,
+                1
+              ]
+            ],
+            [
+              [
+                128,
+                -96,
+                24,
+                1,
+                0
+              ],
+              [
+                128,
+                -64,
+                24,
+                1,
+                0.5
+              ],
+              [
+                128,
+                -32,
+                24,
+                1,
+                1
+              ]
+            ]
+          ],
+          "tail": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_13d4f0243a830051",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-mixed.map",
+        "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+        "source_path": "e1"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "func_static"
+        },
+        {
+          "kind": "property",
+          "key": "targetname",
+          "value": "bent"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_fd61490bc4835fd4",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e1.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_fab4ad2bb60f34f7",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e1.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    96,
+                    24
+                  ],
+                  [
+                    0,
+                    96,
+                    24
+                  ],
+                  [
+                    0,
+                    64,
+                    24
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_4ab1fe9e144f5ba4",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e1.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    64,
+                    0
+                  ],
+                  [
+                    0,
+                    64,
+                    0
+                  ],
+                  [
+                    0,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_680d8a9c61f3a702",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e1.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    64,
+                    24
+                  ],
+                  [
+                    0,
+                    96,
+                    24
+                  ],
+                  [
+                    0,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_7e1695146f1167c7",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e1.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    96,
+                    24
+                  ],
+                  [
+                    -32,
+                    64,
+                    24
+                  ],
+                  [
+                    -32,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_4760e91313f84512",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e1.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    0,
+                    96,
+                    24
+                  ],
+                  [
+                    -32,
+                    96,
+                    24
+                  ],
+                  [
+                    -32,
+                    96,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_85b68ad0d612903b",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-mixed.map",
+                "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+                "source_path": "e1.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -32,
+                    64,
+                    24
+                  ],
+                  [
+                    0,
+                    64,
+                    24
+                  ],
+                  [
+                    0,
+                    64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/pad",
+              "projection": {
+                "mode": "classic",
+                "shift": [
+                  0,
+                  0
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "patch",
+          "patch_id": "pat_bfdb4fb39836d54c",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-mixed.map",
+            "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+            "source_path": "e1.p0"
+          },
+          "texture": "mapio/curve",
+          "width": 3,
+          "height": 5,
+          "control_points": [
+            [
+              [
+                -32,
+                64,
+                24,
+                0,
+                0
+              ],
+              [
+                -32,
+                96,
+                24,
+                0,
+                0.25
+              ],
+              [
+                -32,
+                128,
+                24,
+                0,
+                0.5
+              ],
+              [
+                -32,
+                160,
+                24,
+                0,
+                0.75
+              ],
+              [
+                -32,
+                192,
+                24,
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                64,
+                24,
+                0.5,
+                0
+              ],
+              [
+                0,
+                96,
+                40,
+                0.5,
+                0.25
+              ],
+              [
+                0,
+                128,
+                24,
+                0.5,
+                0.5
+              ],
+              [
+                0,
+                160,
+                40,
+                0.5,
+                0.75
+              ],
+              [
+                0,
+                192,
+                24,
+                0.5,
+                1
+              ]
+            ],
+            [
+              [
+                32,
+                64,
+                24,
+                1,
+                0
+              ],
+              [
+                32,
+                96,
+                24,
+                1,
+                0.25
+              ],
+              [
+                32,
+                128,
+                24,
+                1,
+                0.5
+              ],
+              [
+                32,
+                160,
+                24,
+                1,
+                0.75
+              ],
+              [
+                32,
+                192,
+                24,
+                1,
+                1
+              ]
+            ]
+          ],
+          "tail": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "ent_d7e9a0aa5fa7157d",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-mixed.map",
+        "source_sha256": "6044d90db74415d50f14c28fe903e2754c697bd23782b7a46e2f2e890734bb64",
+        "source_path": "e2"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "info_player_deathmatch"
+        },
+        {
+          "kind": "property",
+          "key": "origin",
+          "value": "0 0 32"
+        },
+        {
+          "kind": "property",
+          "key": "angle",
+          "value": "180"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

@@ -1,0 +1,15 @@
+{
+  "code": "quake3_import_brush_illegal",
+  "message": "1 brush is impossible geometry and the map was not imported: entity 0 brush 0 (line 4: winding_inward).",
+  "parse": [],
+  "rejected": [
+    {
+      "entity": 0,
+      "brush": 0,
+      "line": 4,
+      "codes": [
+        "winding_inward"
+      ]
+    }
+  ]
+}

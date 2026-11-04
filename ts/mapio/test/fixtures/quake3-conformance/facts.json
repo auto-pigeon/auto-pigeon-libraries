@@ -1,0 +1,536 @@
+{
+  "about": "Independent expected facts for the Quake III .map -> APMap import, read by the TypeScript (ts/mapio/test/quake3Conformance.test.ts) and Go (go/mapio/quake3_conformance_test.go) tests alike. Every value was derived by hand from the fixture text (ids by the SEMANTICS §3.5 formula, computed separately), not copied from either implementation. Fixtures are the q3-*.map files beside this folder. `facts` are [JSON pointer into the document, expected value]; `kinds` lists an entity's content item kinds in order.",
+  "imports": {
+    "q3-valve220.map": {
+      "game": "quake3",
+      "map_dialect": "valve_220",
+      "summary": {
+        "entities": 1,
+        "properties": 3,
+        "brushes": 2,
+        "valve220Brushes": 2,
+        "classicBrushes": 0,
+        "brushPrimitiveBrushes": 0,
+        "faces": 12,
+        "patches": 0,
+        "prefixedShaders": 6,
+        "shaders": 2,
+        "redundantPlanes": 0
+      },
+      "kinds": {
+        "0": [
+          "property",
+          "property",
+          "brush",
+          "brush",
+          "property"
+        ]
+      },
+      "facts": [
+        [
+          "/entities/0/content/4/key",
+          "_keyafterbrush"
+        ],
+        [
+          "/entities/0/content/2/faces/0/texture",
+          "mapio/floor"
+        ],
+        [
+          "/entities/0/content/2/faces/0/projection",
+          {
+            "mode": "valve220",
+            "u_axis": [
+              1,
+              0,
+              0,
+              8
+            ],
+            "v_axis": [
+              0,
+              -1,
+              0,
+              -4
+            ],
+            "rotation": 0,
+            "scale": [
+              0.5,
+              0.5
+            ]
+          }
+        ],
+        [
+          "/entities/0/content/3/faces/0/projection/u_axis",
+          [
+            0.707107,
+            0.707107,
+            0,
+            0
+          ]
+        ],
+        [
+          "/entities/0/content/3/faces/0/projection/rotation",
+          45
+        ],
+        [
+          "/entities/0/content/3/faces/0/tail",
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        [
+          "/entities/0/content/2/faces/0/tail",
+          null
+        ]
+      ]
+    },
+    "q3-entity-order.map": {
+      "game": "quake3",
+      "map_dialect": "quake3_extended",
+      "summary": {
+        "entities": 3,
+        "properties": 8,
+        "brushes": 2,
+        "classicBrushes": 2,
+        "faces": 12,
+        "patches": 1,
+        "prefixedShaders": 1,
+        "shaders": 3,
+        "redundantPlanes": 0
+      },
+      "kinds": {
+        "0": [
+          "property",
+          "brush",
+          "property",
+          "patch",
+          "property"
+        ],
+        "1": [
+          "property",
+          "brush",
+          "property"
+        ],
+        "2": [
+          "property",
+          "property",
+          "property"
+        ]
+      },
+      "facts": [
+        [
+          "/entities/0/entity_id",
+          "ent_884e87ac177d143c"
+        ],
+        [
+          "/entities/0/content/2/value",
+          "1 0.5 0.25"
+        ],
+        [
+          "/entities/0/content/4/value",
+          "0 1 0"
+        ],
+        [
+          "/entities/0/content/3/patch_id",
+          "pat_eed8f964d5891704"
+        ],
+        [
+          "/entities/0/content/3/texture",
+          "mapio/arch"
+        ],
+        [
+          "/entities/0/content/3/width",
+          5
+        ],
+        [
+          "/entities/0/content/3/height",
+          3
+        ],
+        [
+          "/entities/0/content/3/control_points/1/1",
+          [
+            16,
+            32,
+            40.125,
+            0.25,
+            0.5
+          ]
+        ],
+        [
+          "/entities/0/content/3/control_points/4/0",
+          [
+            64,
+            0,
+            16,
+            1,
+            0.00260417
+          ]
+        ],
+        [
+          "/entities/0/content/3/tail",
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        [
+          "/entities/0/content/1/faces/0/tail",
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        [
+          "/entities/1/content/1/faces/0/face_id",
+          "fac_b1cf6810407abd34"
+        ],
+        [
+          "/entities/1/content/1/faces/0/projection",
+          {
+            "mode": "classic",
+            "shift": [
+              8,
+              -8
+            ],
+            "rotation": 90,
+            "scale": [
+              1,
+              1
+            ]
+          }
+        ],
+        [
+          "/entities/1/content/1/faces/0/tail",
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        [
+          "/entities/1/content/1/faces/0/derived_from",
+          {
+            "kind": "source_map",
+            "source_map": "q3-entity-order.map",
+            "source_sha256": "ad540df35f4b0ea26a6bfc5752fd1fcc7b0cb188968036f2027de9d834c65ed0",
+            "source_path": "e1.b0.f0"
+          }
+        ],
+        [
+          "/entities/2/content/0/key",
+          "origin"
+        ],
+        [
+          "/entities/2/content/1/key",
+          "classname"
+        ],
+        [
+          "/entities/2/content/2/key",
+          "angle"
+        ],
+        [
+          "/document_id",
+          "q3-entity-order:full_map"
+        ],
+        [
+          "/provenance/source",
+          {
+            "map_name": "q3-entity-order.map",
+            "map_sha256": "ad540df35f4b0ea26a6bfc5752fd1fcc7b0cb188968036f2027de9d834c65ed0"
+          }
+        ],
+        [
+          "/provenance/pipeline",
+          [
+            "quake3-map-import"
+          ]
+        ],
+        [
+          "/role",
+          "full_map"
+        ],
+        [
+          "/groups",
+          []
+        ]
+      ]
+    },
+    "q3-brushdef-patches.map": {
+      "game": "quake3",
+      "map_dialect": "quake3_extended",
+      "summary": {
+        "brushPrimitiveBrushes": 2,
+        "patches": 3,
+        "redundantPlanes": 0
+      },
+      "facts": [
+        [
+          "/entities/0/content/2/faces/1/projection",
+          {
+            "mode": "brush_primitives",
+            "matrix": [
+              [
+                0.015625,
+                0,
+                0.125
+              ],
+              [
+                -0.0009765625,
+                0.0078125,
+                -0.25
+              ]
+            ]
+          }
+        ],
+        [
+          "/entities/0/content/3/faces/0/projection/matrix/0/1",
+          0.001
+        ],
+        [
+          "/entities/0/content/3/faces/0/texture",
+          "mapio/crate"
+        ],
+        [
+          "/entities/0/content/4/control_points/1/1",
+          [
+            -64,
+            -64,
+            40,
+            0.5,
+            0.5
+          ]
+        ]
+      ]
+    },
+    "q3-redundant-plane-unbounding.map": {
+      "game": "quake3",
+      "summary": {
+        "brushes": 1,
+        "faces": 6,
+        "redundantPlanes": 1,
+        "redundantPlaneBrushes": [
+          {
+            "entity": 0,
+            "brush": 0,
+            "line": 4,
+            "faces": [
+              1
+            ]
+          }
+        ]
+      },
+      "facts": [
+        [
+          "/entities/0/content/1/faces/1/face_id",
+          "fac_385194b52f734b47"
+        ],
+        [
+          "/entities/0/content/1/faces/1/derived_from/source_path",
+          "e0.b0.f2"
+        ],
+        [
+          "/entities/0/content/1/faces/0/derived_from/source_path",
+          "e0.b0.f0"
+        ],
+        [
+          "/entities/0/content/1/faces/5/derived_from/source_path",
+          "e0.b0.f6"
+        ]
+      ]
+    },
+    "q3-redundant-plane.map": {
+      "game": "quake3",
+      "summary": {
+        "brushes": 1,
+        "faces": 7,
+        "redundantPlanes": 0,
+        "risks": {
+          "duplicate_plane": 1
+        }
+      }
+    },
+    "q3-q2-lookalike.map": {
+      "game": "quake3",
+      "map_dialect": "quake3_extended",
+      "facts": [
+        [
+          "/entities/0/content/1/faces/0/tail",
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        [
+          "/game",
+          "quake3"
+        ]
+      ]
+    },
+    "q3-mixed.map": {
+      "game": "quake3",
+      "summary": {
+        "classicBrushes": 3,
+        "brushPrimitiveBrushes": 1,
+        "patches": 3
+      },
+      "export_refused": true
+    },
+    "q3-classic-patches.map": {
+      "game": "quake3",
+      "map_dialect": "quake3_extended",
+      "summary": {
+        "entities": 2,
+        "properties": 4,
+        "brushes": 3,
+        "classicBrushes": 3,
+        "faces": 18,
+        "patches": 2,
+        "prefixedShaders": 6,
+        "redundantPlanes": 0
+      },
+      "kinds": {
+        "0": [
+          "property",
+          "property",
+          "brush",
+          "brush",
+          "patch"
+        ],
+        "1": [
+          "property",
+          "property",
+          "brush",
+          "patch"
+        ]
+      },
+      "facts": [
+        [
+          "/entities/0/content/3/faces/0/texture",
+          "mapio/crate"
+        ],
+        [
+          "/entities/0/content/3/faces/0/projection",
+          {
+            "mode": "classic",
+            "shift": [
+              4,
+              -12
+            ],
+            "rotation": 30,
+            "scale": [
+              0.25,
+              0.75
+            ]
+          }
+        ],
+        [
+          "/entities/0/content/3/faces/0/tail",
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      ]
+    },
+    "q3-many-faces.map": {
+      "game": "quake3",
+      "map_dialect": "quake3_extended",
+      "summary": {
+        "brushes": 1,
+        "faces": 68,
+        "shaders": 2,
+        "risks": {
+          "unchecked_face_count": 1
+        },
+        "redundantPlanes": 0
+      }
+    }
+  },
+  "refusals": {
+    "q3-refuse-unterminated.map": {
+      "code": "quake3_import_parse",
+      "first": [
+        "Q3_UNTERMINATED_STRING",
+        4,
+        11
+      ]
+    },
+    "q3-refuse-brush-epairs.map": {
+      "code": "quake3_import_parse",
+      "first": [
+        "Q3_BRUSH_EPAIRS_UNSUPPORTED",
+        7,
+        1
+      ]
+    },
+    "q3-refuse-brushdef3.map": {
+      "code": "quake3_import_parse",
+      "first": [
+        "Q3_DOOM3_GRAMMAR_UNSUPPORTED",
+        5,
+        1
+      ]
+    },
+    "q3-refuse-patchdef3.map": {
+      "code": "quake3_import_parse",
+      "first": [
+        "Q3_DOOM3_GRAMMAR_UNSUPPORTED",
+        5,
+        1
+      ]
+    },
+    "q3-refuse-patch-size.map": {
+      "code": "quake3_import_parse",
+      "first": [
+        "Q3_PATCH_SIZE_UNSUPPORTED",
+        5,
+        1
+      ]
+    },
+    "q3-refuse-degenerate-matrix.map": {
+      "code": "quake3_import_brush_illegal",
+      "rejected": [
+        {
+          "entity": 0,
+          "brush": 0,
+          "line": 4,
+          "codes": [
+            "texture_basis_degenerate"
+          ]
+        }
+      ]
+    },
+    "q3-refuse-inside-out.map": {
+      "code": "quake3_import_brush_illegal",
+      "rejected": [
+        {
+          "entity": 0,
+          "brush": 0,
+          "line": 4,
+          "codes": [
+            "winding_inward"
+          ]
+        }
+      ]
+    },
+    "q3-refuse-mixed-winding.map": {
+      "code": "quake3_import_brush_illegal",
+      "rejected": [
+        {
+          "entity": 0,
+          "brush": 0,
+          "line": 4,
+          "codes": [
+            "not_convex",
+            "winding_mixed"
+          ]
+        }
+      ]
+    }
+  }
+}

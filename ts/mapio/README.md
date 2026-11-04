@@ -31,6 +31,16 @@ Not here, on purpose:
   change sets stay with the editor. `parsedMapFromApmap` is a reader's view of the brushes for a
   consumer that draws; it is not whole-document IO and never a way to save one.
 
+**Go parity.** `go/mapio`'s `q3map-to-apmap` is a port of this package's Quake III import, and the two
+are held to each other by `test/fixtures/quake3-conformance/`: `facts.json` (hand-derived facts both
+test suites check) and `reference/` (this package's outputs, which Go reproduces byte for byte except
+`provenance.producer`/`producer_version`). After a deliberate change, regenerate and review the diff:
+
+```bash
+MAPIO_WRITE_QUAKE3_REFERENCE=1 npx vitest run test/quake3Conformance.test.ts
+git diff test/fixtures/quake3-conformance/reference/
+```
+
 Known, documented loss: a Quake III `.map` mixing Classic and `brushDef` brushes imports and cannot be
 exported as one file (Q3Map2 reads one brush syntax per file); a plane that bounds nothing is left out of
 the document and listed in the import summary (`redundantPlaneBrushes`); an exact duplicate plane is kept

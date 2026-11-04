@@ -1,0 +1,703 @@
+{
+  "$schema": "https://auto-pigeon.org/schemas/apmap/1.5/apmap.schema.json",
+  "apmap_version": "1.5",
+  "document_id": "q3-valve220:full_map",
+  "revision": 0,
+  "role": "full_map",
+  "game": "quake3",
+  "map_dialect": "valve_220",
+  "id_policy": "derived",
+  "frame": {
+    "space": "source_world",
+    "units": "quake_unit",
+    "coordinate_system": {
+      "handedness": "right",
+      "up_axis": "z"
+    },
+    "to_source": {
+      "type": "identity"
+    }
+  },
+  "provenance": {
+    "producer": "@auto-pigeon/quake-geometry",
+    "producer_version": "0.1.0",
+    "pipeline": [
+      "quake3-map-import"
+    ],
+    "source": {
+      "map_name": "q3-valve220.map",
+      "map_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab"
+    }
+  },
+  "entities": [
+    {
+      "entity_id": "ent_1a12f6b8e36c0a8a",
+      "derived_from": {
+        "kind": "source_map",
+        "source_map": "q3-valve220.map",
+        "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+        "source_path": "e0"
+      },
+      "content": [
+        {
+          "kind": "property",
+          "key": "classname",
+          "value": "worldspawn"
+        },
+        {
+          "kind": "property",
+          "key": "message",
+          "value": "mapio q3 valve 220"
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_2c152f0cd3c949d3",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-valve220.map",
+            "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+            "source_path": "e0.b0"
+          },
+          "faces": [
+            {
+              "face_id": "fac_b067d6949a4445b1",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b0.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    64,
+                    0
+                  ],
+                  [
+                    64,
+                    64,
+                    0
+                  ],
+                  [
+                    64,
+                    -64,
+                    0
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_de252a0c2597c8bd",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b0.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    -64,
+                    -16
+                  ],
+                  [
+                    64,
+                    -64,
+                    -16
+                  ],
+                  [
+                    64,
+                    64,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_4f90025232a772fa",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b0.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    -64,
+                    0
+                  ],
+                  [
+                    64,
+                    64,
+                    0
+                  ],
+                  [
+                    64,
+                    64,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_bb61d46398c22fcd",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b0.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    64,
+                    0
+                  ],
+                  [
+                    -64,
+                    -64,
+                    0
+                  ],
+                  [
+                    -64,
+                    -64,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_5a1d0d3931982e1f",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b0.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    64,
+                    0
+                  ],
+                  [
+                    -64,
+                    64,
+                    0
+                  ],
+                  [
+                    -64,
+                    64,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              }
+            },
+            {
+              "face_id": "fac_0bb78f16f427d996",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b0.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    -64,
+                    0
+                  ],
+                  [
+                    64,
+                    -64,
+                    0
+                  ],
+                  [
+                    64,
+                    -64,
+                    -16
+                  ]
+                ]
+              },
+              "texture": "mapio/floor",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  1,
+                  0,
+                  0,
+                  8
+                ],
+                "v_axis": [
+                  0,
+                  -1,
+                  0,
+                  -4
+                ],
+                "rotation": 0,
+                "scale": [
+                  0.5,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "brush",
+          "brush_id": "brs_6e72ad4328789683",
+          "derived_from": {
+            "kind": "source_map",
+            "source_map": "q3-valve220.map",
+            "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+            "source_path": "e0.b1"
+          },
+          "faces": [
+            {
+              "face_id": "fac_544396800e8188ea",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b1.f0"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    64,
+                    144
+                  ],
+                  [
+                    64,
+                    64,
+                    144
+                  ],
+                  [
+                    64,
+                    -64,
+                    144
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.707107,
+                  0.707107,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0.707107,
+                  -0.707107,
+                  0,
+                  16
+                ],
+                "rotation": 45,
+                "scale": [
+                  0.25,
+                  0.25
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_f975649da5bf9097",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b1.f1"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    -64,
+                    128
+                  ],
+                  [
+                    64,
+                    -64,
+                    128
+                  ],
+                  [
+                    64,
+                    64,
+                    128
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.707107,
+                  0.707107,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0.707107,
+                  -0.707107,
+                  0,
+                  16
+                ],
+                "rotation": 45,
+                "scale": [
+                  0.25,
+                  0.25
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_ea10e9cd22dd8e60",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b1.f2"
+              },
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    -64,
+                    144
+                  ],
+                  [
+                    64,
+                    64,
+                    144
+                  ],
+                  [
+                    64,
+                    64,
+                    128
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.707107,
+                  0.707107,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0.707107,
+                  -0.707107,
+                  0,
+                  16
+                ],
+                "rotation": 45,
+                "scale": [
+                  0.25,
+                  0.25
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_b7e7de673bcb3907",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b1.f3"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    64,
+                    144
+                  ],
+                  [
+                    -64,
+                    -64,
+                    144
+                  ],
+                  [
+                    -64,
+                    -64,
+                    128
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.707107,
+                  0.707107,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0.707107,
+                  -0.707107,
+                  0,
+                  16
+                ],
+                "rotation": 45,
+                "scale": [
+                  0.25,
+                  0.25
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_51a74f70ce7cb433",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b1.f4"
+              },
+              "plane": {
+                "points": [
+                  [
+                    64,
+                    64,
+                    144
+                  ],
+                  [
+                    -64,
+                    64,
+                    144
+                  ],
+                  [
+                    -64,
+                    64,
+                    128
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.707107,
+                  0.707107,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0.707107,
+                  -0.707107,
+                  0,
+                  16
+                ],
+                "rotation": 45,
+                "scale": [
+                  0.25,
+                  0.25
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "face_id": "fac_ce203900bbb05c36",
+              "derived_from": {
+                "kind": "source_map",
+                "source_map": "q3-valve220.map",
+                "source_sha256": "af864bb6e1001a59e31cfcd69dcfe78f03651d265fdd74371b9142d13b32b7ab",
+                "source_path": "e0.b1.f5"
+              },
+              "plane": {
+                "points": [
+                  [
+                    -64,
+                    -64,
+                    144
+                  ],
+                  [
+                    64,
+                    -64,
+                    144
+                  ],
+                  [
+                    64,
+                    -64,
+                    128
+                  ]
+                ]
+              },
+              "texture": "mapio/ceiling",
+              "projection": {
+                "mode": "valve220",
+                "u_axis": [
+                  0.707107,
+                  0.707107,
+                  0,
+                  0
+                ],
+                "v_axis": [
+                  0.707107,
+                  -0.707107,
+                  0,
+                  16
+                ],
+                "rotation": 45,
+                "scale": [
+                  0.25,
+                  0.25
+                ]
+              },
+              "tail": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "property",
+          "key": "_keyafterbrush",
+          "value": "kept after the brushes"
+        }
+      ]
+    }
+  ],
+  "groups": []
+}

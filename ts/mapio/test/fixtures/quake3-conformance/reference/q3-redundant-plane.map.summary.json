@@ -1,0 +1,17 @@
+{
+  "entities": 1,
+  "properties": 1,
+  "brushes": 1,
+  "classicBrushes": 1,
+  "valve220Brushes": 0,
+  "brushPrimitiveBrushes": 0,
+  "faces": 7,
+  "patches": 0,
+  "prefixedShaders": 0,
+  "shaders": 1,
+  "risks": {
+    "duplicate_plane": 1
+  },
+  "redundantPlanes": 0,
+  "redundantPlaneBrushes": []
+}

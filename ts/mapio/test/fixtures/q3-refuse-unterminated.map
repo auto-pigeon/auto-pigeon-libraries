@@ -1,0 +1,13 @@
+// Authored for @auto-pigeon/mapio conformance (NEW_389). Original work, Apache-2.0. No part of it comes from any other map.
+{
+"classname" "worldspawn"
+"message" "a quote that never closes
+{
+( 0 64 16 ) ( 64 64 16 ) ( 64 0 16 ) mapio/floor 0 0 0 0.5 0.5
+( 0 0 0 ) ( 64 0 0 ) ( 64 64 0 ) mapio/floor 0 0 0 0.5 0.5
+( 64 0 16 ) ( 64 64 16 ) ( 64 64 0 ) mapio/floor 0 0 0 0.5 0.5
+( 0 64 16 ) ( 0 0 16 ) ( 0 0 0 ) mapio/floor 0 0 0 0.5 0.5
+( 64 64 16 ) ( 0 64 16 ) ( 0 64 0 ) mapio/floor 0 0 0 0.5 0.5
+( 0 0 16 ) ( 64 0 16 ) ( 64 0 0 ) mapio/floor 0 0 0 0.5 0.5
+}
+}
