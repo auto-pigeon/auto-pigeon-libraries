@@ -144,9 +144,15 @@ These are unconditional. Everything else is routed.
 - **Update `README.md` in the same task** when a task adds or materially changes something a
   consumer sees, and remember that a package's own `README.md` is part of what `docs/agent/
   aulibs.layout.md` requires of every package folder.
-- **Read the backlog at task start, alongside the prompt** — `$MAPPER_ROOT/LLM/backlog/`, including
-  `backlog/workspace.md`, since a cross-repository item is more likely to concern a shared library
-  than a single-consumer entry is. `docs/agent/aulibs.backlog.md`.
+- <!-- github-issue-policy/1 --> **Deferred work is a GitHub Issue, never a backlog line** (HITL,
+  `NEW_397`). For each newly found unit of work this task cannot finish, search the owning
+  repository's open AND closed issues for a duplicate, then create or update an issue in the
+  repository its `origin` remote names, with evidence, a reproduction or failing gate, the owning
+  component, an acceptance condition, dependencies and handoff/commit links.
+  `$MAPPER_ROOT/LLM/backlog/` is read-only history: read it, never append to or delete from it. If
+  GitHub access fails or Issues are disabled, keep the ready-to-post draft in the handoff under
+  `GitHub issues not published` and mark that publication blocked. Policy and helper: AUT
+  `docs/agent/aut.github-issues.md`, `scripts/issue_policy.py`.
 - **Context lifecycle is not yours.** `run-sequence.sh` owns it through a `PreCompact` hook that
   blocks compaction, checkpoints the work and starts a fresh session on the same prompt. Do not
   estimate your window, adopt a threshold, compact by hand, or stop an unattended run to ask for a
@@ -173,7 +179,7 @@ the router resolves those for you rather than making you read the table.
 | `aulibs.observability` | The observability doctrine binds, and a library does not log | doctrine, observability, logging, transport, determinism |
 | `aulibs.clock-table` | The AULIBS clock table (doctrine pillar 2) | timing, budget, clock, benchmark, measurement, performance |
 | `aulibs.component-addresses` | Component addresses live in `.env`, never in code | addresses, env, ports, localhost, port-contract, public-repository |
-| `aulibs.backlog` | The backlog — where deferred work lives | backlog, deferral, follow-up, next-task |
+| `aulibs.backlog` | Deferred work is a GitHub Issue; the historical backlog is read-only | backlog, deferral, follow-up, next-task, github-issues |
 
 ## 6. Using the router
 
