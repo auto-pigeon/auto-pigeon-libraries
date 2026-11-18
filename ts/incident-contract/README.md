@@ -189,6 +189,7 @@ ts/incident-contract/
 │   └── envelope.mjs     createIncident, toSentryEvent, toDiagnosticText, transport ids
 └── test/
     ├── contract.test.mjs   schema, taxonomy, correlation, ajv parity
+    ├── evidence.test.mjs   1.5.0 evidence bounds (ajv parity) and evidence redaction
     └── redaction.test.mjs  fake secrets in, nothing out
 ```
 
@@ -230,6 +231,34 @@ if (built.ok) {
 - **`validateBugReport` refuses a non-canonical document** (`user.steps:not_canonical`), which is
   how AUB declines to publish text the client did not already show the user.
 - `report_id` is minted once per report and is the server route's idempotency key.
+
+## 1.5.0 — socket-loss evidence, and redaction that keeps only declared evidence
+
+The envelope id stays `auto-pigeon-incident/1.0` (`schema_version` `"1.0"`); `evidence` gains five
+OPTIONAL bounded integers, so every envelope valid under 1.4.0 is still valid. They exist for AUC's
+one warning about an admitted collaboration socket that was lost (`auc.disconnected`, subsystem
+`room.client`; AUC #15, AULIBS #16).
+
+| field | inclusive range | meaning |
+| --- | --- | --- |
+| `close_code` | 1000–4999 | the WebSocket close code the transport actually observed |
+| `connected_ms` | 0–86400000 | measured connected duration |
+| `bytes_ahead` | 0–2147483647 | outstanding observed send-buffer bytes at departure |
+| `frame_bytes` | 0–2147483647 | one documented observed frame size (the snapshot frame during a join) |
+| `unanswered_ms` | 0–3600000 | measured age of an unanswered liveness ping |
+
+A field with no observation is **omitted**, never written as `0`: a zero is a claim that something
+was measured.
+
+`redactIncident` (and so `toSentryEvent` and `toDiagnosticText`) now passes `evidence` through the
+new `redactEvidence`: only members the schema declares survive, an integer member only as a whole
+number inside its schema range, a string member only as a redacted string. A wrong-kind, decimal,
+out-of-range or undeclared member is omitted, so no arbitrary supplied field is serialized on the way
+out. The ranges are read from the schema, not restated. `test/evidence.test.mjs` holds the passing
+and refused boundary vectors for every field, checked by both `validateIncident` and ajv.
+
+AUB and AUE embed the envelope schema byte for byte and must re-embed it; AUG and AUC vendor the
+whole package and AUCOM's page vendors `schema/` and `src/`; each must re-vendor.
 
 ## 1.4.0 — every report is classified: application, type, area (`auto-pigeon-bug-report/1.1`)
 

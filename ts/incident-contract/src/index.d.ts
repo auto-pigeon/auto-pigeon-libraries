@@ -24,6 +24,16 @@ export interface IncidentEvidence {
   retry_after_ms?: number;
   event_loop_lag_ms?: number;
   memory_mb?: number;
+  /** Observed WebSocket close code, 1000–4999 inclusive. Since 1.5.0. */
+  close_code?: number;
+  /** Measured connected duration, 0–86400000 ms inclusive. Since 1.5.0. */
+  connected_ms?: number;
+  /** Outstanding observed send-buffer bytes at departure, 0–2147483647. Since 1.5.0. */
+  bytes_ahead?: number;
+  /** One documented observed frame size, 0–2147483647 bytes. Since 1.5.0. */
+  frame_bytes?: number;
+  /** Measured outstanding ping age, 0–3600000 ms inclusive. Since 1.5.0. */
+  unanswered_ms?: number;
 }
 
 export interface Incident {
@@ -98,6 +108,11 @@ export function correlationHeaders(existing?: string): Record<string, string>;
 export function redactText<T>(value: T): T;
 export function redactValue<T>(value: T): T;
 export function redactIncident(incident: Incident): Incident;
+/**
+ * The closed evidence object with only schema-declared members, each of the declared kind and in
+ * range; anything else is omitted, never coerced. `undefined` for a non-object. Since 1.5.0.
+ */
+export function redactEvidence(evidence: unknown): IncidentEvidence | undefined;
 export function isDroppedKey(key: string): boolean;
 export function isDeniedKey(key: string): boolean;
 
